@@ -113,6 +113,10 @@ const translations = {
         "projects.demo_portfolio": "Ver demo",
         "projects.code": "Código",
 
+        "projects.mobile_sgrturnos.type": "Aplicación Móvil / Android Nativo",
+        "projects.mobile_sgrturnos.title": "SGR-Turnos-Bandec – App Móvil para Gestión de Turnos Bancarios",
+        "projects.mobile_sgrturnos.description": "Aplicación Android moderna desarrollada con Kotlin y Jetpack Compose para la reserva y gestión de turnos bancarios. Permite consultar sucursales, ver disponibilidad en calendario interactivo y reservar turnos con autenticación JWT. Implementa sincronización offline con Room, paginación remota con Paging 3 y notificaciones push con Firebase Cloud Messaging. Comunicación con backend Symfony 8 vía Retrofit.",
+
         "projects.current_site.type": "Portafolio en vivo",
         "projects.current_site.title": "Portafolio Full Stack Developer — Este sitio",
         "projects.current_site.description": "El sitio que estás viendo. Desarrollado con HTML5, Tailwind CSS y JavaScript vanilla. Implementa tema oscuro/claro persistente, navegación suave, animaciones al scroll, cambio de idioma (ES/EN) y está optimizado en accesibilidad y SEO.",
@@ -218,6 +222,10 @@ const translations = {
         "projects.demo": "Demo in development",
         "projects.demo_portfolio": "View demo",
         "projects.code": "Code",
+
+        "projects.mobile_sgrturnos.type": "Mobile App / Native Android",
+        "projects.mobile_sgrturnos.title": "SGR-Turnos-Bandec – Mobile Banking Queue Management App",
+        "projects.mobile_sgrturnos.description": "Modern Android application built with Kotlin and Jetpack Compose for booking and managing banking appointments. Features branch lookup, interactive calendar availability, JWT-authenticated reservations, offline sync with Room, remote pagination with Paging 3, and push notifications via Firebase Cloud Messaging. Communicates with a Symfony 8 backend through Retrofit.",
 
         "projects.current_site.type": "Live Portfolio",
         "projects.current_site.title": "Full Stack Developer Portfolio — This site",
