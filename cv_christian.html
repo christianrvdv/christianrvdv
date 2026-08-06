@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title data-i18n="cv.title">Christián Vazquez · Full Stack Developer CV</title>
     <!-- Fuentes e iconos -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="estilo.css">
     <style>
@@ -71,12 +72,14 @@
             border-bottom: 1px solid var(--border);
             background: #ffffff;
         }
+
         .header-info {
             display: flex;
             align-items: center;
             gap: 1.5rem;
             flex-wrap: wrap;
         }
+
         .avatar img {
             width: 100px;
             height: 100px;
@@ -86,6 +89,7 @@
             box-shadow: var(--shadow-sm);
             display: block;
         }
+
         .avatar-badge {
             position: absolute;
             bottom: -8px;
@@ -99,9 +103,10 @@
             justify-content: center;
             color: white;
             font-size: 0.7rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             z-index: 2;
         }
+
         .title h1 {
             font-size: 1.8rem;
             font-weight: 800;
@@ -110,6 +115,7 @@
             color: var(--text-primary);
             line-height: 1.2;
         }
+
         .title p {
             color: var(--accent);
             font-weight: 600;
@@ -117,6 +123,7 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
+
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(2, auto);
@@ -125,101 +132,345 @@
             font-weight: 500;
             color: var(--text-secondary);
         }
-        .contact-grid i { color: var(--accent); width: 1rem; text-align: center; }
-        .contact-grid .col-span-2 { grid-column: span 2; }
-        .contact-grid a { color: inherit; text-decoration: none; }
 
-        .cv-body { display: flex; flex-wrap: wrap; }
-        .main-col {
-            flex: 2; min-width: 0; padding: 2rem 2rem 2rem 2rem;
-            border-right: 1px solid var(--border); background: #ffffff;
+        .contact-grid i {
+            color: var(--accent);
+            width: 1rem;
+            text-align: center;
         }
+
+        .contact-grid .col-span-2 {
+            grid-column: span 2;
+        }
+
+        .contact-grid a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .cv-body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .main-col {
+            flex: 2;
+            min-width: 0;
+            padding: 2rem 2rem 2rem 2rem;
+            border-right: 1px solid var(--border);
+            background: #ffffff;
+        }
+
         .sidebar-col {
-            flex: 1; min-width: 280px; background: var(--bg-light);
+            flex: 1;
+            min-width: 280px;
+            background: var(--bg-light);
             padding: 2rem 1.5rem;
         }
 
         .section-header {
-            display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
-        .section-header h2 {
-            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.12em; color: #1e293b; white-space: nowrap;
-        }
-        .section-header::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
-        .timeline-border>.relative {
-            padding-left: 2rem; border-left: 2px solid var(--border);
-            margin-bottom: 1.75rem; position: relative;
+        .section-header h2 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #1e293b;
+            white-space: nowrap;
         }
-        .timeline-border>.relative:last-child { border-left-color: transparent; margin-bottom: 0; }
+
+        .section-header::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .timeline-border > .relative {
+            padding-left: 2rem;
+            border-left: 2px solid var(--border);
+            margin-bottom: 1.75rem;
+            position: relative;
+        }
+
+        .timeline-border > .relative:last-child {
+            border-left-color: transparent;
+            margin-bottom: 0;
+        }
+
         .experience-dot {
-            position: absolute; left: -0.3125rem; top: 0.3rem; width: 10px; height: 10px;
-            background: var(--accent); border-radius: 50%; border: 2px solid white;
-            box-shadow: 0 0 0 1px var(--accent); z-index: 2;
+            position: absolute;
+            left: -0.3125rem;
+            top: 0.3rem;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 1px var(--accent);
+            z-index: 2;
         }
-        .experience-dot-gray { background: var(--dot-gray) !important; box-shadow: 0 0 0 1px var(--dot-gray) !important; }
+
+        .experience-dot-gray {
+            background: var(--dot-gray) !important;
+            box-shadow: 0 0 0 1px var(--dot-gray) !important;
+        }
 
         .skill-tag {
-            background: var(--skill-bg); border: 1px solid var(--border); padding: 0.3rem 0.75rem;
-            border-radius: var(--radius-sm); font-size: 0.7rem; font-weight: 500;
-            display: inline-flex; align-items: center; gap: 0.35rem; color: #1e293b; white-space: nowrap;
+            background: var(--skill-bg);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.7rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: #1e293b;
+            white-space: nowrap;
         }
-        .skill-tag i { font-size: 0.65rem; color: var(--accent); }
+
+        .skill-tag i {
+            font-size: 0.65rem;
+            color: var(--accent);
+        }
 
         .bento-card {
-            background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md);
-            padding: 1rem; transition: var(--transition); height: 100%; display: flex; flex-direction: column;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
-        .bento-card h5 { font-weight: 700; color: #1e293b; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
-        .bento-card h5 .badge { font-size: 0.65rem; background: #f1f5f9; padding: 0.15rem 0.5rem; border-radius: 9999px; color: var(--accent); font-weight: 600; }
-        .bento-card p { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; flex: 1; }
-        .bento-card .card-link { margin-top: 0.5rem; font-size: 0.7rem; color: var(--accent-dark); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem; }
 
-        .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .bento-card h5 {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .bento-card h5 .badge {
+            font-size: 0.65rem;
+            background: #f1f5f9;
+            padding: 0.15rem 0.5rem;
+            border-radius: 9999px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .bento-card p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            flex: 1;
+        }
+
+        .bento-card .card-link {
+            margin-top: 0.5rem;
+            font-size: 0.7rem;
+            color: var(--accent-dark);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
 
         .sidebar-section-title {
-            font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.2em; color: #64748b; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #64748b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .sidebar-section-title i { color: var(--accent); font-size: 0.8rem; }
 
-        .floating-buttons { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; display: flex; flex-direction: column; gap: 0.75rem; }
-        .btn-print, .btn-pdf {
-            display: flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.1rem;
-            border-radius: var(--radius-full); font-weight: 600; font-size: 0.8rem;
-            transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; text-decoration: none;
-            box-shadow: var(--shadow-md); border: none; font-family: inherit;
+        .sidebar-section-title i {
+            color: var(--accent);
+            font-size: 0.8rem;
         }
-        .btn-print { background: #1e293b; color: white; }
-        .btn-pdf { background: var(--accent); color: white; }
+
+        .floating-buttons {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .btn-print, .btn-pdf {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.1rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-print {
+            background: #1e293b;
+            color: white;
+        }
+
+        .btn-pdf {
+            background: var(--accent);
+            color: white;
+        }
 
         /* Utilidades */
-        .text-sm { font-size: 0.8rem; } .text-xs { font-size: 0.7rem; }
-        .text-slate-600 { color: #475569; } .text-slate-500 { color: #64748b; }
-        .font-bold { font-weight: 700; } .leading-relaxed { line-height: 1.7; }
-        .mt-1 { margin-top: 0.25rem; } .mt-3 { margin-top: 0.75rem; } .mb-2 { margin-bottom: 0.5rem; }
-        .flex { display: flex; } .flex-wrap { flex-wrap: wrap; } .items-center { align-items: center; }
-        .gap-2 { gap: 0.5rem; } .space-y-4>*+* { margin-top: 1rem; }
+        .text-sm {
+            font-size: 0.8rem;
+        }
+
+        .text-xs {
+            font-size: 0.7rem;
+        }
+
+        .text-slate-600 {
+            color: #475569;
+        }
+
+        .text-slate-500 {
+            color: #64748b;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .leading-relaxed {
+            line-height: 1.7;
+        }
+
+        .mt-1 {
+            margin-top: 0.25rem;
+        }
+
+        .mt-3 {
+            margin-top: 0.75rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .space-y-4 > * + * {
+            margin-top: 1rem;
+        }
 
         /* Responsive pantalla */
         @media screen and (max-width: 768px) {
-            body { padding: 0.5rem; }
-            .cv-header { flex-direction: column; padding: 1.5rem; }
-            .title h1 { font-size: 1.4rem; }
-            .cv-body { flex-direction: column; }
-            .main-col { border-right: none; padding: 1.5rem; }
-            .sidebar-col { padding: 1.5rem; min-width: auto; }
-            .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-            .floating-buttons { bottom: 1rem; right: 1rem; }
-            .btn-print, .btn-pdf { padding: 0.5rem 0.9rem; font-size: 0.7rem; }
+            body {
+                padding: 0.5rem;
+            }
+
+            .cv-header {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+
+            .title h1 {
+                font-size: 1.4rem;
+            }
+
+            .cv-body {
+                flex-direction: column;
+            }
+
+            .main-col {
+                border-right: none;
+                padding: 1.5rem;
+            }
+
+            .sidebar-col {
+                padding: 1.5rem;
+                min-width: auto;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .floating-buttons {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .btn-print, .btn-pdf {
+                padding: 0.5rem 0.9rem;
+                font-size: 0.7rem;
+            }
         }
+
         @media screen and (max-width: 480px) {
-            .avatar img { width: 70px; height: 70px; }
-            .title h1 { font-size: 1.2rem; }
-            .projects-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .contact-grid .col-span-2 { grid-column: span 1; }
+            .avatar img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .title h1 {
+                font-size: 1.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid .col-span-2 {
+                grid-column: span 1;
+            }
         }
 
         /* ========== IMPRESIÓN (Estudios ancho completo 2 col, Proyectos 3 col) ========== */
@@ -251,7 +502,9 @@
                 border-radius: 0 !important;
             }
 
-            .floating-buttons, .no-print { display: none !important; }
+            .floating-buttons, .no-print {
+                display: none !important;
+            }
 
             /* Rejilla principal: reorganiza secciones */
             .cv-body {
@@ -316,22 +569,77 @@
                 padding: 1rem 1.2rem 0.8rem 1.2rem !important;
                 gap: 1rem !important;
             }
-            .avatar img { width: 75px !important; height: 75px !important; border-radius: 0.5rem !important; }
-            .avatar-badge { width: 22px !important; height: 22px !important; bottom: -5px !important; right: -5px !important; font-size: 0.6rem !important; background: var(--accent-print) !important; }
-            .title h1 { font-size: 1.8rem !important; }
-            .title p { font-size: 0.8rem !important; }
-            .contact-grid { grid-template-columns: repeat(2, auto) !important; gap: 0.35rem 0.8rem !important; font-size: 0.75rem !important; }
 
-            .section-header { margin-bottom: 0.8rem !important; gap: 0.75rem !important; }
-            .section-header h2 { font-size: 0.75rem !important; letter-spacing: 0.1em !important; color: #374151 !important; }
+            .avatar img {
+                width: 75px !important;
+                height: 75px !important;
+                border-radius: 0.5rem !important;
+            }
+
+            .avatar-badge {
+                width: 22px !important;
+                height: 22px !important;
+                bottom: -5px !important;
+                right: -5px !important;
+                font-size: 0.6rem !important;
+                background: var(--accent-print) !important;
+            }
+
+            .title h1 {
+                font-size: 1.8rem !important;
+            }
+
+            .title p {
+                font-size: 0.8rem !important;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, auto) !important;
+                gap: 0.35rem 0.8rem !important;
+                font-size: 0.75rem !important;
+            }
+
+            .section-header {
+                margin-bottom: 0.8rem !important;
+                gap: 0.75rem !important;
+            }
+
+            .section-header h2 {
+                font-size: 0.75rem !important;
+                letter-spacing: 0.1em !important;
+                color: #374151 !important;
+            }
 
             /* Timeline */
-            .timeline-border>.relative { padding-left: 1.5rem !important; margin-bottom: 1rem !important; border-left: 2px solid #d1d5db !important; }
-            .experience-dot { left: -0.28rem !important; top: 0.35rem !important; width: 9px !important; height: 9px !important; background: var(--accent-print) !important; }
-            .experience-dot-gray { background: #cbd5e1 !important; }
-            .timeline-border h3 { font-size: 0.9rem !important; }
-            .timeline-border p { font-size: 0.75rem !important; }
-            .timeline-border li { font-size: 0.7rem !important; }
+            .timeline-border > .relative {
+                padding-left: 1.5rem !important;
+                margin-bottom: 1rem !important;
+                border-left: 2px solid #d1d5db !important;
+            }
+
+            .experience-dot {
+                left: -0.28rem !important;
+                top: 0.35rem !important;
+                width: 9px !important;
+                height: 9px !important;
+                background: var(--accent-print) !important;
+            }
+
+            .experience-dot-gray {
+                background: #cbd5e1 !important;
+            }
+
+            .timeline-border h3 {
+                font-size: 0.9rem !important;
+            }
+
+            .timeline-border p {
+                font-size: 0.75rem !important;
+            }
+
+            .timeline-border li {
+                font-size: 0.7rem !important;
+            }
 
             /* Estudios: 2 columnas */
             .studies-section .space-y-4 {
@@ -340,6 +648,7 @@
                 gap: 1rem !important;
                 margin-top: 0 !important;
             }
+
             .studies-section .space-y-4 > * {
                 margin-top: 0 !important;
             }
@@ -349,6 +658,7 @@
                 grid-template-columns: repeat(3, 1fr) !important;
                 gap: 0.6rem !important;
             }
+
             .bento-card {
                 padding: 0.7rem !important;
                 border: 1px solid #d1d5db !important;
@@ -357,41 +667,86 @@
                 break-inside: avoid !important;
                 page-break-inside: avoid !important;
             }
-            .bento-card h5 { font-size: 0.85rem !important; }
-            .bento-card h5 .badge { font-size: 0.65rem !important; background: #f1f5f9 !important; color: var(--accent-print) !important; }
-            .bento-card p { font-size: 0.7rem !important; }
-            .bento-card .card-link { font-size: 0.65rem !important; color: #0d9488 !important; }
+
+            .bento-card h5 {
+                font-size: 0.85rem !important;
+            }
+
+            .bento-card h5 .badge {
+                font-size: 0.65rem !important;
+                background: #f1f5f9 !important;
+                color: var(--accent-print) !important;
+            }
+
+            .bento-card p {
+                font-size: 0.7rem !important;
+            }
+
+            .bento-card .card-link {
+                font-size: 0.65rem !important;
+                color: #0d9488 !important;
+            }
 
             /* Skills */
-            .skill-tag { font-size: 0.65rem !important; padding: 0.25rem 0.6rem !important; border: 1px solid #d1d5db !important; }
-            .sidebar-section-title { font-size: 0.7rem !important; }
+            .skill-tag {
+                font-size: 0.65rem !important;
+                padding: 0.25rem 0.6rem !important;
+                border: 1px solid #d1d5db !important;
+            }
+
+            .sidebar-section-title {
+                font-size: 0.7rem !important;
+            }
 
             /* Evitar saltos en elementos pequeños, pero secciones grandes pueden fluir */
-            .bento-card, .skill-tag, .section-header, .cv-header { break-inside: avoid !important; page-break-inside: avoid !important; }
-            .timeline-border>.relative { break-inside: avoid !important; page-break-inside: avoid !important; }
+            .bento-card, .skill-tag, .section-header, .cv-header {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .timeline-border > .relative {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
 
             /* Colores forzados */
-            .title p, .contact-grid i, .skill-tag i, .sidebar-section-title i, .bento-card h5 .badge { color: var(--accent-print) !important; }
-            .avatar-badge, .experience-dot:not(.experience-dot-gray) { background-color: var(--accent-print) !important; }
-            a { color: #0d9488 !important; text-decoration: underline !important; }
+            .title p, .contact-grid i, .skill-tag i, .sidebar-section-title i, .bento-card h5 .badge {
+                color: var(--accent-print) !important;
+            }
+
+            .avatar-badge, .experience-dot:not(.experience-dot-gray) {
+                background-color: var(--accent-print) !important;
+            }
+
+            a {
+                color: #0d9488 !important;
+                text-decoration: underline !important;
+            }
         }
 
         @-moz-document url-prefix() {
-            @media print { body { font-size: 11.5px !important; } }
+            @media print {
+                body {
+                    font-size: 11.5px !important;
+                }
+            }
         }
     </style>
 </head>
 <body>
 <div class="floating-buttons no-print">
-    <button class="btn-print" onclick="window.print();"><i class="fas fa-print"></i> <span data-i18n="cv.button.print">Imprimir</span></button>
-    <a id="cv-pdf-link" href="cv_christian_vazquez.pdf" download class="btn-pdf"><i class="fas fa-file-pdf"></i> <span data-i18n="cv.button.pdf">Descargar PDF</span></a>
+    <button class="btn-print" onclick="window.print();"><i class="fas fa-print"></i> <span data-i18n="cv.button.print">Imprimir</span>
+    </button>
+    <a id="cv-pdf-link" href="cv_christian_vazquez.pdf" download class="btn-pdf"><i class="fas fa-file-pdf"></i> <span
+            data-i18n="cv.button.pdf">Descargar PDF</span></a>
 </div>
 
 <div class="a4-page">
     <header class="cv-header">
         <div class="header-info">
             <div class="avatar" style="position: relative;">
-                <img src="https://avatars.githubusercontent.com/u/61900349?s=400&u=9babd1740dd87e49cb0e7ca0be505830fad63365&v=4" alt="Christián R. Vazquez">
+                <img src="https://avatars.githubusercontent.com/u/61900349?s=400&u=9babd1740dd87e49cb0e7ca0be505830fad63365&v=4"
+                     alt="Christián R. Vazquez">
                 <div class="avatar-badge"><i class="fas fa-check-circle"></i></div>
             </div>
             <div class="title">
@@ -422,43 +777,51 @@
             <!-- Experiencia -->
             <section style="margin-bottom: 1.75rem;">
                 <div class="section-header"><h2 data-i18n="cv.experience.title">Experiencia</h2></div>
-                <div class="timeline-border">
-                    <div class="relative">
-                        <div class="experience-dot"></div>
-                        <div class="flex flex-wrap justify-between items-baseline mb-1">
-                            <h3 class="font-bold text-slate-800 text-sm" data-i18n="cv.exp.freelance.title">Desarrollador Full Stack · Freelance</h3>
-                            <span class="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded" data-i18n="cv.exp.freelance.date">2024 — Presente</span>
+                <div class="space-y-4">
+                    <!-- Freelance -->
+                    <div>
+                        <div class="flex flex-wrap justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-slate-800 text-sm" data-i18n="cv.exp.freelance.title">Desarrollador Full Stack · Freelance</h3>
+                                <p class="font-semibold text-sm" style="color: #1abc9c;" data-i18n="cv.exp.freelance.company">Proyectos Independientes</p>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-400" data-i18n="cv.exp.freelance.date">2024 — Presente</span>
                         </div>
-                        <p class="font-semibold text-sm mb-2" style="color: #1abc9c;" data-i18n="cv.exp.freelance.company">Proyectos Independientes</p>
-                        <ul class="text-xs text-slate-600 space-y-1.5 list-none">
-                            <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-[#1abc9c] shrink-0"></span> <span data-i18n="cv.exp.freelance.item1"></span></li>
-                            <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-[#1abc9c] shrink-0"></span> <span data-i18n="cv.exp.freelance.item2"></span></li>
-                            <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-[#1abc9c] shrink-0"></span> <span data-i18n="cv.exp.freelance.item3"></span></li>
+                        <ul class="text-sm text-slate-600 mt-1 space-y-1 list-disc list-inside leading-relaxed">
+                            <li class="no-underline" data-i18n="cv.exp.freelance.item1"></li>
+                            <li class="no-underline" data-i18n="cv.exp.freelance.item2"></li>
+                            <li class="no-underline" data-i18n="cv.exp.freelance.item3"></li>
                         </ul>
                     </div>
-                    <div class="relative">
-                        <div class="experience-dot experience-dot-gray"></div>
-                        <div class="flex flex-wrap justify-between items-baseline mb-1">
-                            <h3 class="font-bold text-slate-800 text-sm" data-i18n="cv.exp.junior.title">Desarrollador Backend</h3>
-                            <span class="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded" data-i18n="cv.exp.junior.date">2021 — 2024</span>
+
+                    <!-- Junior -->
+                    <div>
+                        <div class="flex flex-wrap justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-slate-800 text-sm" data-i18n="cv.exp.junior.title">Desarrollador Backend</h3>
+                                <p class="font-semibold text-sm" style="color: #1abc9c;" data-i18n="cv.exp.junior.company">Centro de Desarrollo Local</p>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-400" data-i18n="cv.exp.junior.date">2021 — 2024</span>
                         </div>
-                        <p class="font-semibold text-sm mb-2" style="color: #1abc9c;" data-i18n="cv.exp.junior.company">Centro de Desarrollo Local</p>
-                        <ul class="text-xs text-slate-600 space-y-1.5 list-none">
-                            <li class="flex gap-2"><span class="text-slate-300 mt-1.5 h-1 w-1 rounded-full bg-slate-300 shrink-0"></span> <span data-i18n="cv.exp.junior.item1"></span></li>
-                            <li class="flex gap-2"><span class="text-slate-300 mt-1.5 h-1 w-1 rounded-full bg-slate-300 shrink-0"></span> <span data-i18n="cv.exp.junior.item2"></span></li>
-                            <li class="flex gap-2"><span class="text-slate-300 mt-1.5 h-1 w-1 rounded-full bg-slate-300 shrink-0"></span> <span data-i18n="cv.exp.junior.item3"></span></li>
+                        <ul class="text-sm text-slate-600 mt-1 space-y-1 list-disc list-inside leading-relaxed">
+                            <li class="no-underline" data-i18n="cv.exp.junior.item1"></li>
+                            <li class="no-underline" data-i18n="cv.exp.junior.item2"></li>
+                            <li class="no-underline" data-i18n="cv.exp.junior.item3"></li>
                         </ul>
                     </div>
-                    <div class="relative">
-                        <div class="experience-dot experience-dot-gray"></div>
-                        <div class="flex flex-wrap justify-between items-baseline mb-1">
-                            <h3 class="font-bold text-slate-800 text-sm" data-i18n="cv.exp.intern.title">Practicante de Desarrollo de Software</h3>
-                            <span class="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded" data-i18n="cv.exp.intern.date">2018 — 2021</span>
+
+                    <!-- Intern -->
+                    <div>
+                        <div class="flex flex-wrap justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-slate-800 text-sm" data-i18n="cv.exp.intern.title">Practicante de Desarrollo de Software</h3>
+                                <p class="font-semibold text-sm" style="color: #1abc9c;" data-i18n="cv.exp.intern.company">Universidad de las Ciencias Informáticas (UCI)</p>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-400" data-i18n="cv.exp.intern.date">2018 — 2021</span>
                         </div>
-                        <p class="font-semibold text-sm mb-2" style="color: #1abc9c;" data-i18n="cv.exp.intern.company">Universidad de las Ciencias Informáticas (UCI)</p>
-                        <ul class="text-xs text-slate-600 space-y-1.5 list-none">
-                            <li class="flex gap-2"><span class="text-slate-300 mt-1.5 h-1 w-1 rounded-full bg-slate-300 shrink-0"></span> <span data-i18n="cv.exp.intern.item1"></span></li>
-                            <li class="flex gap-2"><span class="text-slate-300 mt-1.5 h-1 w-1 rounded-full bg-slate-300 shrink-0"></span> <span data-i18n="cv.exp.intern.item2"></span></li>
+                        <ul class="text-sm text-slate-600 mt-1 space-y-1 list-disc list-inside leading-relaxed">
+                            <li class="no-underline" data-i18n="cv.exp.intern.item1"></li>
+                            <li class="no-underline" data-i18n="cv.exp.intern.item2"></li>
                         </ul>
                     </div>
                 </div>
@@ -472,21 +835,21 @@
                         <div class="flex flex-wrap justify-between items-start">
                             <div>
                                 <h4 class="font-bold text-slate-800 text-sm" data-i18n="cv.studies.masters.title">Maestría en Informática Aplicada</h4>
-                                <p class="text-xs text-slate-500" data-i18n="cv.studies.masters.university">Universidad José Martí (UNISS)</p>
+                                <p class="text-sm text-slate-500" data-i18n="cv.studies.masters.university">Universidad José Martí (UNISS)</p>
                             </div>
                             <span class="text-[10px] font-bold text-slate-400" data-i18n="cv.studies.masters.date">2025 — Presente</span>
                         </div>
-                        <p class="text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="cv.studies.masters.description">Especialización en arquitecturas distribuidas y sistemas de alta concurrencia.</p>
+                        <p class="text-sm text-slate-500 mt-1 leading-relaxed" data-i18n="cv.studies.masters.description">Especialización en arquitecturas distribuidas y sistemas de alta concurrencia.</p>
                     </div>
                     <div>
                         <div class="flex flex-wrap justify-between items-start">
                             <div>
                                 <h4 class="font-bold text-slate-800 text-sm" data-i18n="cv.studies.degree.title">Ingeniería en Ciencias Informáticas</h4>
-                                <p class="text-xs text-slate-500" data-i18n="cv.studies.degree.university">Universidad de las Ciencias Informáticas (UCI)</p>
+                                <p class="text-sm text-slate-500" data-i18n="cv.studies.degree.university">Universidad de las Ciencias Informáticas (UCI)</p>
                             </div>
                             <span class="text-[10px] font-bold text-slate-400" data-i18n="cv.studies.degree.date">2017 — 2022</span>
                         </div>
-                        <p class="text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="cv.studies.degree.description">Formación basada en proyectos reales, con énfasis en fundamentos de computación, ingeniería de software, bases de datos y tecnologías de vanguardia.</p>
+                        <p class="text-sm text-slate-500 mt-1 leading-relaxed" data-i18n="cv.studies.degree.description">Formación basada en proyectos reales, con énfasis en fundamentos de computación, ingeniería de software, bases de datos y tecnologías de vanguardia.</p>
                     </div>
                 </div>
             </section>
@@ -496,34 +859,60 @@
                 <div class="section-header"><h2 data-i18n="cv.projects.title">Proyectos Destacados</h2></div>
                 <div class="projects-grid">
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.sgrturnos.title">SGR-Turnos</span> <span class="badge">Symfony 8</span></h5>
-                        <p data-i18n="cv.projects.sgrturnos.desc">Gestión de turnos bancarios anti‑cola con JWT, rate limiting, auditoría y exportación Excel.</p>
+                        <h5><span data-i18n="cv.projects.mobile_sgrturnos.title">SGR-Turnos-Bandec</span> <span
+                                class="badge">Android</span></h5>
+                        <p data-i18n="cv.projects.mobile_sgrturnos.desc">App nativa con Kotlin y Jetpack Compose para
+                            reserva de turnos bancarios, con JWT, sincronización offline y notificaciones push.</p>
                         <span class="text-xs text-slate-400" data-i18n="cv.projects.demo">(demo en desarrollo)</span>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.comerciolocal.title">ComercioLocal</span> <span class="badge">SaaS</span></h5>
-                        <p data-i18n="cv.projects.comerciolocal.desc">Plataforma e‑commerce con Stripe, OAuth2, 2FA, carrito y panel admin.</p>
-                        <a href="https://islamarket.aserenet.com/" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i> islamarket.aserenet.com</a>
+                        <h5><span data-i18n="cv.projects.sgrturnos.title">SGR-Turnos</span> <span class="badge">Symfony 8</span>
+                        </h5>
+                        <p data-i18n="cv.projects.sgrturnos.desc">Gestión de turnos bancarios anti‑cola con JWT, rate
+                            limiting, auditoría y exportación Excel.</p>
+                        <span class="text-xs text-slate-400" data-i18n="cv.projects.demo">(demo en desarrollo)</span>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.almacen.title">app_almacen</span> <span class="badge">Symfony 7</span></h5>
-                        <p data-i18n="cv.projects.almacen.desc">Control de inventario, facturación PDF (dompdf) y dashboard de métricas.</p>
-                        <a href="https://github.com/Christianrvdv/app_almacen" target="_blank" class="card-link"><i class="fab fa-github"></i> github.com/Christianrvdv/app_almacen</a>
+                        <h5><span data-i18n="cv.projects.comerciolocal.title">ComercioLocal</span> <span class="badge">SaaS</span>
+                        </h5>
+                        <p data-i18n="cv.projects.comerciolocal.desc">Plataforma e‑commerce con Stripe, OAuth2, 2FA,
+                            carrito y panel admin.</p>
+                        <a href="https://islamarket.aserenet.com/" target="_blank" class="card-link"><i
+                                class="fas fa-external-link-alt"></i> islamarket.aserenet.com</a>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.auth.title">Auth System + JWT</span> <span class="badge">Symfony</span></h5>
-                        <p data-i18n="cv.projects.auth.desc">Autenticación JWT, Voters, auditoría y pruebas unitarias.</p>
-                        <a href="https://github.com/Christianrvdv/auth-system" target="_blank" class="card-link"><i class="fab fa-github"></i> github.com/Christianrvdv/auth-system</a>
+                        <h5><span data-i18n="cv.projects.almacen.title">app_almacen</span> <span
+                                class="badge">Symfony 7</span></h5>
+                        <p data-i18n="cv.projects.almacen.desc">Control de inventario, facturación PDF (dompdf) y
+                            dashboard de métricas.</p>
+                        <a href="https://github.com/Christianrvdv/app_almacen" target="_blank" class="card-link"><i
+                                class="fab fa-github"></i> github.com/Christianrvdv/app_almacen</a>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.microservices.title">Microservicios Biblioteca</span> <span class="badge">Spring Boot</span></h5>
-                        <p data-i18n="cv.projects.microservices.desc">API Gateway (Kong), Eureka, comunicación asíncrona.</p>
-                        <a href="https://github.com/Christianrvdv/sistema-biblioteca-microservicios" target="_blank" class="card-link"><i class="fab fa-github"></i> github.com/Christianrvdv/sistema-biblioteca-microservicios</a>
+                        <h5><span data-i18n="cv.projects.auth.title">Auth System + JWT</span> <span class="badge">Symfony</span>
+                        </h5>
+                        <p data-i18n="cv.projects.auth.desc">Autenticación JWT, Voters, auditoría y pruebas
+                            unitarias.</p>
+                        <a href="https://github.com/Christianrvdv/auth-system" target="_blank" class="card-link"><i
+                                class="fab fa-github"></i> github.com/Christianrvdv/auth-system</a>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.android.title">App BANCEC</span> <span class="badge">Android</span></h5>
-                        <p data-i18n="cv.projects.android.desc">Solicitud de tarjetas magnéticas con QR (ZXing), exportación Excel y estadísticas.</p>
-                        <a href="https://github.com/Christianrvdv/SolicitudtarjetaBANDEC" target="_blank" class="card-link"><i class="fab fa-github"></i> github.com/Christianrvdv/SolicitudtarjetaBANDEC</a>
+                        <h5><span data-i18n="cv.projects.microservices.title">Microservicios Biblioteca</span> <span
+                                class="badge">Spring Boot</span></h5>
+                        <p data-i18n="cv.projects.microservices.desc">API Gateway (Kong), Eureka, comunicación
+                            asíncrona.</p>
+                        <a href="https://github.com/Christianrvdv/sistema-biblioteca-microservicios" target="_blank"
+                           class="card-link"><i class="fab fa-github"></i>
+                            github.com/Christianrvdv/sistema-biblioteca-microservicios</a>
+                    </div>
+                    <div class="bento-card">
+                        <h5><span data-i18n="cv.projects.android.title">App BANCEC</span> <span
+                                class="badge">Android</span></h5>
+                        <p data-i18n="cv.projects.android.desc">Solicitud de tarjetas magnéticas con QR (ZXing),
+                            exportación Excel y estadísticas.</p>
+                        <a href="https://github.com/Christianrvdv/SolicitudtarjetaBANDEC" target="_blank"
+                           class="card-link"><i class="fab fa-github"></i>
+                            github.com/Christianrvdv/SolicitudtarjetaBANDEC</a>
                     </div>
                 </div>
             </section>
@@ -531,10 +920,12 @@
 
         <div class="sidebar-col">
             <section class="mb-8">
-                <h3 class="sidebar-section-title"><i class="fas fa-code"></i> <span data-i18n="cv.skills.title">Habilidades Técnicas</span></h3>
+                <h3 class="sidebar-section-title"><i class="fas fa-code"></i> <span data-i18n="cv.skills.title">Habilidades Técnicas</span>
+                </h3>
                 <div class="space-y-4">
                     <div class="bento-card">
-                        <p class="text-[10px] uppercase font-bold mb-2" style="color: #1abc9c;" data-i18n="cv.skills.languages.title">Lenguajes &amp; Frameworks</p>
+                        <p class="text-[10px] uppercase font-bold mb-2" style="color: #1abc9c;"
+                           data-i18n="cv.skills.languages.title">Lenguajes &amp; Frameworks</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="skill-tag"><i class="fab fa-php"></i> PHP 8.x</span>
                             <span class="skill-tag"><i class="fab fa-symfony"></i> Symfony 7/8</span>
@@ -545,7 +936,8 @@
                         </div>
                     </div>
                     <div class="bento-card">
-                        <p class="text-[10px] uppercase font-bold mb-2" style="color: #1abc9c;" data-i18n="cv.skills.frontend.title">Frontend (Intermedio)</p>
+                        <p class="text-[10px] uppercase font-bold mb-2" style="color: #1abc9c;"
+                           data-i18n="cv.skills.frontend.title">Frontend (Intermedio)</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="skill-tag"><i class="fab fa-html5"></i> HTML5/CSS3</span>
                             <span class="skill-tag"><i class="fab fa-tailwind"></i> Tailwind</span>
@@ -555,7 +947,8 @@
                         </div>
                     </div>
                     <div class="bento-card">
-                        <p class="text-[10px] uppercase font-bold mb-2" style="color: #1abc9c;" data-i18n="cv.skills.devops.title">DevOps &amp; Cloud</p>
+                        <p class="text-[10px] uppercase font-bold mb-2" style="color: #1abc9c;"
+                           data-i18n="cv.skills.devops.title">DevOps &amp; Cloud</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
                             <span class="skill-tag"><i class="fas fa-cloud"></i> Nginx/Apache</span>
@@ -564,7 +957,8 @@
                         </div>
                     </div>
                     <div class="bento-card">
-                        <p class="text-[10px] uppercase font-bold mb-2" style="color: #1abc9c;" data-i18n="cv.skills.architecture.title">Arquitectura &amp; Seguridad</p>
+                        <p class="text-[10px] uppercase font-bold mb-2" style="color: #1abc9c;"
+                           data-i18n="cv.skills.architecture.title">Arquitectura &amp; Seguridad</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="skill-tag"><i class="fas fa-shield-alt"></i> JWT / OAuth2</span>
                             <span class="skill-tag"><i class="fas fa-key"></i> 2FA</span>
@@ -574,7 +968,8 @@
                         </div>
                     </div>
                     <div class="bento-card">
-                        <p class="text-[10px] uppercase font-bold mb-2" style="color: #1abc9c;" data-i18n="cv.skills.ai.title">AI‑Assisted Development</p>
+                        <p class="text-[10px] uppercase font-bold mb-2" style="color: #1abc9c;"
+                           data-i18n="cv.skills.ai.title">AI‑Assisted Development</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="skill-tag"><i class="fas fa-robot"></i> ChatGPT / Claude</span>
                             <span class="skill-tag"><i class="fas fa-code"></i> GitHub Copilot</span>
@@ -584,14 +979,22 @@
                 </div>
             </section>
             <section class="mb-8">
-                <h3 class="sidebar-section-title"><i class="fas fa-globe-americas"></i> <span data-i18n="cv.languages.title">Idiomas</span></h3>
+                <h3 class="sidebar-section-title"><i class="fas fa-globe-americas"></i> <span
+                        data-i18n="cv.languages.title">Idiomas</span></h3>
                 <div class="space-y-2">
-                    <div class="flex items-center gap-3 text-sm"><span class="font-semibold text-slate-700 w-20" data-i18n="cv.languages.spanish">Español</span><span class="font-medium" style="color: #1abc9c;" data-i18n="cv.languages.native">Nativo</span></div>
-                    <div class="flex items-center gap-3 text-sm"><span class="font-semibold text-slate-700 w-20" data-i18n="cv.languages.english">Inglés</span><span class="font-medium" style="color: #1abc9c;" data-i18n="cv.languages.level">Básico (A2)</span></div>
+                    <div class="flex items-center gap-3 text-sm"><span class="font-semibold text-slate-700 w-20"
+                                                                       data-i18n="cv.languages.spanish">Español</span><span
+                            class="font-medium" style="color: #1abc9c;" data-i18n="cv.languages.native">Nativo</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm"><span class="font-semibold text-slate-700 w-20"
+                                                                       data-i18n="cv.languages.english">Inglés</span><span
+                            class="font-medium" style="color: #1abc9c;"
+                            data-i18n="cv.languages.level">Básico (A2)</span></div>
                 </div>
             </section>
             <div class="mt-8 pt-3 border-t border-slate-100 text-center">
-                <p class="text-[9px] text-slate-300 uppercase tracking-[0.2rem] font-medium" data-i18n="cv.footer.tagline">clean code · arquitectura escalable · seguridad</p>
+                <p class="text-[9px] text-slate-300 uppercase tracking-[0.2rem] font-medium"
+                   data-i18n="cv.footer.tagline">clean code · arquitectura escalable · seguridad</p>
             </div>
         </div>
     </div>
@@ -599,9 +1002,10 @@
 
 <script src="cv-translations.js"></script>
 <script>
-    (function() {
+    (function () {
         const lang = localStorage.getItem('language') || 'es';
         document.documentElement.lang = lang;
+
         function applyTranslations(lang) {
             const t = cvTranslations[lang] || cvTranslations.es;
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -611,6 +1015,7 @@
             const pdfLink = document.getElementById('cv-pdf-link');
             if (pdfLink) pdfLink.href = lang === 'en' ? 'cv_christian_vazquez_en.pdf' : 'cv_christian_vazquez.pdf';
         }
+
         applyTranslations(lang);
         window.addEventListener('storage', (e) => {
             if (e.key === 'language') {

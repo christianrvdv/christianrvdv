@@ -65,7 +65,9 @@ const cvTranslations = {
         "cv.languages.level": "Básico (A2)",
         "cv.footer.tagline": "clean code · arquitectura escalable · seguridad",
         "cv.button.print": "Imprimir",
-        "cv.button.pdf": "Descargar PDF"
+        "cv.button.pdf": "Descargar PDF",
+        "cv.projects.mobile_sgrturnos.title": "SGR-Turnos-Bandec (App Móvil)",
+        "cv.projects.mobile_sgrturnos.desc": "App nativa (Kotlin/Compose) para turnos bancarios: JWT, sincronización offline y notificaciones push."
     },
     en: {
         "cv.title": "Christián Vazquez · Full Stack Developer CV",
@@ -130,6 +132,8 @@ const cvTranslations = {
         "cv.languages.level": "Basic (A2)",
         "cv.footer.tagline": "clean code · scalable architecture · security",
         "cv.button.print": "Print",
-        "cv.button.pdf": "Download PDF"
+        "cv.button.pdf": "Download PDF",
+        "cv.projects.mobile_sgrturnos.title": "SGR-Turnos-Bandec (Mobile App)",
+        "cv.projects.mobile_sgrturnos.desc": "Native app (Kotlin/Compose) for banking queues: JWT auth, offline sync and push notifications.",
     }
 };
