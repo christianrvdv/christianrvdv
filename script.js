@@ -5,7 +5,10 @@ const themeToggle = document.getElementById('themeToggle');
 const htmlElement = document.documentElement;
 
 let savedTheme = null;
-try { savedTheme = localStorage.getItem('theme'); } catch (e) { /* ignore */ }
+try {
+    savedTheme = localStorage.getItem('theme');
+} catch (e) { /* ignore */
+}
 if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     htmlElement.classList.add('dark');
     if (themeToggle) themeToggle.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">light_mode</span>';
@@ -18,11 +21,17 @@ if (themeToggle) {
     themeToggle.addEventListener('click', () => {
         if (htmlElement.classList.contains('dark')) {
             htmlElement.classList.remove('dark');
-            try { localStorage.setItem('theme', 'light'); } catch (e) { /* ignore */ }
+            try {
+                localStorage.setItem('theme', 'light');
+            } catch (e) { /* ignore */
+            }
             themeToggle.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>';
         } else {
             htmlElement.classList.add('dark');
-            try { localStorage.setItem('theme', 'dark'); } catch (e) { /* ignore */ }
+            try {
+                localStorage.setItem('theme', 'dark');
+            } catch (e) { /* ignore */
+            }
             themeToggle.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">light_mode</span>';
         }
     });
@@ -35,7 +44,10 @@ const languageToggle = document.getElementById('languageToggle');
 const languageText = document.querySelector('.language-text');
 
 let currentLang = 'es';
-try { currentLang = localStorage.getItem('language') || 'es'; } catch (e) { /* ignore */ }
+try {
+    currentLang = localStorage.getItem('language') || 'es';
+} catch (e) { /* ignore */
+}
 document.documentElement.lang = currentLang;
 if (languageText) languageText.textContent = currentLang === 'en' ? 'EN' : 'ES';
 
@@ -111,7 +123,7 @@ const translations = {
         "projects.portfolio.type": "Portafolio Profesional",
         "projects.portfolio.title": "Portafolio Profesional Responsive",
         "projects.portfolio.description": "Single Page Application moderna desarrollada con HTML5, CSS3 y JavaScript vanilla. Incluye diseño responsive, tema claro/oscuro persistente, navegación suave, animaciones al scroll, formulario de contacto con Netlify Forms y traducción a inglés.",
-        "projects.demo": "Demo en desarrollo",
+        "projects.demo": "Próximamente (demo en desarrollo)",
         "projects.demo_portfolio": "Ver demo",
         "projects.code": "Código",
 
@@ -264,7 +276,10 @@ const translations = {
 
 function changeLanguage(lang) {
     document.documentElement.lang = lang;
-    try { localStorage.setItem('language', lang); } catch (e) { /* ignore */ }
+    try {
+        localStorage.setItem('language', lang);
+    } catch (e) { /* ignore */
+    }
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
