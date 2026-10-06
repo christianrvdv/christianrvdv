@@ -26,6 +26,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet">
+    <!-- FontAwesome para los iconos de la sección IA -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container transition-colors duration-300">
 
@@ -261,7 +263,7 @@
                     <span data-i18n="skills.title">Habilidades Técnicas</span>
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Tarjetas de habilidades -->
+                    <!-- Lenguajes -->
                     <div class="bento-card p-6 rounded-2xl bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 backdrop-blur-sm hover:shadow-xl transition-all group">
                         <div class="flex items-center gap-3 mb-4">
                             <span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">code</span>
@@ -271,65 +273,103 @@
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.languages.desc">Dominio en los
                             siguientes lenguajes de programación para desarrollo backend y sistemas.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Java (Spring Boot, Android)</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">PHP 8.x</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">JavaScript</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">TypeScript</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">SQL</span>
+                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fab fa-java mr-1.5 text-xs text-primary" aria-hidden="true"></i>Java (Spring Boot, Android)
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fab fa-php mr-1.5 text-xs text-primary" aria-hidden="true"></i>PHP 8.x
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fab fa-js mr-1.5 text-xs text-primary" aria-hidden="true"></i>JavaScript
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-file-code mr-1.5 text-xs text-primary" aria-hidden="true"></i>TypeScript
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>SQL
+                </span>
                         </div>
                     </div>
 
+                    <!-- Frameworks Backend -->
                     <div class="bento-card p-6 rounded-2xl bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 backdrop-blur-sm hover:shadow-xl transition-all group">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="material-symbols-outlined text-3xl text-primary"
-                                  aria-hidden="true">layers</span>
+                <span class="material-symbols-outlined text-3xl text-primary"
+                      aria-hidden="true">layers</span>
                             <h3 class="font-headline-md text-headline-md" data-i18n="skills.frameworks.title">Frameworks
                                 Backend</h3>
                         </div>
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.frameworks.desc">Frameworks
                             principales utilizados en proyectos profesionales y personales.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Symfony 7/8</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Spring Boot 3.x</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Doctrine ORM</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Node.js</span>
+                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fab fa-symfony mr-1.5 text-xs text-primary" aria-hidden="true"></i>Symfony 7/8
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-leaf mr-1.5 text-xs text-primary" aria-hidden="true"></i>Spring Boot 3.x
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>Doctrine ORM
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fab fa-node-js mr-1.5 text-xs text-primary" aria-hidden="true"></i>Node.js
+                </span>
                         </div>
                     </div>
 
+                    <!-- Bases de Datos -->
                     <div class="bento-card p-6 rounded-2xl bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 backdrop-blur-sm hover:shadow-xl transition-all group">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="material-symbols-outlined text-3xl text-primary"
-                                  aria-hidden="true">storage</span>
+                <span class="material-symbols-outlined text-3xl text-primary"
+                      aria-hidden="true">storage</span>
                             <h3 class="font-headline-md text-headline-md" data-i18n="skills.databases.title">Bases de
                                 Datos</h3>
                         </div>
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.databases.desc">Gestión y
                             diseño de bases de datos relacionales y NoSQL.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">MySQL / MariaDB</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">PostgreSQL</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">SQLite</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Redis</span>
+                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>MySQL / MariaDB
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>PostgreSQL
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-file-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>SQLite
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-bolt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Redis
+                </span>
                         </div>
                     </div>
 
+                    <!-- DevOps & Cloud -->
                     <div class="bento-card p-6 rounded-2xl bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 backdrop-blur-sm hover:shadow-xl transition-all group">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="material-symbols-outlined text-3xl text-primary"
-                                  aria-hidden="true">cloud</span>
+                <span class="material-symbols-outlined text-3xl text-primary"
+                      aria-hidden="true">cloud</span>
                             <h3 class="font-headline-md text-headline-md" data-i18n="skills.devops.title">DevOps &
                                 Cloud</h3>
                         </div>
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.devops.desc">Herramientas de
                             contenerización, orquestación y nube.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Docker & Compose</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Nginx / Apache</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">PHP-FPM</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">CI/CD</span>
+                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fab fa-docker mr-1.5 text-xs text-primary" aria-hidden="true"></i>Docker & Compose
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-server mr-1.5 text-xs text-primary" aria-hidden="true"></i>Nginx / Apache
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fab fa-php mr-1.5 text-xs text-primary" aria-hidden="true"></i>PHP-FPM
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-code-branch mr-1.5 text-xs text-primary" aria-hidden="true"></i>CI/CD
+                </span>
                         </div>
                     </div>
 
+                    <!-- Frontend -->
                     <div class="bento-card p-6 rounded-2xl bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 backdrop-blur-sm hover:shadow-xl transition-all group">
                         <div class="flex items-center gap-3 mb-4">
                             <span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">web</span>
@@ -339,16 +379,28 @@
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.frontend.desc">Construcción de
                             interfaces funcionales y responsivas con herramientas modernas.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">HTML5 / CSS3</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Tailwind CSS</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">React</span>
-                            <!-- NUEVO -->
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Alpine.js</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Twig / Stimulus</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Leaflet.js</span>
+                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fab fa-html5 mr-1.5 text-xs text-primary" aria-hidden="true"></i>HTML5 / CSS3
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fab fa-css3-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Tailwind CSS
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fab fa-react mr-1.5 text-xs text-primary" aria-hidden="true"></i>React
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-mountain mr-1.5 text-xs text-primary" aria-hidden="true"></i>Alpine.js
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-code mr-1.5 text-xs text-primary" aria-hidden="true"></i>Twig / Stimulus
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-map-marked-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Leaflet.js
+                </span>
                         </div>
                     </div>
 
+                    <!-- Arquitectura & Seguridad -->
                     <div class="bento-card p-6 rounded-2xl bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 backdrop-blur-sm hover:shadow-xl transition-all group">
                         <div class="flex items-center gap-3 mb-4">
                             <span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">account_tree</span>
@@ -358,33 +410,57 @@
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.architecture.desc">Patrones de
                             diseño, microservicios, autenticación avanzada y buenas prácticas.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Microservicios (Kong)</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">JWT / OAuth2</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">2FA / Google Authenticator</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Rate Limiting</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Stripe (payments)</span>
+                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-network-wired mr-1.5 text-xs text-primary" aria-hidden="true"></i>Microservicios (Kong)
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-shield-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>JWT / OAuth2
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-key mr-1.5 text-xs text-primary" aria-hidden="true"></i>2FA / Google Authenticator
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-tachometer-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Rate Limiting
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-credit-card mr-1.5 text-xs text-primary" aria-hidden="true"></i>Stripe (payments)
+                </span>
                         </div>
                     </div>
 
                     <!-- AI-Assisted Development -->
                     <div class="bento-card p-6 rounded-2xl bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 backdrop-blur-sm hover:shadow-xl transition-all group">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="material-symbols-outlined text-3xl text-primary"
-                                  aria-hidden="true">robot_2</span>
-                            <h3 class="font-headline-md text-headline-md" data-i18n="skills.ai.title">AI-Assisted
-                                Development</h3>
+                            <span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">robot_2</span>
+                            <h3 class="font-headline-md text-headline-md" data-i18n="skills.ai.title">Desarrollo Asistido por IA</h3>
                         </div>
-                        <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.ai.desc">Integración de
-                            asistentes de IA en el flujo de trabajo para acelerar el desarrollo, mejorar la calidad del
-                            código y automatizar tareas repetitivas.</p>
+                        <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.ai.desc">
+                            Configuro entornos de desarrollo agéntico (harness engineering) y uso agentes de terminal para acelerar el ciclo de desarrollo, mejorar la calidad del código y automatizar tareas repetitivas.
+                        </p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">Claude Code</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium"
-                                  data-i18n="skills.ai.chatgpt">ChatGPT / Claude</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium"
-                                  data-i18n="skills.ai.copilot">GitHub Copilot</span>
-                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium"
-                                  data-i18n="skills.ai.prompt">Prompt Engineering</span>
+                            <!-- Agentes de terminal -->
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium border border-primary/30 dark:border-primary/40 text-primary dark:text-primary">
+                    <i class="fas fa-terminal mr-1.5 text-xs" aria-hidden="true"></i>Claude Code
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium border border-accent/30 dark:border-accent/40 text-accent dark:text-accent">
+                    <i class="fas fa-terminal mr-1.5 text-xs" aria-hidden="true"></i>OpenCode
+                </span>
+
+                            <!-- Configuración de agentes -->
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-cog mr-1.5 text-xs text-primary" aria-hidden="true"></i>Skills
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-cubes mr-1.5 text-xs text-accent" aria-hidden="true"></i>Harness Engineering
+                </span>
+
+                            <!-- Asistentes en IDE -->
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-code mr-1.5 text-xs text-primary" aria-hidden="true"></i>GitHub Copilot
+                </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                    <i class="fas fa-pen-fancy mr-1.5 text-xs text-accent" aria-hidden="true"></i>Prompt Engineering
+                </span>
                         </div>
                     </div>
                 </div>
