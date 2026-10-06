@@ -1,14 +1,17 @@
 [build]
   publish = "."
+  [build.environment]
+    NODE_VERSION = "20"
 
-# Manejo de formularios - configuración específica
-[build.environment]
-  NODE_VERSION = "18"
-
-# Redirección para SPA
+# Redirecciones específicas (NO catch-all para no romper CV/PDF/imágenes)
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/cv"
+  to = "/cv_christian.html"
+  status = 200
+
+[[redirects]]
+  from = "/cv-en"
+  to = "/cv_christian.html?lang=en"
   status = 200
 
 # Headers de seguridad
@@ -16,6 +19,23 @@
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache de imágenes
+[[headers]]
+  for = "/imagen/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache de CSS/JS
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

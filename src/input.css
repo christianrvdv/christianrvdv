@@ -29,7 +29,6 @@
     --color-on-surface-variant-rgb: 60, 74, 69;
     --color-primary-rgb: 26, 188, 156;
     --color-accent-rgb: 124, 92, 252;
-    /* ✅ NUEVAS (necesarias para las opacidades) */
     --color-on-primary-rgb: 255, 255, 255;
     --color-primary-container-rgb: 26, 188, 156;
 
@@ -89,7 +88,8 @@
     --color-surface-container: #1a2332;
     --color-on-surface: #e2e8f0;
     --color-on-surface-variant: #94a3b8;
-    --color-outline: #334155;
+    /* ✅ FIX: solo una declaración (antes había duplicado) */
+    --color-outline: #475569;
     --color-white-alpha-10: rgba(255, 255, 255, 0.1);
 
     /* Variables RGB (modo oscuro) */
@@ -101,7 +101,6 @@
     --color-on-surface-variant-rgb: 148, 163, 184;
     --color-primary-rgb: 26, 188, 156;
     --color-accent-rgb: 124, 92, 252;
-    /* ✅ NUEVAS (necesarias para las opacidades) */
     --color-on-primary-rgb: 0, 32, 25;
     --color-primary-container-rgb: 26, 188, 156;
 
@@ -110,7 +109,6 @@
     --color-surface-variant: #1e293b;
     --color-on-primary-container: #6ee7b7;
     --color-inverse-primary: #4eddbb;
-    --color-outline: #475569;
     --color-primary-container: #1abc9c;
     --color-on-primary: #002019;
     --color-secondary: #38bdf8;
@@ -247,6 +245,7 @@
     .focus-ring {
         outline: none;
     }
+
     .focus-ring:focus-visible {
         outline: 2px solid var(--color-primary);
         outline-offset: 2px;
