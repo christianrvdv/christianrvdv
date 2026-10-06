@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title data-i18n="cv.title">Christián Vazquez · Full Stack Developer CV</title>
 
-    <!-- ✅ NUEVO: theme-color -->
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Fuentes e iconos -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="estilo.css">
@@ -150,6 +151,11 @@
         .contact-grid a {
             color: inherit;
             text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-grid a:hover {
+            color: var(--accent);
         }
 
         .cv-body {
@@ -351,7 +357,6 @@
             color: white;
         }
 
-        /* Utilidades */
         .text-sm {
             font-size: 0.8rem;
         }
@@ -408,7 +413,6 @@
             margin-top: 1rem;
         }
 
-        /* Responsive pantalla */
         @media screen and (max-width: 768px) {
             body {
                 padding: 0.5rem;
@@ -477,7 +481,6 @@
             }
         }
 
-        /* ========== IMPRESIÓN (Estudios ancho completo 2 col, Proyectos 3 col) ========== */
         @media print {
             @page {
                 size: A4;
@@ -745,10 +748,10 @@
             </div>
         </div>
         <div class="contact-grid">
-            <span><i class="far fa-envelope"></i> christianrvdv.1999@gmail.com</span>
-            <span><i class="fab fa-github"></i> github.com/Christianrvdv</span>
-            <span><i class="fas fa-briefcase"></i> christianrvdv.netlify.app</span>
-            <span><i class="fas fa-phone-alt"></i> (+53) 56449593</span>
+            <a href="mailto:christianrvdv.1999@gmail.com"><i class="far fa-envelope"></i> christianrvdv.1999@gmail.com</a>
+            <a href="https://github.com/Christianrvdv" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> github.com/Christianrvdv</a>
+            <a href="https://christianrvdv.netlify.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-briefcase"></i> christianrvdv.netlify.app</a>
+            <a href="tel:+5356449593"><i class="fas fa-phone-alt"></i> (+53) 56449593</a>
             <span class="col-span-2"><i class="fas fa-map-marker-alt"></i> Jatibonico, Sancti Spíritus, Cuba</span>
         </div>
     </header>
@@ -768,7 +771,6 @@
             <section style="margin-bottom: 1.75rem;">
                 <div class="section-header"><h2 data-i18n="cv.experience.title">Experiencia</h2></div>
                 <div class="space-y-4">
-                    <!-- Freelance -->
                     <div>
                         <div class="flex flex-wrap justify-between items-start">
                             <div>
@@ -786,7 +788,6 @@
                         </ul>
                     </div>
 
-                    <!-- Junior -->
                     <div>
                         <div class="flex flex-wrap justify-between items-start">
                             <div>
@@ -804,7 +805,6 @@
                         </ul>
                     </div>
 
-                    <!-- Intern -->
                     <div>
                         <div class="flex flex-wrap justify-between items-start">
                             <div>
@@ -878,6 +878,14 @@
                         <span class="text-xs text-slate-400" data-i18n="cv.projects.demo">(demo en desarrollo)</span>
                     </div>
                     <div class="bento-card">
+                        <h5><span data-i18n="cv.projects.sgrweb.title">SGR-Turnos Web</span> <span class="badge">React 19</span></h5>
+                        <p data-i18n="cv.projects.sgrweb.desc">SPA con React 19, Vite 8 y TypeScript para reserva de
+                            turnos bancarios. TanStack Query v5, Zustand, rutas protegidas, JWT refresh deduplicado,
+                            formularios con React Hook Form + Zod y dark mode.</p>
+                        <a href="https://github.com/christianrvdv/sgr-turnos-react-web" target="_blank"
+                           class="card-link"><i class="fab fa-github"></i> github.com/christianrvdv/sgr-turnos-react-web</a>
+                    </div>
+                    <div class="bento-card">
                         <h5><span data-i18n="cv.projects.comerciolocal.title">ComercioLocal</span> <span class="badge">SaaS</span>
                         </h5>
                         <p data-i18n="cv.projects.comerciolocal.desc">Plataforma e‑commerce con Stripe, OAuth2, 2FA,
@@ -938,7 +946,6 @@
                             <span class="skill-tag"><i class="fas fa-leaf"></i> Spring Boot 3</span>
                             <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
                             <span class="skill-tag"><i class="fas fa-file-code"></i> TypeScript</span>
-                            <!-- ✅ NUEVO: Node.js -->
                             <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
                             <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
                         </div>
@@ -1014,7 +1021,6 @@
 <script src="cv-translations.js"></script>
 <script>
     (function () {
-        // ✅ FIX: localStorage con try/catch (evita romper el CV si el usuario tiene cookies bloqueadas)
         let lang = 'es';
         try {
             lang = localStorage.getItem('language') || 'es';
@@ -1026,7 +1032,13 @@
             const t = cvTranslations[lang] || cvTranslations.es;
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (t[key] !== undefined) el.innerHTML = t[key];
+                if (t[key] !== undefined) {
+                    if (el.tagName === 'TITLE') {
+                        el.textContent = t[key];
+                    } else {
+                        el.innerHTML = t[key];
+                    }
+                }
             });
             const pdfLink = document.getElementById('cv-pdf-link');
             if (pdfLink) pdfLink.href = lang === 'en' ? 'cv_christian_vazquez_en.pdf' : 'cv_christian_vazquez.pdf';

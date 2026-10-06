@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html class="scroll-smooth dark" lang="es">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ✅ NUEVO: anti-FOUC (evita flash de tema incorrecto) -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                var isDark = t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches);
+                document.documentElement.classList.toggle('dark', isDark);
+            } catch (e) { /* ignore */
+            }
+        })();
+    </script>
+
     <title>Christián R. Vazquez | Full Stack Developer</title>
     <meta name="description"
-          content="Portafolio profesional de Christián R. Vazquez, Desarrollador Backend especializado en Java, PHP y Symfony">
+          content="Portafolio profesional de Christián R. Vazquez, Full Stack Developer especializado en Java, PHP, Symfony, Node.js y React">
 
     <!-- Open Graph / Redes sociales -->
     <meta property="og:type" content="website">
@@ -13,7 +26,7 @@
     <meta property="og:description"
           content="Especializado en sistemas distribuidos, microservicios de alto rendimiento y arquitecturas escalables.">
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/61900349?s=400&v=4">
-    <meta property="og:url" content="https://christianvazquez.dev">
+    <meta property="og:url" content="https://christianrvdv.netlify.app">
     <meta property="og:locale" content="es_ES">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Christián R. Vazquez | Full Stack Developer">
@@ -21,37 +34,38 @@
           content="Especializado en sistemas distribuidos, microservicios de alto rendimiento y arquitecturas escalables.">
     <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/61900349?s=400&v=4">
 
-    <!-- ✅ NUEVO: theme-color para barra del navegador móvil -->
     <meta name="theme-color" content="#0a0f1a" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#fbf9f8" media="(prefers-color-scheme: light)">
 
+    <link rel="canonical" href="https://christianrvdv.netlify.app/">
+
+    <!-- ✅ NUEVO: preconnect para fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="estilo.css" rel="stylesheet">
-    <!-- Solo fuente Inter (Fira Code eliminada) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- ✅ Inter variable font (mismo que cv_christian.html) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet">
-    <!-- FontAwesome para los iconos de la sección IA -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container transition-colors duration-300">
 
-<!-- Enlace de salto para teclado -->
 <a href="#main-content"
    class="skip-link sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-on-primary focus:rounded-md">
     Saltar al contenido principal
 </a>
 
-<!-- Header / Navbar con sticky reveal -->
 <header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-500" role="banner">
     <nav class="bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl border-b border-white/10 dark:border-white/5 shadow-lg shadow-black/5"
          aria-label="Navegación principal">
         <div class="flex justify-between items-center h-16 px-margin_mobile md:px-margin_desktop max-w-container_max_width mx-auto">
             <div class="font-headline-md text-headline-md font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
                  data-i18n="logo">
-                BackendDev
+                FullStack
             </div>
             <div class="hidden md:flex gap-8 items-center font-body-md text-body-md">
-                <!-- Enlace actualizado a #about-detail -->
                 <a class="nav-link text-primary font-bold border-b-2 border-primary pb-1 cursor-pointer focus-ring"
                    href="#about-detail" data-i18n="nav.about">Sobre mí</a>
                 <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer focus-ring"
@@ -82,7 +96,6 @@
         <div id="mobileMenu"
              class="mobile-menu md:hidden bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md border-t border-white/10 dark:border-white/5 hidden">
             <nav class="flex flex-col gap-2 px-margin_mobile py-4" aria-label="Navegación móvil">
-                <!-- Enlace actualizado a #about-detail -->
                 <a class="nav-link-mobile text-primary font-bold py-2 focus-ring" href="#about-detail"
                    data-i18n="nav.about">Sobre mí</a>
                 <a class="nav-link-mobile text-on-surface-variant py-2 focus-ring" href="#skills"
@@ -102,7 +115,7 @@
     <!-- Hero Section -->
     <section
             class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-margin_mobile md:px-margin_desktop"
-            id="about">
+            id="hero">
         <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-60 -z-10"></div>
         <div class="relative z-10 max-w-4xl text-center">
             <!-- Foto de perfil para móvil -->
@@ -116,7 +129,7 @@
                 </div>
             </div>
 
-            <!-- Foto de perfil para escritorio (tamaño mediano) -->
+            <!-- Foto de perfil para escritorio -->
             <div class="hidden lg:block mb-8 opacity-0 translate-y-4 transition-all duration-700"
                  data-animate>
                 <div class="w-40 h-40 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-surface dark:ring-offset-surface-dim mx-auto shadow-xl shadow-primary/20">
@@ -176,12 +189,11 @@
                 </div>
                 <div>
                     <h3 class="font-headline-md text-headline-md text-primary">Christián V.</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant" data-i18n="profile.title">Backend
-                        Architect</p>
+                    <p class="font-body-md text-body-md text-on-surface-variant" data-i18n="profile.title">Full Stack
+                        Developer</p>
                 </div>
             </div>
             <nav class="flex flex-col gap-4" aria-label="Secciones del portafolio">
-                <!-- Enlace actualizado a #about-detail -->
                 <a class="side-link flex items-center gap-4 text-primary font-bold border-l-2 border-primary pl-4 hover:translate-x-1 transition-all duration-200 focus-ring"
                    href="#about-detail" aria-current="page">
                     <span class="material-symbols-outlined" aria-hidden="true">person</span> <span
@@ -249,10 +261,7 @@
                         Centro de Desarrollo Local (2021-2024) y actualmente desarrollo proyectos independientes de alta
                         complejidad, como sistemas de turnos bancarios y plataformas SaaS con Stripe y autenticación
                         OAuth2/2FA.</p>
-                    <p data-i18n="about.paragraph3">Mi experiencia se centra en backend con Java (Spring Boot) y PHP
-                        (Symfony 7/8). Domino frameworks como Doctrine ORM, y también construyo interfaces modernas con
-                        Tailwind CSS, Alpine.js, Twig y JavaScript vanilla. Me adapto a entornos full-stack cuando el
-                        proyecto lo requiere.</p>
+                    <p data-i18n="about.paragraph3">Mi experiencia se especializa en el desarrollo backend con Java (Spring Boot), PHP (Symfony 7/8) y Node.js, dominando frameworks como Doctrine ORM. Además, poseo sólidos conocimientos en frontend, construyendo interfaces modernas y reactivas con Tailwind CSS, Alpine.js, React, Twig y JavaScript vanilla. Esta versatilidad me permite adaptarme a entornos full-stack cuando el proyecto lo demanda.</p>
                     <p data-i18n="about.paragraph4">Actualmente curso una Maestría en Informática Aplicada para
                         profundizar en arquitecturas distribuidas y sistemas de alta concurrencia, demostrando mi
                         compromiso con el crecimiento continuo.</p>
@@ -276,8 +285,7 @@
                             <h3 class="font-headline-md text-headline-md" data-i18n="skills.languages.title">
                                 Lenguajes</h3>
                         </div>
-                        <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.languages.desc">Dominio en los
-                            siguientes lenguajes de programación para desarrollo backend y sistemas.</p>
+                        <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.languages.desc">Dominio en lenguajes de programación y runtimes (Node.js) para desarrollo backend y sistemas.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
                                 <i class="fab fa-java mr-1.5 text-xs text-primary" aria-hidden="true"></i>Java (Spring Boot, Android)
@@ -291,7 +299,6 @@
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
                                 <i class="fas fa-file-code mr-1.5 text-xs text-primary" aria-hidden="true"></i>TypeScript
                             </span>
-                            <!-- ✅ NUEVO: Node.js -->
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
                                 <i class="fab fa-node-js mr-1.5 text-xs text-primary" aria-hidden="true"></i>Node.js
                             </span>
@@ -309,8 +316,7 @@
                             <h3 class="font-headline-md text-headline-md" data-i18n="skills.frameworks.title">Frameworks
                                 Backend</h3>
                         </div>
-                        <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.frameworks.desc">Frameworks
-                            principales utilizados en proyectos profesionales y personales.</p>
+                        <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.frameworks.desc">Frameworks y runtimes principales utilizados en proyectos profesionales y personales, incluyendo Node.js.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
                                 <i class="fab fa-symfony mr-1.5 text-xs text-primary" aria-hidden="true"></i>Symfony 7/8
@@ -452,23 +458,18 @@
                             repetitivas.
                         </p>
                         <div class="flex flex-wrap gap-2">
-                            <!-- Agentes de terminal -->
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium border border-primary/30 dark:border-primary/40 text-primary dark:text-primary">
                                 <i class="fas fa-terminal mr-1.5 text-xs" aria-hidden="true"></i>Claude Code
                             </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium border border-accent/30 dark:border-accent/40 text-accent dark:text-accent">
                                 <i class="fas fa-terminal mr-1.5 text-xs" aria-hidden="true"></i>OpenCode
                             </span>
-
-                            <!-- Configuración de agentes -->
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
                                 <i class="fas fa-cog mr-1.5 text-xs text-primary" aria-hidden="true"></i>Skills
                             </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
                                 <i class="fas fa-cubes mr-1.5 text-xs text-accent" aria-hidden="true"></i>Harness Engineering
                             </span>
-
-                            <!-- Asistentes en IDE -->
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
                                 <i class="fas fa-code mr-1.5 text-xs text-primary" aria-hidden="true"></i>GitHub Copilot
                             </span>
@@ -539,10 +540,7 @@
                         <h4 class="text-on-surface-variant font-body-md mb-4" data-i18n="experience.freelance.company">
                             Freelance / Proyectos Independientes</h4>
                         <p class="text-on-surface-variant font-body-md max-w-2xl"
-                           data-i18n="experience.freelance.description">Desarrollo de aplicaciones web robustas
-                            utilizando Symfony y Spring Boot. Implementación de APIs RESTful, diseño de bases de datos
-                            MySQL, y creación de arquitecturas escalables. Colaboración en el ciclo completo de
-                            desarrollo desde el análisis hasta el despliegue.</p>
+                           data-i18n="experience.freelance.description">Desarrollo de aplicaciones web robustas utilizando Symfony, Spring Boot y Node.js. Implementación de APIs RESTful, diseño de bases de datos MySQL, y creación de arquitecturas escalables. Colaboración en el ciclo completo de desarrollo desde el análisis hasta el despliegue.</p>
                     </div>
                     <div class="relative pl-8 group">
                         <div class="absolute -left-[4px] top-0.5 w-[8px] h-[8px] bg-white/20 group-hover:bg-primary transition-colors rounded-full"
@@ -680,6 +678,45 @@
                         </div>
                     </div>
 
+                    <!-- SGR-Turnos Web (React) -->
+                    <div class="group rounded-2xl overflow-hidden bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 flex flex-col h-full bento-card backdrop-blur-sm">
+                        <div class="h-48 relative overflow-hidden bg-gradient-to-br from-accent/20 to-primary/20"
+                             aria-hidden="true">
+                            <div class="absolute inset-0 bg-gradient-to-t from-surface-container/80 to-transparent"></div>
+                            <div class="absolute bottom-4 left-6">
+                                <span class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md text-accent dark:text-accent px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border border-accent/30 dark:border-accent/40 shadow-lg"
+                                      data-i18n="projects.sgrweb.type">Frontend React + TypeScript</span>
+                            </div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <h3 class="font-headline-md text-headline-md mb-3" data-i18n="projects.sgrweb.title">
+                                SGR-Turnos Web – Reservas Bancarias</h3>
+                            <p class="text-on-surface-variant font-body-md mb-6 flex-1"
+                               data-i18n="projects.sgrweb.description">
+                                SPA desarrollada con React 19, Vite 8 y TypeScript para la reserva de turnos bancarios.
+                                Implementa TanStack Query v5 para server state con caching y deduplicación, Zustand para
+                                estado del cliente con persistencia, rutas protegidas con React Router 7, refresh de JWT
+                                deduplicado (una sola petición para 401 concurrentes), formularios con React Hook Form +
+                                Zod y dark mode con estrategia de clase en Tailwind. Consume la API Symfony 8 del backend
+                                SGR-Turnos vía Axios con interceptores de refresh silencioso.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-white/5 dark:bg-white/5 px-3 py-1 rounded-lg text-label-sm font-label-sm border border-white/10 dark:border-white/5">React 19</span>
+                                <span class="bg-white/5 dark:bg-white/5 px-3 py-1 rounded-lg text-label-sm font-label-sm border border-white/10 dark:border-white/5">Vite 8</span>
+                                <span class="bg-white/5 dark:bg-white/5 px-3 py-1 rounded-lg text-label-sm font-label-sm border border-white/10 dark:border-white/5">TypeScript</span>
+                                <span class="bg-white/5 dark:bg-white/5 px-3 py-1 rounded-lg text-label-sm font-label-sm border border-white/10 dark:border-white/5">TanStack Query v5</span>
+                                <span class="bg-white/5 dark:bg-white/5 px-3 py-1 rounded-lg text-label-sm font-label-sm border border-white/10 dark:border-white/5">Zustand</span>
+                                <span class="bg-white/5 dark:bg-white/5 px-3 py-1 rounded-lg text-label-sm font-label-sm border border-white/10 dark:border-white/5">React Router 7</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/christianrvdv/sgr-turnos-react-web" target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors focus-ring"
+                                   data-i18n="projects.code">Código</a>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- ComercioLocal -->
                     <div class="group rounded-2xl overflow-hidden bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 flex flex-col h-full bento-card backdrop-blur-sm">
                         <div class="h-48 relative overflow-hidden">
@@ -813,7 +850,7 @@
                         </div>
                     </div>
 
-                    <!-- Microservicios biblioteca (SIN IMAGEN - FONDO GRADIENTE) -->
+                    <!-- Microservicios biblioteca -->
                     <div class="group rounded-2xl overflow-hidden bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 flex flex-col h-full bento-card backdrop-blur-sm">
                         <div class="h-48 relative overflow-hidden bg-gradient-to-br from-primary/20 to-surface-dim/20"
                              aria-hidden="true">
@@ -849,7 +886,7 @@
                         </div>
                     </div>
 
-                    <!-- App Móvil BANCEC (SIN IMAGEN - FONDO GRADIENTE) -->
+                    <!-- App Móvil BANCEC -->
                     <div class="group rounded-2xl overflow-hidden bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 flex flex-col h-full bento-card backdrop-blur-sm">
                         <div class="h-48 relative overflow-hidden bg-gradient-to-br from-accent/20 to-surface-dim/20"
                              aria-hidden="true">
@@ -885,7 +922,7 @@
                         </div>
                     </div>
 
-                    <!-- Este sitio (portafolio actual) -->
+                    <!-- Este sitio -->
                     <div class="group rounded-2xl overflow-hidden bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 flex flex-col h-full bento-card backdrop-blur-sm">
                         <div class="h-48 relative overflow-hidden">
                             <img
@@ -930,7 +967,7 @@
                         </div>
                     </div>
 
-                    <!-- Portafolio profesional (anterior) -->
+                    <!-- Portafolio anterior -->
                     <div class="group rounded-2xl overflow-hidden bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 flex flex-col h-full bento-card backdrop-blur-sm">
                         <div class="h-48 relative overflow-hidden">
                             <img
@@ -981,7 +1018,6 @@
     </div>
 </main>
 
-<!-- FOOTER MEJORADO -->
 <footer class="w-full border-t border-white/10 bg-surface-container/30 dark:bg-surface-dim/30 backdrop-blur-md mt-24"
         role="contentinfo">
     <div class="max-w-container_max_width mx-auto px-margin_mobile md:px-margin_desktop py-8">

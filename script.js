@@ -53,7 +53,7 @@ if (languageText) languageText.textContent = currentLang === 'en' ? 'EN' : 'ES';
 
 const translations = {
     es: {
-        "logo": "FullStark",
+        "logo": "FullStack",
         "nav.about": "Sobre mí",
         "nav.study": "Estudios",
         "nav.experience": "Experiencia",
@@ -103,6 +103,9 @@ const translations = {
         "projects.sgrturnos.type": "Sistema Backend Avanzado",
         "projects.sgrturnos.title": "SGR-Turnos - Gestión de Turnos Bancarios",
         "projects.sgrturnos.description": "Sistema integral de gestión y reserva de turnos bancarios desarrollado con Symfony 8 para eliminar la especulación en filas. Incluye control de frecuencia anti-colero, calendario avanzado, auditoría exhaustiva, JWT authentication, rate limiting y exportación a Excel. Optimizado para entornos de alta concurrencia en redes locales.",
+        "projects.sgrweb.type": "Frontend React + TypeScript",
+        "projects.sgrweb.title": "SGR-Turnos Web – Reservas Bancarias",
+        "projects.sgrweb.description": "SPA desarrollada con React 19, Vite 8 y TypeScript para la reserva de turnos bancarios. Implementa TanStack Query v5 para server state con caching y deduplicación, Zustand para estado del cliente con persistencia, rutas protegidas con React Router 7, refresh de JWT deduplicado (una sola petición para 401 concurrentes), formularios con React Hook Form + Zod y dark mode con estrategia de clase en Tailwind. Consume la API Symfony 8 del backend SGR-Turnos vía Axios con interceptores de refresh silencioso.",
         "projects.comerciolocal.type": "SaaS / E-commerce",
         "projects.comerciolocal.title": "ComercioLocal - Plataforma E-commerce",
         "projects.comerciolocal.description": "Plataforma SaaS completa para comercios locales. Implementa pasarela de pagos Stripe, autenticación social OAuth2 (Google/Facebook), 2FA con Google Authenticator, catálogos de productos, carrito de compras y panel de administración. Backend Symfony 7.4, frontend con Tailwind, Alpine.js y Stimulus.",
@@ -151,19 +154,12 @@ const translations = {
         "skills.architecture.desc": "Patrones de diseño, microservicios, autenticación avanzada y buenas prácticas.",
         "skills.ai.title": "Desarrollo Asistido por IA",
         "skills.ai.desc": "Configuro entornos de desarrollo agéntico (harness engineering) y uso agentes de terminal para acelerar el ciclo de desarrollo, mejorar la calidad del código y automatizar tareas repetitivas.",
-        "skills.ai.chatgpt": "ChatGPT / Claude",
-        "skills.ai.copilot": "GitHub Copilot",
-        "skills.ai.prompt": "Ingeniería de Prompts",
 
         "footer.brand": "Full Stack Developer",
-        "footer.copyright": "© 2025 Christián R. Vazquez. Construido con precisión y lógica.",
-        "footer.privacy": "Privacidad",
-        "footer.terms": "Términos",
-        "footer.github": "GitHub",
-        "footer.telegram": "Telegram"
+        "footer.copyright": "© 2025 Christián R. Vazquez. Construido con precisión y lógica."
     },
     en: {
-        "logo": "FullStark",
+        "logo": "FullStack",
         "nav.about": "About Me",
         "nav.study": "Education",
         "nav.experience": "Experience",
@@ -213,6 +209,9 @@ const translations = {
         "projects.sgrturnos.type": "Advanced Backend System",
         "projects.sgrturnos.title": "SGR-Turnos - Banking Queue Management",
         "projects.sgrturnos.description": "Comprehensive banking queue management system developed with Symfony 8 to eliminate speculation in lines. Includes anti-queue frequency control, advanced calendar, exhaustive audit logging, JWT authentication, rate limiting, and Excel export. Optimized for high-concurrency local network environments.",
+        "projects.sgrweb.type": "React + TypeScript Frontend",
+        "projects.sgrweb.title": "SGR-Turnos Web – Banking Reservations",
+        "projects.sgrweb.description": "SPA built with React 19, Vite 8 and TypeScript for banking appointment booking. Implements TanStack Query v5 for server state with caching and deduplication, Zustand for client state with persistence, protected routes with React Router 7, deduplicated JWT refresh (a single request for concurrent 401s), forms with React Hook Form + Zod, and dark mode using Tailwind's class strategy. Consumes the Symfony 8 API from the SGR-Turnos backend via Axios with silent refresh interceptors.",
         "projects.comerciolocal.type": "SaaS / E-commerce",
         "projects.comerciolocal.title": "ComercioLocal - E-commerce Platform",
         "projects.comerciolocal.description": "Complete SaaS platform for local businesses. Implements Stripe payment gateway, OAuth2 social login (Google/Facebook), 2FA with Google Authenticator, product catalogs, shopping cart, and admin panel. Backend Symfony 7.4, frontend with Tailwind, Alpine.js, and Stimulus.",
@@ -261,16 +260,9 @@ const translations = {
         "skills.architecture.desc": "Design patterns, microservices, advanced authentication, and best practices.",
         "skills.ai.title": "AI-Assisted Development",
         "skills.ai.desc": "I configure agentic development environments (harness engineering) and use terminal agents to accelerate the development cycle, improve code quality, and automate repetitive tasks.",
-        "skills.ai.chatgpt": "ChatGPT / Claude",
-        "skills.ai.copilot": "GitHub Copilot",
-        "skills.ai.prompt": "Prompt Engineering",
 
         "footer.brand": "Full Stack Developer",
-        "footer.copyright": "© 2025 Christián R. Vazquez. Built with precision and logic.",
-        "footer.privacy": "Privacy",
-        "footer.terms": "Terms",
-        "footer.github": "GitHub",
-        "footer.telegram": "Telegram"
+        "footer.copyright": "© 2025 Christián R. Vazquez. Built with precision and logic."
     }
 };
 
@@ -283,7 +275,11 @@ function changeLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-            el.textContent = translations[lang][key];
+            if (el.tagName === 'TITLE') {
+                el.textContent = translations[lang][key];
+            } else {
+                el.innerHTML = translations[lang][key];
+            }
         }
     });
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
@@ -294,7 +290,6 @@ function changeLanguage(lang) {
     });
     if (languageText) languageText.textContent = lang === 'en' ? 'EN' : 'ES';
 
-    // ✅ FIX C: Anuncio a lectores de pantalla al cambiar idioma
     const liveRegion = document.createElement('div');
     liveRegion.setAttribute('role', 'status');
     liveRegion.setAttribute('aria-live', 'polite');
@@ -404,7 +399,6 @@ if (backToTop) {
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const sections = document.querySelectorAll('section');
 
-// ✅ FIX B: threshold y rootMargin ajustados
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -452,7 +446,9 @@ function updateActiveNavLink(activeId) {
         link.classList.remove('text-primary', 'dark:text-primary-fixed', 'font-bold', 'border-b-2', 'border-primary', 'dark:border-primary-fixed', 'border-l-2', 'pl-4', 'pb-1');
         link.classList.add('text-on-surface-variant');
 
-        if (href === activeId || href === `#${activeId}`) {
+        const normalizedHref = (href || '').replace(/^#/, '');
+        const normalizedId = (activeId || '').replace(/^#/, '');
+        if (normalizedHref && normalizedHref === normalizedId) {
             link.classList.add('text-primary', 'dark:text-primary-fixed', 'font-bold');
             link.classList.remove('text-on-surface-variant', 'dark:text-surface-variant');
             link.setAttribute('aria-current', 'page');
@@ -470,8 +466,12 @@ function updateActiveOnScroll() {
     let current = '';
     const scrollPos = window.scrollY + 150;
     sections.forEach(section => {
+        const id = section.getAttribute('id');
+        if (!id) return;
+        const hasNavLink = document.querySelector(`.nav-link[href="#${id}"], .side-link[href="#${id}"], .nav-link-mobile[href="#${id}"]`);
+        if (!hasNavLink) return;
         const top = section.offsetTop, height = section.clientHeight;
-        if (scrollPos >= top && scrollPos < top + height) current = section.getAttribute('id');
+        if (scrollPos >= top && scrollPos < top + height) current = id;
     });
     if (current) updateActiveNavLink(current);
 }
