@@ -46,4 +46,6 @@ pnpm-debug.log*
 # TAILWIND (opcional)
 # ============================================
 # Descomenta si generas CSS en carpeta separada
-# .tailwind-cache/
+# .tailwind-cache/.
+
+.idea/
