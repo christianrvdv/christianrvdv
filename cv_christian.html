@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title data-i18n="cv.title">Christián Vazquez · Full Stack Developer CV</title>
+
+    <!-- ✅ NUEVO: theme-color -->
+    <meta name="theme-color" content="#ffffff">
+
     <!-- Fuentes e iconos -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
           rel="stylesheet">
@@ -1008,7 +1012,12 @@
 <script src="cv-translations.js"></script>
 <script>
     (function () {
-        const lang = localStorage.getItem('language') || 'es';
+        // ✅ FIX: localStorage con try/catch (evita romper el CV si el usuario tiene cookies bloqueadas)
+        let lang = 'es';
+        try {
+            lang = localStorage.getItem('language') || 'es';
+        } catch (e) { /* ignore */
+        }
         document.documentElement.lang = lang;
 
         function applyTranslations(lang) {

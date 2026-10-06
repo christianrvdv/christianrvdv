@@ -4,7 +4,8 @@
 const themeToggle = document.getElementById('themeToggle');
 const htmlElement = document.documentElement;
 
-const savedTheme = localStorage.getItem('theme');
+let savedTheme = null;
+try { savedTheme = localStorage.getItem('theme'); } catch (e) { /* ignore */ }
 if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     htmlElement.classList.add('dark');
     if (themeToggle) themeToggle.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">light_mode</span>';
@@ -17,11 +18,11 @@ if (themeToggle) {
     themeToggle.addEventListener('click', () => {
         if (htmlElement.classList.contains('dark')) {
             htmlElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
+            try { localStorage.setItem('theme', 'light'); } catch (e) { /* ignore */ }
             themeToggle.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>';
         } else {
             htmlElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
+            try { localStorage.setItem('theme', 'dark'); } catch (e) { /* ignore */ }
             themeToggle.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">light_mode</span>';
         }
     });
@@ -33,7 +34,8 @@ if (themeToggle) {
 const languageToggle = document.getElementById('languageToggle');
 const languageText = document.querySelector('.language-text');
 
-const currentLang = localStorage.getItem('language') || 'es';
+let currentLang = 'es';
+try { currentLang = localStorage.getItem('language') || 'es'; } catch (e) { /* ignore */ }
 document.documentElement.lang = currentLang;
 if (languageText) languageText.textContent = currentLang === 'en' ? 'EN' : 'ES';
 
@@ -262,7 +264,7 @@ const translations = {
 
 function changeLanguage(lang) {
     document.documentElement.lang = lang;
-    localStorage.setItem('language', lang);
+    try { localStorage.setItem('language', lang); } catch (e) { /* ignore */ }
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
@@ -276,6 +278,15 @@ function changeLanguage(lang) {
         }
     });
     if (languageText) languageText.textContent = lang === 'en' ? 'EN' : 'ES';
+
+    // ✅ FIX C: Anuncio a lectores de pantalla al cambiar idioma
+    const liveRegion = document.createElement('div');
+    liveRegion.setAttribute('role', 'status');
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.className = 'sr-only';
+    liveRegion.textContent = lang === 'es' ? 'Idioma cambiado a español' : 'Language changed to English';
+    document.body.appendChild(liveRegion);
+    setTimeout(() => liveRegion.remove(), 1500);
 }
 
 changeLanguage(currentLang);
@@ -288,13 +299,12 @@ if (languageToggle) {
 }
 
 // ========================
-// MENÚ MÓVIL (CORRECCIÓN DEFINITIVA)
+// MENÚ MÓVIL
 // ========================
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
 if (mobileMenuBtn && mobileMenu) {
-    // Estado inicial: oculto (hidden presente, sin open)
     mobileMenu.classList.add('hidden');
     mobileMenu.classList.remove('open');
     mobileMenuBtn.setAttribute('aria-expanded', 'false');
@@ -302,12 +312,10 @@ if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
         const isOpen = mobileMenu.classList.contains('open');
         if (isOpen) {
-            // Cerrar
             mobileMenu.classList.add('hidden');
             mobileMenu.classList.remove('open');
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
         } else {
-            // Abrir
             mobileMenu.classList.remove('hidden');
             mobileMenu.classList.add('open');
             mobileMenuBtn.setAttribute('aria-expanded', 'true');
@@ -320,19 +328,16 @@ if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.setAttribute('aria-expanded', 'false');
     };
 
-    // Cerrar al hacer clic en un enlace del menú
     document.querySelectorAll('.nav-link-mobile, .nav-link, .side-link').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
-    // Cerrar al hacer clic fuera del menú
     document.addEventListener('click', (e) => {
         if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
             closeMenu();
         }
     });
 
-    // Cerrar con tecla Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
             closeMenu();
@@ -381,12 +386,23 @@ if (backToTop) {
 // ========================
 // ANIMACIONES AL SCROLL
 // ========================
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const sections = document.querySelectorAll('section');
+
+// ✅ FIX B: threshold y rootMargin ajustados
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+        if (entry.isIntersecting) {
+            if (prefersReducedMotion) {
+                entry.target.classList.add('visible');
+                entry.target.style.transitionDuration = '0s';
+            } else {
+                entry.target.classList.add('visible');
+            }
+        }
     });
-}, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+}, {threshold: 0.15, rootMargin: '0px 0px -10% 0px'});
+
 sections.forEach(s => observer.observe(s));
 
 document.querySelectorAll('[data-animate]').forEach(el => {

@@ -29,8 +29,11 @@
     --color-on-surface-variant-rgb: 60, 74, 69;
     --color-primary-rgb: 26, 188, 156;
     --color-accent-rgb: 124, 92, 252;
+    /* ✅ NUEVAS (necesarias para las opacidades) */
+    --color-on-primary-rgb: 255, 255, 255;
+    --color-primary-container-rgb: 26, 188, 156;
 
-    /* Resto de colores de la paldera extendida (modo claro) */
+    /* Resto de colores de la paleta extendida (modo claro) */
     --color-surface-tint: #006b58;
     --color-surface-variant: #e4e2e1;
     --color-surface-container-low: #f6f3f2;
@@ -98,14 +101,15 @@
     --color-on-surface-variant-rgb: 148, 163, 184;
     --color-primary-rgb: 26, 188, 156;
     --color-accent-rgb: 124, 92, 252;
+    /* ✅ NUEVAS (necesarias para las opacidades) */
+    --color-on-primary-rgb: 0, 32, 25;
+    --color-primary-container-rgb: 26, 188, 156;
 
-    /* Los demás colores extendidos también puedes cambiarlos si quieres,
-       pero con los de arriba es suficiente para que el sitio se vea correcto */
+    /* Resto de colores extendidos */
     --color-surface-tint: #006b58;
     --color-surface-variant: #1e293b;
     --color-on-primary-container: #6ee7b7;
     --color-inverse-primary: #4eddbb;
-    --color-on-surface-variant: #94a3b8;
     --color-outline: #475569;
     --color-primary-container: #1abc9c;
     --color-on-primary: #002019;
@@ -123,7 +127,6 @@
         scroll-behavior: smooth;
     }
 
-    /* Para las transparencias de Tailwind con variables RGB */
     * {
         border-color: var(--color-outline);
     }
@@ -139,7 +142,7 @@
 }
 
 .mobile-menu.open {
-    max-height: 500px;
+    max-height: calc(100vh - 4rem);
 }
 
 /* ============================================
@@ -238,4 +241,26 @@
 [data-animate].visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
+}
+
+@layer utilities {
+    .focus-ring {
+        outline: none;
+    }
+    .focus-ring:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+        border-radius: inherit;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

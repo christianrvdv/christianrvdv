@@ -1,11 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    darkMode: 'class',          // La clase 'dark' en <html> activa el modo oscuro
+    darkMode: 'class',
     content: ["./*.{html,js}"],
     theme: {
         extend: {
-            // TODOS los colores ahora toman su valor de variables CSS
+            // Colores que usan opacidad → formato RGB con <alpha-value>
             colors: {
+                // ── Colores con opacidad en el HTML (formato RGB) ──
+                'primary': 'rgb(var(--color-primary-rgb) / <alpha-value>)',
+                'accent': 'rgb(var(--color-accent-rgb) / <alpha-value>)',
+                'surface': 'rgb(var(--color-surface-rgb) / <alpha-value>)',
+                'surface-dim': 'rgb(var(--color-surface-dim-rgb) / <alpha-value>)',
+                'surface-container': 'rgb(var(--color-surface-container-rgb) / <alpha-value>)',
+                'background': 'rgb(var(--color-background-rgb) / <alpha-value>)',
+                'on-surface': 'rgb(var(--color-on-surface-rgb) / <alpha-value>)',
+                'on-surface-variant': 'rgb(var(--color-on-surface-variant-rgb) / <alpha-value>)',
+                'on-primary': 'rgb(var(--color-on-primary-rgb) / <alpha-value>)',
+                'primary-container': 'rgb(var(--color-primary-container-rgb) / <alpha-value>)',
+
+                // ── Resto de colores (sin opacidad, formato CSS var) ──
                 'surface-tint': 'var(--color-surface-tint)',
                 'surface-variant': 'var(--color-surface-variant)',
                 'surface-container-low': 'var(--color-surface-container-low)',
@@ -16,44 +29,34 @@ module.exports = {
                 'surface-bright': 'var(--color-surface-bright)',
                 'surface-container-lowest': 'var(--color-surface-container-lowest)',
                 'secondary-fixed': 'var(--color-secondary-fixed)',
-                'surface-container': 'var(--color-surface-container)',
                 'on-primary-fixed': 'var(--color-on-primary-fixed)',
-                'on-surface-variant': 'var(--color-on-surface-variant)',
                 'outline': 'var(--color-outline)',
                 'surface-container-high': 'var(--color-surface-container-high)',
                 'error-container': 'var(--color-error-container)',
                 'secondary-container': 'var(--color-secondary-container)',
                 'on-tertiary': 'var(--color-on-tertiary)',
                 'inverse-on-surface': 'var(--color-inverse-on-surface)',
-                'primary': 'var(--color-primary)',
                 'on-secondary-fixed-variant': 'var(--color-on-secondary-fixed-variant)',
                 'primary-fixed': 'var(--color-primary-fixed)',
-                'surface-dim': 'var(--color-surface-dim)',
                 'on-primary-fixed-variant': 'var(--color-on-primary-fixed-variant)',
                 'tertiary-fixed-dim': 'var(--color-tertiary-fixed-dim)',
                 'tertiary-container': 'var(--color-tertiary-container)',
                 'tertiary': 'var(--color-tertiary)',
                 'on-error': 'var(--color-on-error)',
-                'on-surface': 'var(--color-on-surface)',
                 'on-secondary-fixed': 'var(--color-on-secondary-fixed)',
                 'on-tertiary-fixed-variant': 'var(--color-on-tertiary-fixed-variant)',
-                'surface': 'var(--color-surface)',
                 'outline-variant': 'var(--color-outline-variant)',
                 'on-secondary': 'var(--color-on-secondary)',
-                'primary-container': 'var(--color-primary-container)',
                 'tertiary-fixed': 'var(--color-tertiary-fixed)',
                 'on-tertiary-container': 'var(--color-on-tertiary-container)',
                 'on-secondary-container': 'var(--color-on-secondary-container)',
-                'on-primary': 'var(--color-on-primary)',
                 'surface-container-highest': 'var(--color-surface-container-highest)',
                 'inverse-surface': 'var(--color-inverse-surface)',
                 'error': 'var(--color-error)',
                 'primary-fixed-dim': 'var(--color-primary-fixed-dim)',
                 'secondary': 'var(--color-secondary)',
                 'secondary-fixed-dim': 'var(--color-secondary-fixed-dim)',
-                'background': 'var(--color-background)',
                 'on-background': 'var(--color-on-background)',
-                'accent': 'var(--color-accent)',           // lo usas en algunos gradientes
                 'white-alpha-10': 'var(--color-white-alpha-10)',
             },
             spacing: {

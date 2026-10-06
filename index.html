@@ -21,6 +21,10 @@
           content="Especializado en sistemas distribuidos, microservicios de alto rendimiento y arquitecturas escalables.">
     <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/61900349?s=400&v=4">
 
+    <!-- ✅ NUEVO: theme-color para barra del navegador móvil -->
+    <meta name="theme-color" content="#0a0f1a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#fbf9f8" media="(prefers-color-scheme: light)">
+
     <link href="estilo.css" rel="stylesheet">
     <!-- Solo fuente Inter (Fira Code eliminada) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -48,28 +52,28 @@
             </div>
             <div class="hidden md:flex gap-8 items-center font-body-md text-body-md">
                 <!-- Enlace actualizado a #about-detail -->
-                <a class="nav-link text-primary font-bold border-b-2 border-primary pb-1 cursor-pointer"
+                <a class="nav-link text-primary font-bold border-b-2 border-primary pb-1 cursor-pointer focus-ring"
                    href="#about-detail" data-i18n="nav.about">Sobre mí</a>
-                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer"
+                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer focus-ring"
                    href="#skills" data-i18n="nav.skills">Habilidades</a>
-                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer"
+                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer focus-ring"
                    href="#studies" data-i18n="nav.study">Estudios</a>
-                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer"
+                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer focus-ring"
                    href="#experience" data-i18n="nav.experience">Experiencia</a>
-                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer"
+                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer focus-ring"
                    href="#projects" data-i18n="nav.projects">Proyectos</a>
             </div>
             <div class="flex items-center gap-4">
                 <button id="themeToggle" aria-label="Alternar tema"
-                        class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+                        class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer focus-ring">
                     <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
                 </button>
                 <button id="languageToggle" aria-label="Cambiar idioma"
-                        class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer font-bold text-sm">
+                        class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer font-bold text-sm focus-ring">
                     <span class="language-text">ES</span>
                 </button>
                 <button id="mobileMenuBtn"
-                        class="md:hidden text-on-surface-variant cursor-pointer"
+                        class="md:hidden text-on-surface-variant cursor-pointer focus-ring"
                         aria-label="Menú" aria-expanded="false" aria-controls="mobileMenu">
                     <span class="material-symbols-outlined" aria-hidden="true">menu</span>
                 </button>
@@ -79,15 +83,15 @@
              class="mobile-menu md:hidden bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md border-t border-white/10 dark:border-white/5 hidden">
             <nav class="flex flex-col gap-2 px-margin_mobile py-4" aria-label="Navegación móvil">
                 <!-- Enlace actualizado a #about-detail -->
-                <a class="nav-link-mobile text-primary font-bold py-2" href="#about-detail"
+                <a class="nav-link-mobile text-primary font-bold py-2 focus-ring" href="#about-detail"
                    data-i18n="nav.about">Sobre mí</a>
-                <a class="nav-link-mobile text-on-surface-variant py-2" href="#skills"
+                <a class="nav-link-mobile text-on-surface-variant py-2 focus-ring" href="#skills"
                    data-i18n="nav.skills">Habilidades</a>
-                <a class="nav-link-mobile text-on-surface-variant py-2" href="#studies"
+                <a class="nav-link-mobile text-on-surface-variant py-2 focus-ring" href="#studies"
                    data-i18n="nav.study">Estudios</a>
-                <a class="nav-link-mobile text-on-surface-variant py-2" href="#experience"
+                <a class="nav-link-mobile text-on-surface-variant py-2 focus-ring" href="#experience"
                    data-i18n="nav.experience">Experiencia</a>
-                <a class="nav-link-mobile text-on-surface-variant py-2" href="#projects"
+                <a class="nav-link-mobile text-on-surface-variant py-2 focus-ring" href="#projects"
                    data-i18n="nav.projects">Proyectos</a>
             </nav>
         </div>
@@ -106,7 +110,8 @@
                 <div class="w-28 h-28 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-surface dark:ring-offset-surface-dim mx-auto">
                     <img src="https://avatars.githubusercontent.com/u/61900349?s=200&v=4"
                          srcset="https://avatars.githubusercontent.com/u/61900349?s=200&v=4 1x, https://avatars.githubusercontent.com/u/61900349?s=400&v=4 2x"
-                         alt="Christián R. Vazquez" class="w-full h-full object-cover" loading="lazy" width="112"
+                         alt="Christián R. Vazquez" class="w-full h-full object-cover" fetchpriority="high"
+                         loading="eager" width="112"
                          height="112">
                 </div>
             </div>
@@ -117,7 +122,8 @@
                 <div class="w-40 h-40 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-surface dark:ring-offset-surface-dim mx-auto shadow-xl shadow-primary/20">
                     <img src="https://avatars.githubusercontent.com/u/61900349?s=200&v=4"
                          srcset="https://avatars.githubusercontent.com/u/61900349?s=200&v=4 1x, https://avatars.githubusercontent.com/u/61900349?s=400&v=4 2x"
-                         alt="Christián R. Vazquez" class="w-full h-full object-cover" loading="lazy" width="160"
+                         alt="Christián R. Vazquez" class="w-full h-full object-cover" fetchpriority="high"
+                         loading="eager" width="160"
                          height="160">
                 </div>
             </div>
@@ -140,12 +146,12 @@
             <div class="flex flex-col md:flex-row gap-4 justify-center items-center opacity-0 translate-y-4 transition-all duration-700 delay-300"
                  data-animate>
                 <a href="#projects"
-                   class="bg-primary hover:bg-primary/90 text-on-primary px-8 py-4 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/25">
+                   class="bg-primary hover:bg-primary/90 text-on-primary px-8 py-4 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/25 focus-ring">
                     <span class="material-symbols-outlined" aria-hidden="true">work</span>
                     <span data-i18n="hero.button.projects">VER PROYECTOS</span>
                 </a>
                 <a href="cv_christian.html"
-                   class="border border-white/20 hover:border-primary text-on-surface px-8 py-4 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all glass">
+                   class="border border-white/20 hover:border-primary text-on-surface px-8 py-4 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all glass focus-ring">
                     <span class="material-symbols-outlined" aria-hidden="true">download</span>
                     <span data-i18n="hero.button.cv">DESCARGAR CV</span>
                 </a>
@@ -176,26 +182,26 @@
             </div>
             <nav class="flex flex-col gap-4" aria-label="Secciones del portafolio">
                 <!-- Enlace actualizado a #about-detail -->
-                <a class="side-link flex items-center gap-4 text-primary font-bold border-l-2 border-primary pl-4 hover:translate-x-1 transition-all duration-200"
+                <a class="side-link flex items-center gap-4 text-primary font-bold border-l-2 border-primary pl-4 hover:translate-x-1 transition-all duration-200 focus-ring"
                    href="#about-detail" aria-current="page">
                     <span class="material-symbols-outlined" aria-hidden="true">person</span> <span
                         data-i18n="nav.about">Sobre mí</span>
                 </a>
-                <a class="side-link flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-white/5 dark:hover:bg-white/5 hover:translate-x-1 transition-all duration-200"
+                <a class="side-link flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-white/5 dark:hover:bg-white/5 hover:translate-x-1 transition-all duration-200 focus-ring"
                    href="#skills">
                     <span class="material-symbols-outlined" aria-hidden="true">bolt</span> <span data-i18n="nav.skills">Habilidades</span>
                 </a>
-                <a class="side-link flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-white/5 dark:hover:bg-white/5 hover:translate-x-1 transition-all duration-200"
+                <a class="side-link flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-white/5 dark:hover:bg-white/5 hover:translate-x-1 transition-all duration-200 focus-ring"
                    href="#studies">
                     <span class="material-symbols-outlined" aria-hidden="true">school</span> <span
                         data-i18n="nav.study">Estudios</span>
                 </a>
-                <a class="side-link flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-white/5 dark:hover:bg-white/5 hover:translate-x-1 transition-all duration-200"
+                <a class="side-link flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-white/5 dark:hover:bg-white/5 hover:translate-x-1 transition-all duration-200 focus-ring"
                    href="#experience">
                     <span class="material-symbols-outlined" aria-hidden="true">work</span> <span
                         data-i18n="nav.experience">Experiencia</span>
                 </a>
-                <a class="side-link flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-white/5 dark:hover:bg-white/5 hover:translate-x-1 transition-all duration-200"
+                <a class="side-link flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-white/5 dark:hover:bg-white/5 hover:translate-x-1 transition-all duration-200 focus-ring"
                    href="#projects">
                     <span class="material-symbols-outlined" aria-hidden="true">code</span> <span
                         data-i18n="nav.projects">Proyectos</span>
@@ -273,99 +279,99 @@
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.languages.desc">Dominio en los
                             siguientes lenguajes de programación para desarrollo backend y sistemas.</p>
                         <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fab fa-java mr-1.5 text-xs text-primary" aria-hidden="true"></i>Java (Spring Boot, Android)
-                </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fab fa-php mr-1.5 text-xs text-primary" aria-hidden="true"></i>PHP 8.x
-                </span>
+                                <i class="fab fa-java mr-1.5 text-xs text-primary" aria-hidden="true"></i>Java (Spring Boot, Android)
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fab fa-js mr-1.5 text-xs text-primary" aria-hidden="true"></i>JavaScript
-                </span>
+                                <i class="fab fa-php mr-1.5 text-xs text-primary" aria-hidden="true"></i>PHP 8.x
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-file-code mr-1.5 text-xs text-primary" aria-hidden="true"></i>TypeScript
-                </span>
+                                <i class="fab fa-js mr-1.5 text-xs text-primary" aria-hidden="true"></i>JavaScript
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>SQL
-                </span>
+                                <i class="fas fa-file-code mr-1.5 text-xs text-primary" aria-hidden="true"></i>TypeScript
+                            </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                                <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>SQL
+                            </span>
                         </div>
                     </div>
 
                     <!-- Frameworks Backend -->
                     <div class="bento-card p-6 rounded-2xl bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 backdrop-blur-sm hover:shadow-xl transition-all group">
                         <div class="flex items-center gap-3 mb-4">
-                <span class="material-symbols-outlined text-3xl text-primary"
-                      aria-hidden="true">layers</span>
+                            <span class="material-symbols-outlined text-3xl text-primary"
+                                  aria-hidden="true">layers</span>
                             <h3 class="font-headline-md text-headline-md" data-i18n="skills.frameworks.title">Frameworks
                                 Backend</h3>
                         </div>
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.frameworks.desc">Frameworks
                             principales utilizados en proyectos profesionales y personales.</p>
                         <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fab fa-symfony mr-1.5 text-xs text-primary" aria-hidden="true"></i>Symfony 7/8
-                </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-leaf mr-1.5 text-xs text-primary" aria-hidden="true"></i>Spring Boot 3.x
-                </span>
+                                <i class="fab fa-symfony mr-1.5 text-xs text-primary" aria-hidden="true"></i>Symfony 7/8
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>Doctrine ORM
-                </span>
+                                <i class="fas fa-leaf mr-1.5 text-xs text-primary" aria-hidden="true"></i>Spring Boot 3.x
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fab fa-node-js mr-1.5 text-xs text-primary" aria-hidden="true"></i>Node.js
-                </span>
+                                <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>Doctrine ORM
+                            </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                                <i class="fab fa-node-js mr-1.5 text-xs text-primary" aria-hidden="true"></i>Node.js
+                            </span>
                         </div>
                     </div>
 
                     <!-- Bases de Datos -->
                     <div class="bento-card p-6 rounded-2xl bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 backdrop-blur-sm hover:shadow-xl transition-all group">
                         <div class="flex items-center gap-3 mb-4">
-                <span class="material-symbols-outlined text-3xl text-primary"
-                      aria-hidden="true">storage</span>
+                            <span class="material-symbols-outlined text-3xl text-primary"
+                                  aria-hidden="true">storage</span>
                             <h3 class="font-headline-md text-headline-md" data-i18n="skills.databases.title">Bases de
                                 Datos</h3>
                         </div>
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.databases.desc">Gestión y
                             diseño de bases de datos relacionales y NoSQL.</p>
                         <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>MySQL / MariaDB
-                </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>PostgreSQL
-                </span>
+                                <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>MySQL / MariaDB
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-file-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>SQLite
-                </span>
+                                <i class="fas fa-database mr-1.5 text-xs text-primary" aria-hidden="true"></i>PostgreSQL
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-bolt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Redis
-                </span>
+                                <i class="fas fa-file-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>SQLite
+                            </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                                <i class="fas fa-bolt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Redis
+                            </span>
                         </div>
                     </div>
 
                     <!-- DevOps & Cloud -->
                     <div class="bento-card p-6 rounded-2xl bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 backdrop-blur-sm hover:shadow-xl transition-all group">
                         <div class="flex items-center gap-3 mb-4">
-                <span class="material-symbols-outlined text-3xl text-primary"
-                      aria-hidden="true">cloud</span>
+                            <span class="material-symbols-outlined text-3xl text-primary"
+                                  aria-hidden="true">cloud</span>
                             <h3 class="font-headline-md text-headline-md" data-i18n="skills.devops.title">DevOps &
                                 Cloud</h3>
                         </div>
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.devops.desc">Herramientas de
                             contenerización, orquestación y nube.</p>
                         <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fab fa-docker mr-1.5 text-xs text-primary" aria-hidden="true"></i>Docker & Compose
-                </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-server mr-1.5 text-xs text-primary" aria-hidden="true"></i>Nginx / Apache
-                </span>
+                                <i class="fab fa-docker mr-1.5 text-xs text-primary" aria-hidden="true"></i>Docker & Compose
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fab fa-php mr-1.5 text-xs text-primary" aria-hidden="true"></i>PHP-FPM
-                </span>
+                                <i class="fas fa-server mr-1.5 text-xs text-primary" aria-hidden="true"></i>Nginx / Apache
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-code-branch mr-1.5 text-xs text-primary" aria-hidden="true"></i>CI/CD
-                </span>
+                                <i class="fab fa-php mr-1.5 text-xs text-primary" aria-hidden="true"></i>PHP-FPM
+                            </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                                <i class="fas fa-code-branch mr-1.5 text-xs text-primary" aria-hidden="true"></i>CI/CD
+                            </span>
                         </div>
                     </div>
 
@@ -379,24 +385,24 @@
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.frontend.desc">Construcción de
                             interfaces funcionales y responsivas con herramientas modernas.</p>
                         <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fab fa-html5 mr-1.5 text-xs text-primary" aria-hidden="true"></i>HTML5 / CSS3
-                </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fab fa-css3-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Tailwind CSS
-                </span>
+                                <i class="fab fa-html5 mr-1.5 text-xs text-primary" aria-hidden="true"></i>HTML5 / CSS3
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fab fa-react mr-1.5 text-xs text-primary" aria-hidden="true"></i>React
-                </span>
+                                <i class="fab fa-css3-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Tailwind CSS
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-mountain mr-1.5 text-xs text-primary" aria-hidden="true"></i>Alpine.js
-                </span>
+                                <i class="fab fa-react mr-1.5 text-xs text-primary" aria-hidden="true"></i>React
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-code mr-1.5 text-xs text-primary" aria-hidden="true"></i>Twig / Stimulus
-                </span>
+                                <i class="fas fa-mountain mr-1.5 text-xs text-primary" aria-hidden="true"></i>Alpine.js
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-map-marked-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Leaflet.js
-                </span>
+                                <i class="fas fa-code mr-1.5 text-xs text-primary" aria-hidden="true"></i>Twig / Stimulus
+                            </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                                <i class="fas fa-map-marked-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Leaflet.js
+                            </span>
                         </div>
                     </div>
 
@@ -410,57 +416,61 @@
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.architecture.desc">Patrones de
                             diseño, microservicios, autenticación avanzada y buenas prácticas.</p>
                         <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-network-wired mr-1.5 text-xs text-primary" aria-hidden="true"></i>Microservicios (Kong)
-                </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-shield-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>JWT / OAuth2
-                </span>
+                                <i class="fas fa-network-wired mr-1.5 text-xs text-primary" aria-hidden="true"></i>Microservicios (Kong)
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-key mr-1.5 text-xs text-primary" aria-hidden="true"></i>2FA / Google Authenticator
-                </span>
+                                <i class="fas fa-shield-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>JWT / OAuth2
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-tachometer-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Rate Limiting
-                </span>
+                                <i class="fas fa-key mr-1.5 text-xs text-primary" aria-hidden="true"></i>2FA / Google Authenticator
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-credit-card mr-1.5 text-xs text-primary" aria-hidden="true"></i>Stripe (payments)
-                </span>
+                                <i class="fas fa-tachometer-alt mr-1.5 text-xs text-primary" aria-hidden="true"></i>Rate Limiting
+                            </span>
+                            <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
+                                <i class="fas fa-credit-card mr-1.5 text-xs text-primary" aria-hidden="true"></i>Stripe (payments)
+                            </span>
                         </div>
                     </div>
 
                     <!-- AI-Assisted Development -->
                     <div class="bento-card p-6 rounded-2xl bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 backdrop-blur-sm hover:shadow-xl transition-all group">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">robot_2</span>
-                            <h3 class="font-headline-md text-headline-md" data-i18n="skills.ai.title">Desarrollo Asistido por IA</h3>
+                            <span class="material-symbols-outlined text-3xl text-primary"
+                                  aria-hidden="true">robot_2</span>
+                            <h3 class="font-headline-md text-headline-md" data-i18n="skills.ai.title">Desarrollo
+                                Asistido por IA</h3>
                         </div>
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.ai.desc">
-                            Configuro entornos de desarrollo agéntico (harness engineering) y uso agentes de terminal para acelerar el ciclo de desarrollo, mejorar la calidad del código y automatizar tareas repetitivas.
+                            Configuro entornos de desarrollo agéntico (harness engineering) y uso agentes de terminal
+                            para acelerar el ciclo de desarrollo, mejorar la calidad del código y automatizar tareas
+                            repetitivas.
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <!-- Agentes de terminal -->
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium border border-primary/30 dark:border-primary/40 text-primary dark:text-primary">
-                    <i class="fas fa-terminal mr-1.5 text-xs" aria-hidden="true"></i>Claude Code
-                </span>
+                                <i class="fas fa-terminal mr-1.5 text-xs" aria-hidden="true"></i>Claude Code
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium border border-accent/30 dark:border-accent/40 text-accent dark:text-accent">
-                    <i class="fas fa-terminal mr-1.5 text-xs" aria-hidden="true"></i>OpenCode
-                </span>
+                                <i class="fas fa-terminal mr-1.5 text-xs" aria-hidden="true"></i>OpenCode
+                            </span>
 
                             <!-- Configuración de agentes -->
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-cog mr-1.5 text-xs text-primary" aria-hidden="true"></i>Skills
-                </span>
+                                <i class="fas fa-cog mr-1.5 text-xs text-primary" aria-hidden="true"></i>Skills
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-cubes mr-1.5 text-xs text-accent" aria-hidden="true"></i>Harness Engineering
-                </span>
+                                <i class="fas fa-cubes mr-1.5 text-xs text-accent" aria-hidden="true"></i>Harness Engineering
+                            </span>
 
                             <!-- Asistentes en IDE -->
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-code mr-1.5 text-xs text-primary" aria-hidden="true"></i>GitHub Copilot
-                </span>
+                                <i class="fas fa-code mr-1.5 text-xs text-primary" aria-hidden="true"></i>GitHub Copilot
+                            </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                    <i class="fas fa-pen-fancy mr-1.5 text-xs text-accent" aria-hidden="true"></i>Prompt Engineering
-                </span>
+                                <i class="fas fa-pen-fancy mr-1.5 text-xs text-accent" aria-hidden="true"></i>Prompt Engineering
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -472,9 +482,9 @@
                     <span class="material-symbols-outlined text-primary" aria-hidden="true">school</span>
                     <span data-i18n="study.title">Estudios</span>
                 </h2>
-                <div class="relative border-l border-white/10 ml-4 space-y-12 pb-8">
-                    <div class="relative pl-12 group">
-                        <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] bg-primary rounded-full timeline-glow"
+                <div class="relative border-l border-white/10 ml-3 space-y-12 pb-8">
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[4px] top-0.5 w-[8px] h-[8px] bg-primary rounded-full timeline-glow"
                              aria-hidden="true"></div>
                         <span class="font-label-sm text-label-sm text-primary mb-2 block"
                               data-i18n="study.masters.date">2025 - Presente</span>
@@ -489,8 +499,8 @@
                             adquirir competencias de alto nivel para el diseño e implementación de sistemas complejos
                             que respondan a desafíos tecnológicos actuales.</p>
                     </div>
-                    <div class="relative pl-12 group">
-                        <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] bg-white/20 group-hover:bg-primary transition-colors rounded-full"
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[4px] top-0.5 w-[8px] h-[8px] bg-white/20 group-hover:bg-primary transition-colors rounded-full"
                              aria-hidden="true"></div>
                         <span class="font-label-sm text-label-sm text-on-surface-variant mb-2 block"
                               data-i18n="study.degree.date">2017 - 2022</span>
@@ -514,9 +524,9 @@
                     <span class="material-symbols-outlined text-primary" aria-hidden="true">history</span>
                     <span data-i18n="experience.title">Experiencia Profesional</span>
                 </h2>
-                <div class="relative border-l border-white/10 ml-4 space-y-12 pb-8">
-                    <div class="relative pl-12 group">
-                        <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] bg-primary rounded-full timeline-glow"
+                <div class="relative border-l border-white/10 ml-3 space-y-12 pb-8">
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[4px] top-0.5 w-[8px] h-[8px] bg-primary rounded-full timeline-glow"
                              aria-hidden="true"></div>
                         <span class="font-label-sm text-label-sm text-primary mb-2 block"
                               data-i18n="experience.freelance.date">2024 - Presente</span>
@@ -530,8 +540,8 @@
                             MySQL, y creación de arquitecturas escalables. Colaboración en el ciclo completo de
                             desarrollo desde el análisis hasta el despliegue.</p>
                     </div>
-                    <div class="relative pl-12 group">
-                        <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] bg-white/20 group-hover:bg-primary transition-colors rounded-full"
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[4px] top-0.5 w-[8px] h-[8px] bg-white/20 group-hover:bg-primary transition-colors rounded-full"
                              aria-hidden="true"></div>
                         <span class="font-label-sm text-label-sm text-on-surface-variant mb-2 block"
                               data-i18n="experience.junior.date">2021 - 2024</span>
@@ -546,8 +556,8 @@
                             Soporte técnico y resolución de incidencias en sistemas existentes. Participación en equipos
                             ágiles para el desarrollo de soluciones empresariales.</p>
                     </div>
-                    <div class="relative pl-12 group">
-                        <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] bg-white/20 group-hover:bg-primary transition-colors rounded-full"
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[4px] top-0.5 w-[8px] h-[8px] bg-white/20 group-hover:bg-primary transition-colors rounded-full"
                              aria-hidden="true"></div>
                         <span class="font-label-sm text-label-sm text-on-surface-variant mb-2 block"
                               data-i18n="experience.intern.date">2018 - 2021</span>
@@ -578,6 +588,7 @@
                     </a>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
                     <!-- App Móvil SGR-Turnos-Bandec -->
                     <div class="group rounded-2xl overflow-hidden bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 flex flex-col h-full bento-card backdrop-blur-sm">
                         <div class="h-48 relative overflow-hidden bg-gradient-to-br from-primary/30 to-accent/20"
@@ -613,9 +624,8 @@
                                 <span class="bg-primary/50 text-on-primary/70 px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 cursor-not-allowed opacity-70"
                                       aria-disabled="true"
                                       data-i18n="projects.demo">Próximamente (demo en desarrollo)</span>
-
                                 <a href="https://github.com/Christianrvdv" target="_blank" rel="noopener noreferrer"
-                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors"
+                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors focus-ring"
                                    data-i18n="projects.comerciolocal.contact">Contactar</a>
                             </div>
                         </div>
@@ -660,7 +670,7 @@
                                       aria-disabled="true"
                                       data-i18n="projects.demo">Próximamente (demo en desarrollo)</span>
                                 <a href="https://github.com/Christianrvdv" target="_blank" rel="noopener noreferrer"
-                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors"
+                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors focus-ring"
                                    data-i18n="projects.comerciolocal.contact">Contactar</a>
                             </div>
                         </div>
@@ -702,10 +712,10 @@
                             </div>
                             <div class="flex gap-4">
                                 <a href="https://islamarket.aserenet.com/" target="_blank" rel="noopener noreferrer"
-                                   class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2"
+                                   class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 focus-ring"
                                    data-i18n="projects.comerciolocal.visit">Ver sitio</a>
                                 <a href="https://github.com/Christianrvdv" target="_blank" rel="noopener noreferrer"
-                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors"
+                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors focus-ring"
                                    data-i18n="projects.comerciolocal.contact">Contactar</a>
                             </div>
                         </div>
@@ -749,7 +759,7 @@
                                       data-i18n="projects.demo">Próximamente (demo en desarrollo)</span>
                                 <a href="https://github.com/Christianrvdv/app_almacen" target="_blank"
                                    rel="noopener noreferrer"
-                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors"
+                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors focus-ring"
                                    data-i18n="projects.code">Código</a>
                             </div>
                         </div>
@@ -793,11 +803,12 @@
                                       data-i18n="projects.demo">Próximamente (demo en desarrollo)</span>
                                 <a href="https://github.com/Christianrvdv/auth-system" target="_blank"
                                    rel="noopener noreferrer"
-                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors"
+                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors focus-ring"
                                    data-i18n="projects.code">Código</a>
                             </div>
                         </div>
                     </div>
+                    <!-- ✅ FIX: se añade el </div> que cierra el .group de auth-system -->
 
                     <!-- Microservicios biblioteca (SIN IMAGEN - FONDO GRADIENTE) -->
                     <div class="group rounded-2xl overflow-hidden bg-surface-container/60 dark:bg-surface-container/60 border border-white/10 dark:border-white/5 flex flex-col h-full bento-card backdrop-blur-sm">
@@ -829,7 +840,7 @@
                                       data-i18n="projects.demo">Próximamente (demo en desarrollo)</span>
                                 <a href="https://github.com/Christianrvdv/sistema-biblioteca-microservicios"
                                    target="_blank" rel="noopener noreferrer"
-                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors"
+                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors focus-ring"
                                    data-i18n="projects.code">Código</a>
                             </div>
                         </div>
@@ -865,7 +876,7 @@
                                       data-i18n="projects.demo">Próximamente (demo en desarrollo)</span>
                                 <a href="https://github.com/Christianrvdv/SolicitudtarjetaBANDEC" target="_blank"
                                    rel="noopener noreferrer"
-                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors"
+                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors focus-ring"
                                    data-i18n="projects.code">Código</a>
                             </div>
                         </div>
@@ -910,7 +921,7 @@
                                       aria-disabled="true" data-i18n="projects.current_site.this_site">Este sitio</span>
                                 <a href="https://github.com/Christianrvdv/christianrvdv" target="_blank"
                                    rel="noopener noreferrer"
-                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors"
+                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors focus-ring"
                                    data-i18n="projects.code">Código</a>
                             </div>
                         </div>
@@ -951,15 +962,16 @@
                             <div class="flex gap-4">
                                 <a href="https://christianrvdv.github.io/portafolio_christian/" target="_blank"
                                    rel="noopener noreferrer"
-                                   class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2"
+                                   class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 focus-ring"
                                    data-i18n="projects.demo_portfolio">Ver demo</a>
                                 <a href="https://github.com/Christianrvdv/portafolio_christian" target="_blank"
                                    rel="noopener noreferrer"
-                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors"
+                                   class="text-on-surface hover:text-primary px-4 py-2 rounded-lg text-label-sm font-label-sm flex items-center gap-2 transition-colors focus-ring"
                                    data-i18n="projects.code">Código</a>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
         </div>
@@ -997,7 +1009,7 @@
 </footer>
 
 <button id="backToTop"
-        class="fixed bottom-6 right-6 w-12 h-12 bg-primary/80 backdrop-blur-sm text-on-primary rounded-full shadow-lg shadow-black/30 hover:bg-primary hover:scale-110 transition-all flex items-center justify-center z-40 opacity-0 pointer-events-none border border-white/20"
+        class="fixed bottom-6 right-6 w-12 h-12 bg-primary/80 backdrop-blur-sm text-on-primary rounded-full shadow-lg shadow-black/30 hover:bg-primary hover:scale-110 transition-all flex items-center justify-center z-40 opacity-0 pointer-events-none border border-white/20 focus-ring"
         aria-label="Volver arriba">
     <span class="material-symbols-outlined" aria-hidden="true">keyboard_arrow_up</span>
 </button>
