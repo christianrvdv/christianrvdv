@@ -7,17 +7,21 @@ Fase ejecutada en 6 commits: `7a18d59` (6a) · `d3df698` (6b) · `1a9f17c` (6c.1
 
 - `cv.css` extraído **byte-idéntico** al bloque original de ambos CVs.
 - `cv/index.html` / `cv/en/index.html`: 1023 → **309 ln** (el `<head>` de CSS → link).
-- Estado actual: `assets/css/cv.css` = **14 833 B** (14 693 B en 6a + clases de 6b
-  `.cv-mb`/`.accent`) ≤ 18 432 B (18 KB) ✅.
+- Estado actual: `assets/css/cv.css` = **14 910 B** (14 693 B en 6a + clases de 6b
+  `.cv-section-mb`/`.text-cv-accent`) ≤ 18 432 B (18 KB) ✅.
 
 ## 6b — eliminación de 34 estilos inline
 
 - 6× `image-rendering: auto` → clase `.img-auto` (`src/styles/input.css`).
-- 2×14 en CVs → Tailwind `.relative` + `.cv-mb` + `.accent` (3/1/10 por archivo).
+- 2×14 en CVs → `.avatar-relative` + `.cv-section-mb` + `.text-cv-accent` (1/3/10 por archivo).
 - **`lint:html` = 0 — exit 0** (47 → 34 en FASE 5 → 0 en 6b). Baseline de
   `CONSTRAINTS.md` actualizado en este gate.
 - **E1 respetado**: `cv/ats/index.html` no recibe ningún commit de la FASE 6
   (`git log 448506d..HEAD -- cv/ats/` → vacío).
+- Corrección tras el gate: la clase `accent` no existía en ningún CSS (5 `p` por CV
+  caían en `--text-muted`); renombrada a `.text-cv-accent` + regla
+  `.bento-card p.text-cv-accent` (0,2,1) que gana a `.bento-card p`. Verificado por CDP:
+  los 10 acentos = `rgb(26, 188, 156)`, `.cv-section-mb` = 28 px, avatar = `relative`.
 
 ## 6c.1 — avatar y rutas de imagen locales
 

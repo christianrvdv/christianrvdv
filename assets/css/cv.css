@@ -82,11 +82,11 @@ body {
     position: relative;
 }
 
-.cv-mb {
+.cv-section-mb {
     margin-bottom: 1.75rem;
 }
 
-.cv-accent {
+.text-cv-accent {
     color: var(--accent);
 }
 
@@ -280,6 +280,10 @@ body {
     color: var(--text-muted);
     margin-top: 0.5rem;
     flex: 1;
+}
+
+.bento-card p.text-cv-accent {
+    color: var(--accent);
 }
 
 .bento-card .card-link {
