@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: 'class',
-    content: ["./*.{html,js}"],
+    content: ["./*.html", "./cv/**/*.html", "./assets/js/**/*.js"],
     theme: {
         extend: {
             // Colores que usan opacidad → formato RGB con <alpha-value>

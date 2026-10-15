@@ -2,11 +2,16 @@
   "name": "christianrvdv",
   "version": "1.0.0",
   "description": "Este es un portafolio profesional desarrollado como una Single Page Application (SPA) moderna y responsive. El sitio web presenta información personal, experiencia laboral, proyectos realizados, habilidades técnicas y un formulario de contacto, todo con un diseño elegante y funcional.",
-  "main": "script.js",
+  "main": "assets/js/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwindcss -i src/input.css -o estilo.css --minify",
-    "watch": "tailwindcss -i src/input.css -o estilo.css --watch"
+    "dev": "node scripts/dev.mjs",
+    "watch:css": "tailwindcss -i src/styles/input.css -o assets/css/main.css --watch",
+    "build:css": "tailwindcss -i src/styles/input.css -o assets/css/main.css --minify",
+    "build:cv": "node scripts/build-cv.mjs",
+    "build": "npm run build:css",
+    "serve": "node scripts/serve.mjs",
+    "lint:html": "npx html-validate index.html cv/**/*.html"
   },
   "repository": {
     "type": "git",
