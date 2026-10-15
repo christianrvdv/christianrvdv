@@ -78,6 +78,18 @@ body {
     display: block;
 }
 
+.avatar-relative {
+    position: relative;
+}
+
+.cv-mb {
+    margin-bottom: 1.75rem;
+}
+
+.cv-accent {
+    color: var(--accent);
+}
+
 .avatar-badge {
     position: absolute;
     bottom: -8px;

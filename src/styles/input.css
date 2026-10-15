@@ -131,6 +131,10 @@
 }
 
 @layer utilities {
+    .img-auto {
+        image-rendering: auto;
+    }
+
     .focus-ring {
         outline: none;
     }
