@@ -1369,7 +1369,7 @@
               "snippet": "<span class=\"skill-tag\">",
               "nodeLabel": "Symfony 7/8"
             },
-            "score": 0.00005098351540612484
+            "score": 5.098351540612484e-05
           }
         ]
       },
@@ -4476,7 +4476,7 @@
                   "snippet": "<span class=\"skill-tag\">",
                   "nodeLabel": "Symfony 7/8"
                 },
-                "score": 0.00005098351540612484
+                "score": 5.098351540612484e-05
               }
             ]
           }
@@ -10324,5 +10324,76 @@
         "categoryGroups[agent-discoverability].description"
       ]
     }
+  },
+  "known-gap": {
+    "declared": "2026-10-15 (post-GATE 6)",
+    "category": "accessibility",
+    "currentScore": 87,
+    "targetScore": 95,
+    "blockingGate": "GATE 9 (no bloquea FASE 7)",
+    "decision": "NO es fix <= 2 cambios (18 items de contraste en 4 pares de color de marca + 2 heading-order + 1 landmark; tocaria la paleta #1abc9c) -> se pospone a FASE 9. FASE 7.5 descartada.",
+    "failedAudits": [
+      {
+        "id": "color-contrast",
+        "weight": 7,
+        "score": 0,
+        "failedItems": 18,
+        "contrastPairs": [
+          {
+            "ratio": 2.4,
+            "foreground": "#ffffff",
+            "background": "#1abc9c",
+            "required": 4.5
+          },
+          {
+            "ratio": 2.4,
+            "foreground": "#1abc9c",
+            "background": "#ffffff",
+            "required": 4.5
+          },
+          {
+            "ratio": 2.56,
+            "foreground": "#94a3b8",
+            "background": "#ffffff",
+            "required": 4.5
+          },
+          {
+            "ratio": 2.19,
+            "foreground": "#1abc9c",
+            "background": "#f1f5f9",
+            "required": 4.5
+          },
+          {
+            "ratio": 1.41,
+            "foreground": "#cbd5e1",
+            "background": "#f8fafc",
+            "required": 4.5
+          }
+        ],
+        "note": "Texto de marca #1abc9c y slate-400 #94a3b8 sobre fondos claros; toca la paleta de marca (no-rediseño) en >=4 pares distintos"
+      },
+      {
+        "id": "heading-order",
+        "weight": 3,
+        "score": 0,
+        "failedItems": 2,
+        "selectors": [
+          "div > div.flex > div > h4.font-bold",
+          "section.projects-section > div.projects-grid > div.bento-card > h5"
+        ],
+        "note": "h4/h5 fuera de secuencia respecto a h3 de secciones"
+      },
+      {
+        "id": "landmark-one-main",
+        "weight": 3,
+        "score": 0,
+        "failedItems": 1,
+        "note": "El documento no envuelve el cuerpo en <main>"
+      }
+    ],
+    "affectedPages": [
+      "/cv/",
+      "/cv/en/ (mismos 3 audits, score 87); / 98 y /cv/ats/ 96 no requieren accion"
+    ]
   }
 }
