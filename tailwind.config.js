@@ -4,21 +4,31 @@ module.exports = {
     content: ["./*.html", "./cv/**/*.html", "./assets/js/**/*.js"],
     theme: {
         extend: {
-            // Colores que usan opacidad → formato RGB con <alpha-value>
+            // Clasificación de colores (ADR-002, FASE 4) — dos formas, sin excepción:
+            // (a) RGB + <alpha-value>: tokens usados con /NN en HTML/JS (bg-primary/50, …)
+            //     requiere triple --color-*-rgb en :root y .dark.
+            // (b) var() plano: todo lo demás.
+            // Fuente de verdad de valores: src/styles/tokens.css.
             colors: {
-                // ── Colores con opacidad en el HTML (formato RGB) ──
+                // ── (a) Con opacidad en HTML: primary, accent, surface, surface-dim,
+                //      surface-container, on-primary ──
+                // Conservados en RGB además (ya lo estaban; sin uso con /NN hoy):
+                // background, on-surface, on-surface-variant, primary-container.
+                // Motivo: cambiarlos a var() regenera esas utilidades con bytes
+                // distintos (mismo color renderizado) y la regla GATE 4 de diff
+                // cero en utilidades manda sobre la clasificación estricta.
                 'primary': 'rgb(var(--color-primary-rgb) / <alpha-value>)',
                 'accent': 'rgb(var(--color-accent-rgb) / <alpha-value>)',
                 'surface': 'rgb(var(--color-surface-rgb) / <alpha-value>)',
                 'surface-dim': 'rgb(var(--color-surface-dim-rgb) / <alpha-value>)',
                 'surface-container': 'rgb(var(--color-surface-container-rgb) / <alpha-value>)',
+                'on-primary': 'rgb(var(--color-on-primary-rgb) / <alpha-value>)',
                 'background': 'rgb(var(--color-background-rgb) / <alpha-value>)',
                 'on-surface': 'rgb(var(--color-on-surface-rgb) / <alpha-value>)',
                 'on-surface-variant': 'rgb(var(--color-on-surface-variant-rgb) / <alpha-value>)',
-                'on-primary': 'rgb(var(--color-on-primary-rgb) / <alpha-value>)',
                 'primary-container': 'rgb(var(--color-primary-container-rgb) / <alpha-value>)',
 
-                // ── Resto de colores (sin opacidad, formato CSS var) ──
+                // ── (b) Sin opacidad (var plano) ──
                 'surface-tint': 'var(--color-surface-tint)',
                 'surface-variant': 'var(--color-surface-variant)',
                 'surface-container-low': 'var(--color-surface-container-low)',

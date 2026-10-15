@@ -1,0 +1,156 @@
+/* ============================================================
+   tokens.css — fuente única de verdad de diseño (ADR-002, FASE 4)
+   Bloques @tokens (comentario DTCG, $value/$type) + Custom Properties:
+   lo que consumen tailwind.config.js y los componentes.
+   - Un hex por color; los triples --color-*-rgb se derivan a mano y
+     alimentan los mapeos con <alpha-value>.
+   - .dark redeclara SOLO lo que cambia por tema; el resto hereda.
+   - --cv-*: espejo del :root inline de cv/index.html (los consume
+     assets/css/cv.css en FASE 6, que elimina el <style> inline).
+   ============================================================ */
+
+/* @tokens { "color": { "$type": "color",
+"primary":{"$value":"#1abc9c"},"accent":{"$value":"#7c5cfc"},"background":{"$value":"#fbf9f8"},
+"surface":{"$value":"#ffffff"},"surface-dim":{"$value":"#e4e2e1"},"surface-container":{"$value":"#f0eded"},
+"on-surface":{"$value":"#1b1c1c"},"on-surface-variant":{"$value":"#3c4a45"},"outline":{"$value":"#6c7a75"},
+"white-alpha-10":{"$value":"rgba(255,255,255,0.1)"},"surface-tint":{"$value":"#006b58"},
+"surface-variant":{"$value":"#e4e2e1"},"surface-container-low":{"$value":"#f6f3f2"},
+"on-error-container":{"$value":"#93000a"},"on-primary-container":{"$value":"#004538"},
+"inverse-primary":{"$value":"#4eddbb"},"on-tertiary-fixed":{"$value":"#091d2e"},
+"surface-bright":{"$value":"#fbf9f8"},"surface-container-lowest":{"$value":"#ffffff"},
+"secondary-fixed":{"$value":"#cce5ff"},"on-primary-fixed":{"$value":"#002019"},
+"surface-container-high":{"$value":"#eae8e7"},"error-container":{"$value":"#ffdad6"},
+"secondary-container":{"$value":"#5cb8fd"},"on-tertiary":{"$value":"#ffffff"},
+"inverse-on-surface":{"$value":"#f3f0f0"},"on-secondary-fixed-variant":{"$value":"#004b73"},
+"primary-fixed":{"$value":"#6ff9d6"},"on-primary-fixed-variant":{"$value":"#005141"},
+"tertiary-fixed-dim":{"$value":"#b5c8df"},"tertiary-container":{"$value":"#96a9be"},
+"tertiary":{"$value":"#4e6073"},"on-error":{"$value":"#ffffff"},"on-secondary-fixed":{"$value":"#001d31"},
+"on-tertiary-fixed-variant":{"$value":"#36485b"},"outline-variant":{"$value":"#bbcac3"},
+"on-secondary":{"$value":"#ffffff"},"primary-container":{"$value":"#1abc9c"},
+"tertiary-fixed":{"$value":"#d1e4fb"},"on-tertiary-container":{"$value":"#2c3e50"},
+"on-secondary-container":{"$value":"#00476e"},"on-primary":{"$value":"#ffffff"},
+"surface-container-highest":{"$value":"#e4e2e1"},"inverse-surface":{"$value":"#303030"},
+"error":{"$value":"#ba1a1a"},"primary-fixed-dim":{"$value":"#4eddbb"},"secondary":{"$value":"#006397"},
+"secondary-fixed-dim":{"$value":"#92ccff"},"on-background":{"$value":"#1b1c1c"} } } */
+
+/* @tokens { "color-dark": { "$type": "color",
+"background":{"$value":"#0a0f1a"},"surface":{"$value":"#131b2a"},"surface-dim":{"$value":"#0d1421"},
+"surface-container":{"$value":"#1a2332"},"on-surface":{"$value":"#e2e8f0"},
+"on-surface-variant":{"$value":"#94a3b8"},"outline":{"$value":"#475569"},
+"white-alpha-10":{"$value":"rgba(255,255,255,0.1)"},"surface-variant":{"$value":"#1e293b"},
+"on-primary-container":{"$value":"#6ee7b7"},"on-primary":{"$value":"#002019"},
+"secondary":{"$value":"#38bdf8"},"error":{"$value":"#f87171"} } } */
+/* primary/accent/surface-tint/inverse-primary/primary-container idénticos a light en .dark */
+
+/* @tokens { "font": { "$type": "fontFamily",
+"sans":{"$value":["Inter","ui-sans-serif","system-ui","sans-serif"]},
+"mono":{"$value":["ui-monospace","SFMono-Regular","monospace"]} },
+"space": { "$type": "dimension",
+"unit":{"$value":"8px"},"gutter":{"$value":"24px"},"margin-mobile":{"$value":"16px"},
+"margin-desktop":{"$value":"48px"},"container-max-width":{"$value":"1200px"},"sidebar-width":{"$value":"280px"} },
+"radius": { "$type": "dimension",
+"sm":{"$value":"0.5rem"},"md":{"$value":"1rem"},"lg":{"$value":"1.5rem"},"full":{"$value":"9999px"} },
+"shadow": { "$type": "shadow",
+"sm":{"$value":"0 4px 6px -1px rgba(0,0,0,0.1)"},"md":{"$value":"0 10px 15px -3px rgba(0,0,0,0.1)"},
+"lg":{"$value":"0 25px 50px -12px rgba(0,0,0,0.25)"},"glow":{"$value":"0 0 20px 4px rgba(26,188,156,0.6)"},
+"card-hover":{"$value":"0 20px 40px -15px rgba(26,188,156,0.25)"} } } */
+
+/* @tokens { "cv": { "$type": "color",
+"accent":{"$value":"#1abc9c"},"accent-dark":{"$value":"#006b58"},"accent-print":{"$value":"#0d9488"},
+"bg-light":{"$value":"#f8fafc"},"border":{"$value":"#e2e8f0"},"text-primary":{"$value":"#0f172a"},
+"text-secondary":{"$value":"#475569"},"text-muted":{"$value":"#64748b"},"card-bg":{"$value":"#ffffff"},
+"skill-bg":{"$value":"#f1f5f9"},"dot-gray":{"$value":"#cbd5e1"},
+"transition":{"$value":"all 0.2s ease","$type":"other"} } } */
+
+:root {
+  /* Primarios y acento */
+  --color-primary: #1abc9c; --color-accent: #7c5cfc;
+  /* Superficies y fondos - modo claro */
+  --color-background: #fbf9f8; --color-surface: #ffffff; --color-surface-dim: #e4e2e1;
+  --color-surface-container: #f0eded; --color-on-surface: #1b1c1c; --color-on-surface-variant: #3c4a45;
+  --color-outline: #6c7a75; --color-white-alpha-10: rgba(255, 255, 255, 0.1);
+
+  /* Triples RGB derivados a mano (alimentan <alpha-value>; cambian por tema) */
+  --color-background-rgb: 251, 249, 248; --color-surface-rgb: 255, 255, 255; --color-surface-dim-rgb: 228, 226, 225;
+  --color-surface-container-rgb: 240, 237, 237; --color-on-surface-rgb: 27, 28, 28; --color-on-surface-variant-rgb: 60, 74, 69;
+  --color-primary-rgb: 26, 188, 156; --color-accent-rgb: 124, 92, 252; --color-on-primary-rgb: 255, 255, 255;
+  --color-primary-container-rgb: 26, 188, 156;
+
+  /* Resto de la paleta extendida (modo claro) */
+  --color-surface-tint: #006b58; --color-surface-variant: #e4e2e1; --color-surface-container-low: #f6f3f2;
+  --color-on-error-container: #93000a; --color-on-primary-container: #004538; --color-inverse-primary: #4eddbb;
+  --color-on-tertiary-fixed: #091d2e; --color-surface-bright: #fbf9f8; --color-surface-container-lowest: #ffffff;
+  --color-secondary-fixed: #cce5ff; --color-on-primary-fixed: #002019; --color-surface-container-high: #eae8e7;
+  --color-error-container: #ffdad6; --color-secondary-container: #5cb8fd; --color-on-tertiary: #ffffff;
+  --color-inverse-on-surface: #f3f0f0; --color-on-secondary-fixed-variant: #004b73; --color-primary-fixed: #6ff9d6;
+  --color-on-primary-fixed-variant: #005141; --color-tertiary-fixed-dim: #b5c8df; --color-tertiary-container: #96a9be;
+  --color-tertiary: #4e6073; --color-on-error: #ffffff; --color-on-secondary-fixed: #001d31;
+  --color-on-tertiary-fixed-variant: #36485b; --color-outline-variant: #bbcac3; --color-on-secondary: #ffffff;
+  --color-primary-container: #1abc9c; --color-tertiary-fixed: #d1e4fb; --color-on-tertiary-container: #2c3e50;
+  --color-on-secondary-container: #00476e; --color-on-primary: #ffffff; --color-surface-container-highest: #e4e2e1;
+  --color-inverse-surface: #303030; --color-error: #ba1a1a; --color-primary-fixed-dim: #4eddbb;
+  --color-secondary: #006397; --color-secondary-fixed-dim: #92ccff; --color-on-background: #1b1c1c;
+
+  /* Tipografía (sin consumidores hasta FASE 5/6) */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+
+  /* Spacing (espejo de theme.spacing en tailwind.config.js) */
+  --space-unit: 8px; --space-gutter: 24px; --space-margin-mobile: 16px;
+  --space-margin-desktop: 48px; --space-container-max-width: 1200px; --space-sidebar-width: 280px;
+
+  /* Radios (valores del CV; .timeline-glow y .bento-card pasan a var() en FASE 6) */
+  --radius-sm: 0.5rem; --radius-md: 1rem; --radius-lg: 1.5rem; --radius-full: 9999px;
+
+  /* Sombras (glow/card-hover ya en input.css como literal; var() en FASE 6) */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1); --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25); --shadow-glow: 0 0 20px 4px rgba(26, 188, 156, 0.6);
+  --shadow-card-hover: 0 20px 40px -15px rgba(26, 188, 156, 0.25);
+
+  /* Tokens del CV (espejo del <style> inline; sin consumidores hasta FASE 6) */
+  --cv-accent: #1abc9c; --cv-accent-dark: #006b58; --cv-accent-print: #0d9488;
+  --cv-bg-light: #f8fafc; --cv-border: #e2e8f0; --cv-text-primary: #0f172a;
+  --cv-text-secondary: #475569; --cv-text-muted: #64748b; --cv-card-bg: #ffffff;
+  --cv-skill-bg: #f1f5f9; --cv-dot-gray: #cbd5e1; --cv-transition: all 0.2s ease;
+}
+
+/* Modo oscuro: solo overrides (hereda el resto de :root) */
+.dark {
+  --color-primary: #1abc9c; --color-accent: #7c5cfc;
+  /* Superficies y fondos - modo oscuro */
+  --color-background: #0a0f1a; --color-surface: #131b2a; --color-surface-dim: #0d1421;
+  --color-surface-container: #1a2332; --color-on-surface: #e2e8f0; --color-on-surface-variant: #94a3b8;
+  --color-outline: #475569; --color-white-alpha-10: rgba(255, 255, 255, 0.1);
+  /* Triples RGB (modo oscuro) */
+  --color-background-rgb: 10, 15, 26; --color-surface-rgb: 19, 27, 42; --color-surface-dim-rgb: 13, 20, 33;
+  --color-surface-container-rgb: 26, 35, 50; --color-on-surface-rgb: 226, 232, 240; --color-on-surface-variant-rgb: 148, 163, 184;
+  --color-primary-rgb: 26, 188, 156; --color-accent-rgb: 124, 92, 252; --color-on-primary-rgb: 0, 32, 25;
+  --color-primary-container-rgb: 26, 188, 156;
+  /* Resto de colores extendidos */
+  --color-surface-tint: #006b58; --color-surface-variant: #1e293b; --color-on-primary-container: #6ee7b7;
+  --color-inverse-primary: #4eddbb; --color-primary-container: #1abc9c; --color-on-primary: #002019;
+  --color-secondary: #38bdf8; --color-error: #f87171;
+}
+
+/* Modo oscuro: solo overrides (hereda el resto de :root) */
+.dark {
+  --color-primary: #1abc9c; --color-accent: #7c5cfc;
+
+  /* Superficies y fondos - modo oscuro */
+  --color-background: #0a0f1a; --color-surface: #131b2a;
+  --color-surface-dim: #0d1421; --color-surface-container: #1a2332;
+  --color-on-surface: #e2e8f0; --color-on-surface-variant: #94a3b8;
+  --color-outline: #475569; --color-white-alpha-10: rgba(255, 255, 255, 0.1);
+
+  /* Triples RGB (modo oscuro) */
+  --color-background-rgb: 10, 15, 26; --color-surface-rgb: 19, 27, 42;
+  --color-surface-dim-rgb: 13, 20, 33; --color-surface-container-rgb: 26, 35, 50;
+  --color-on-surface-rgb: 226, 232, 240; --color-on-surface-variant-rgb: 148, 163, 184;
+  --color-primary-rgb: 26, 188, 156; --color-accent-rgb: 124, 92, 252;
+  --color-on-primary-rgb: 0, 32, 25; --color-primary-container-rgb: 26, 188, 156;
+
+  /* Resto de colores extendidos */
+  --color-surface-tint: #006b58; --color-surface-variant: #1e293b; --color-on-primary-container: #6ee7b7;
+  --color-inverse-primary: #4eddbb; --color-primary-container: #1abc9c; --color-on-primary: #002019;
+  --color-secondary: #38bdf8; --color-error: #f87171;
+}
