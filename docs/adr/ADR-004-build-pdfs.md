@@ -1,6 +1,6 @@
 # ADR-004: Build de PDFs con Playwright (headless Chromium)
 
-Fecha: 2026-10-15 · Estado: Aceptado (GATE 1) · Umbrales afinados en GATE 1 (Q3)
+Fecha: 2026-10-15 · Estado: Aceptado (GATE 1, Q3) · Precheck/códigos de salida (GATE 2, N2)
 
 ## Contexto
 
@@ -23,8 +23,13 @@ inline del CV) sin regeneración deja los PDFs desincronizados del HTML.
      (renombrado limpio; se conservan redirects 301 desde los nombres viejos, SPEC §4);
   5. valida tamaño contra los umbrales y **exit 1** si alguno los supera;
   6. cierra el servidor y el navegador en `finally`.
-- El script espera **build:css previo** (los PDFs deben reflejar `main.css` compilado) — lo
-  asume `build:cv` como precheck (`existsSync('assets/css/main.css')` + aviso).
+- El script espera **build:css previo** (los PDFs deben reflejar `main.css` compilado).
+  **Precheck obligatorio (GATE 2, N2):**
+  - Si `assets/css/main.css` no existe → mensaje claro
+    `"assets/css/main.css no encontrado — ejecuta 'npm run build:css' primero"` y **exit 1**.
+  - Códigos de salida distintos para fallos distinguibles:
+    `1` = falta el CSS previo · `2` = PDF sobre umbral (con el archivo y KB reales en el
+    mensaje) · `3` = fallo de navegador/servidor/IO.
 - Los PDFs generados **sí se commitean** (el repo los sirve tal cual).
 
 ### Umbrales (GATE 1, Q3)

@@ -19,8 +19,9 @@ vieja si alguien edita solo la fuente.
   - `cv/ats/index.html` → `/cv/ats`
 - **No existe `src/templates/`, ni `build:html`, ni copias en `.gitignore`.**
 - `src/` queda reservado **solo** para fuentes de estilos (`src/styles/`).
-  *(Nota: el GATE 1 mencionó `src/js/`; contradice la V1 aprobada "sin `src/js/`".
-  Se mantiene V1 — el JS fuente vive directo en `assets/js/`. Confirmar en GATE 2.)*
+  **Decisión firme (GATE 2, A1): no existe `src/js/`** — la V1 manda; el JS fuente vive
+  directo en `assets/js/` y se sirve como ES modules nativos. (La frase del GATE 1 sobre
+  "`src/` = styles y js" fue un lapsus, sustituida por esta resolución.)
 - `assets/` es el único directorio publicado de recursos: `css/ js/ i18n/ images/ docs/`.
 - La estructura completa de fuentes/verificación queda: `src/styles/`, `assets/`, `scripts/`, `docs/`.
 

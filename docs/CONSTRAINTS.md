@@ -38,7 +38,7 @@ Last reviewed: 2026-10-15 (FASE 1). Proyecto: refactor estructural portafolio + 
 | Contenido | diff de texto visible = solo rutas/marcado | `diff docs/before/*.txt docs/after/*.txt` | FASE 9 |
 | PDFs | 3 archivos, texto seleccionable; CV ES ≤ 450 KB · CV EN ≤ 450 KB · **CV ATS ≤ 200 KB** (canario: si lo supera ⇒ fuente mal subsetteada o imagen colándose) | `npm run build:cv` (exit 1 si se supera) + apertura en Chrome | FASE 7 |
 | Tamaño CSS | `assets/css/main.css` ≤ 35 KB (baseline hoy: `estilo.css` 30 KB) | `Get-Item` | cada build |
-| CDN externos | 0 referencias a `fonts.googleapis` / `cdnjs.cloudflare` / `avatars.githubusercontent` | `rg -i "fonts\.googleapis\|cdnjs\.cloudflare\|avatars\.githubusercontent" *.html cv/**` → 0 líneas | FASE 6 + 9 |
+| CDN externos | 0 referencias a `fonts.googleapis` / `cdnjs.cloudflare` / `avatars.githubusercontent` | `rg "https?://(fonts\.googleapis|cdnjs\.cloudflare|avatars\.githubusercontent)" index.html cv/` → 0 hits | FASE 6 y PR |
 
 Cada fila tiene comando. Una dimensión con número y sin comando es una aspiración, no una restricción.
 

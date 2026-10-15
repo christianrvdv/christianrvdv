@@ -1,6 +1,6 @@
 # ADR-005: Fuentes e iconos auto-hospedados (eliminar CDNs)
 
-Fecha: 2026-10-15 · Estado: Aceptado con correcciones de datos (GATE 1, Q4a) — ver "Abierto" abajo
+Fecha: 2026-10-15 · Estado: **Aceptado — decisiones firmes GATE 2 (A2: FA webfonts; A3: Inter variable; N3: presupuesto)**
 
 ## Contexto
 
@@ -26,13 +26,14 @@ para 16 glifos, terceros en el origen (privacidad/GDPR), y un punto único de fa
 
 ## Decisión
 
-### 1. Inter → auto-hospedado (subset latin + latin-ext)
-- Descargar el woff2 (Google Fonts API, `wght` 300–800 **variable** o estáticos 400/500/600/700/800)
-  a `assets/fonts/` y declararlo en `src/styles/tokens.css` con
-  `font-display: swap` + `unicode-range` latin/latin-ext.
-- ⚠️ El plan original del GATE 1 ("400/600/700, ~30 KB") **subestima los pesos usados**
-  (faltan 500 y 800). Alternativa recomendada: **fuente variable 1 archivo/idioma de rango**
-  que cubre todo sin multiplicar ficheros. Peso objetivo real: ≤ 100 KB total.
+### 1. Inter → auto-hospedado, **fuente variable** (decisión firme GATE 2, A3)
+- Descargar el woff2 variable (`opsz,wght` 300–800) rango **latin** y rango **latin-ext**
+  a `assets/fonts/` y declararlo en `src/styles/tokens.css` con `font-display: swap`
+  **obligatorio** + `unicode-range` latin/latin-ext.
+- Un solo archivo por rango cubre **todos** los pesos usados (400, 500, 600, 700 y 800 —
+  medidos: `font-medium` ×38, `font-bold` ×32, `font-semibold` ×5, `font-weight: 500/800` en CSS).
+- Presupuesto: ≤ 100 KB total. **Si el subset variable supera 100 KB**, caer a 5 pesos
+  estáticos (400/500/600/700/800 × latin/latin-ext) y documentar el trade-off aquí mismo.
 - `<link>` de Google Fonts eliminado de ambas páginas (y preconnects también).
 
 ### 2. Material Symbols → subset auto-hospedado
@@ -42,7 +43,7 @@ para 16 glifos, terceros en el origen (privacidad/GDPR), y un punto único de fa
   `<span class="material-symbols-outlined">bolt</span>` (ligaduras).
 - Resultado: ~5 KB en vez de ~400 KB; el `<link>` a Google Fonts sale de `index.html`.
 
-### 3. Font Awesome → auto-hospedar webfonts (ver "Abierto")
+### 3. Font Awesome → auto-hospedar webfonts — **decisión firme (GATE 2, A2: opción (i))**
 - Descargar `fa-all.min.css` (o generar sub-conjunto) + woff2 de solid/brands/regular
   a `assets/fonts/` + `assets/css/vendor/`, referenciarlo con `<link rel="stylesheet">`
   local. **Cero cambios en el HTML** (las 79 clases `fa…` se quedan tal cual).
@@ -62,25 +63,31 @@ para 16 glifos, terceros en el origen (privacidad/GDPR), y un punto único de fa
 
 - **+** FCP/LCP sin bloqueo de red externo; privacidad (sin peticiones a Google/cdnjs/GitHub).
 - **+** La verificación "sin CDNs" es comprobable con grep: `https?://(fonts|cdnjs|avatars)` = 0.
-- **−** `assets/fonts/` añade ~100 KB versionados (se sirven con header `max-age=31536000`).
+- **−** `assets/fonts/` añade ~240 KB versionados (se sirven con header `max-age=31536000`).
 - **−** Hay que repetir el subset cada vez que se use un glifo nuevo de Material Symbols /
   un peso de Inter nuevo (checklist en `docs/VERIFICATION.md`, FASE 6).
 - **−** Actualizar FA local a 6.x futuro = tarea manual (hoy congelado en 6.4.0, mismo
   comportamiento que la CDN actual).
 
-## Abierto (corrección de datos → GATE 2)
+## Presupuesto de pesos de `assets/fonts/` (GATE 2, N3)
 
-El GATE 1 dijo "Font Awesome: reemplazar por **SVG inline en el CV** (solo ~8 iconos)".
-La medición real: **44 usos/35 glifos en el CV** y **35 usos/29 glifos en el portafolio**
-(79/38 en total). Opciones:
+| Componente | Esperado |
+|---|---|
+| Inter variable — latin (1 woff2) | ~40 KB |
+| Inter variable — latin-ext (1 woff2) | ~15 KB |
+| Material Symbols subset (16 glifos) | ~5 KB |
+| FA webfonts (solid + brands + regular) | ~180 KB |
+| **Total `assets/fonts/`** | **~240 KB** (vs ~400 KB de MS completo + ~150 KB de FA CDN hoy) |
 
-| Opción | Churn | Peso | Riesgo |
-|---|---|---|---|
-| **(i) Webfonts FA auto-hospedadas** (recomendado arriba) | 0 cambios de markup | ~400 KB (cacheado 1 año) | mínimo |
-| **(ii) SVG inline en las 79 instancias** | alto (38 glifos × 2 estilos) | ~15 KB | regresiones visuales de tamaño/alineación |
+Si el peso real difiere **> 20 %** del presupuesto al instalarlos (FASE 6): **parar y avisar
+en el gate correspondiente** antes de seguir, adjuntando el desglose real por fichero.
 
-Se adopta **(i)** mientras no llegue contraorden. (ii) sigue siendo factible como mejora
-post-refactor, por fases (CV primero, portafolio después).
+## Mejoras fuera de alcance
+
+- **(ii) Reemplazar FA por SVG inline** en las 79 instancias / 38 glifos (CV 44, portafolio 35,
+  ATS 0): bajaría ~180 KB de webfonts a ~15 KB, pero es churn alto con riesgo real de regresión
+  visual (tamaño/alineación baseline). Queda como **mejora post-refactor por fases** (CV primero,
+  portafolio después), nunca dentro de este refactor.
 
 ## Alternativas consideradas
 

@@ -1,6 +1,6 @@
 # ADR-002: Tokens de diseño (W3C DTCG)
 
-Fecha: 2026-10-15 · Estado: Aceptado (GATE 1)
+Fecha: 2026-10-15 · Estado: Aceptado (GATE 1) · Rutas/content confirmados (GATE 2, N1)
 
 ## Contexto
 
@@ -12,6 +12,16 @@ que es la fuente de confusión documentada en AGENTS.md.
 
 ## Decisión
 
+### Rutas físicas (confirmadas, GATE 2 N1)
+- `src/input.css` → **`git mv` a `src/styles/input.css`** (renombrado en FASE 3, no es fix de bug).
+- **`src/styles/tokens.css` se crea nuevo** (FASE 4) y `input.css` lo importa con **ruta
+  relativa**: `@import "./tokens.css";`.
+- `tailwind.config.js` actualiza `content` a
+  `["./*.html", "./cv/**/*.html", "./assets/js/**/*.js"]` — hoy solo escanea la raíz, así que
+  tras FASE 3 las clases usadas en `cv/**` y en los módulos JS de `assets/js/` quedarían
+  fuera del build (purge silencioso).
+
+### Tokens
 - **Fuente única de verdad**: `src/styles/tokens.css`, formato **W3C DTCG**:
   cada declaración envuelta en un comentario `/* @tokens */` con bloques `$value`/`$type`
   (compatibles con el visualizer de los DTCG Design Tokens tools), además de las Custom

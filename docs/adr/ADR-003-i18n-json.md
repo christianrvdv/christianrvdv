@@ -1,6 +1,6 @@
 # ADR-003: i18n migrado a JSON (`assets/i18n/`) + orden de resolución de idioma
 
-Fecha: 2026-10-15 · Estado: Aceptado (GATE 1) · Refinado en GATE 1 (Q2)
+Fecha: 2026-10-15 · Estado: Aceptado (GATE 1, Q2) · **Cascada firme GATE 2, A4**
 
 ## Contexto
 
@@ -25,12 +25,16 @@ aunque la URL pida inglés.
   página: se conserva el texto ya presente en el markup (que es el default ES) y se loguea un
   warning. El toggle queda limitado a ES mientras falle el fetch.
 
-### Orden de resolución de idioma (CV)
+### Orden de resolución de idioma (CV) — decisión firme (GATE 2, A4)
 1. **Intención de URL**: `?lang=xx` en la query **o** la ruta `/cv/en/` (equivalente a
    `?lang=en`; es la razón de existir de esa página — decisión GATE 1: `/cv/en` es físico).
 2. `localStorage['language']`
-3. `navigator.language` (prefijo `es` → ES; `en` → EN; otro → ES)
-4. Fallback `es`
+3. Fallback `es`
+
+**No se usa `navigator.language`** (decisión GATE 2, A4): añadirlo al CV introduciría
+inconsistencia con `/` (que sigue en ES por defecto), violando "cero regresiones" — las
+alternativas implicaban cambiar el comportamiento del portafolio o dejar la inconsistencia,
+ambas fuera de scope.
 
 Además, tras aplicar `?lang`:
 - se **persiste** en `localStorage['language']` (para que `/` y `/cv/` queden coherentes), y
@@ -39,13 +43,9 @@ Además, tras aplicar `?lang`:
 Aplica a `/cv/`, `/cv/en/`, `/cv-en` (redirect) y `/cv?lang=en`.
 
 ### Orden en el portafolio (`index.html`)
-- Hoy: `localStorage['language'] || 'es'`. Se mantiene **sin cambio** (regla: cero regresiones;
-  Q2 acotó la nueva cascada a las URLs de CV).
-- ⚠️ **Abierto (GATE 2)**: con la cascada nueva solo en el CV, un navegador EN sin
-  localStorage muestra `/` en ES y `/cv/` en EN (salto de idioma entre páginas). Opciones:
-  (a) aplicar la misma cascada también en `/` (cambia el default de primera visita en
-  navegadores no-ES), o (b) quitar el paso 3 del CV. A implementar literalmente la instrucción
-  del GATE 1 (solo CV) hasta recibir orden.
+- Sin cambio: `localStorage['language'] || 'es'`.
+- Coherencia entre páginas: tras la primera interacción que aplique `?lang`, el idioma queda
+  persistido en `localStorage`, así que `/` y `/cv/` coinciden desde entonces.
 
 ## Consecuencias
 
@@ -57,6 +57,12 @@ Aplica a `/cv/`, `/cv/en/`, `/cv-en` (redirect) y `/cv?lang=en`.
 - **−** Duplicidad de claves entre los 4 JSON: mitigada porque la edición normal de copy es
   "misma clave, dos idiomas" y un test manual de paridad de claves (diff de `Object.keys`)
   se incluye en la verificación FASE 9.
+
+## Mejoras fuera de alcance
+
+- **(a) Aplicar `navigator.language` también en `/`** (o en la cascada del CV): eliminaría
+  el salto de idioma de primera visita en navegadores no-ES, pero cambia el default actual
+  del portafolio → requiere aprobación explícita aparte. No forma parte de este refactor.
 
 ## Alternativas consideradas
 

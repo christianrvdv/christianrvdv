@@ -35,11 +35,11 @@ Usuario: Christian (propietario) + visitantes del sitio (portafolio `/`, CV `/cv
    CSS inline, sin i18n). Se mantiene esa arquitectura: `/cv/` (i18n), `/cv/ats/` (ATS) y
    **`/cv/en/` como archivo físico** con el mismo template (GATE 1: sin rewrite, sin build —
    duplicación de marcado acotada porque el texto vive en JSON tras FASE 5, ADR-001/ADR-003).
-6. **Idioma en CV — aprobado (GATE 1, Q2):** orden de resolución
-   `?lang=xx`/ruta `/cv/en/` > `localStorage['language']` > `navigator.language` > `es`;
+6. **Idioma en CV — aprobado (GATE 1/Q2, afinado GATE 2/A4):** orden de resolución
+   `?lang=xx`/ruta `/cv/en/` > `localStorage['language']` > fallback `es`
+   (**sin** `navigator.language` — A4, para no desincronizar de `/`);
    al aplicar `?lang` se persiste en `localStorage` y se limpia con `history.replaceState`.
-   Scope: páginas CV (`/cv`, `/cv/en`, `/cv-en`, `/cv?lang=en`). Ver ADR-003 (incluye el
-   riesgo de salto de idioma `/`↔`/cv` en navegadores no-ES, abierto en GATE 2).
+   Scope: páginas CV (`/cv`, `/cv/en`, `/cv-en`, `/cv?lang=en`). Ver ADR-003.
 7. **Umbrales PDF aprobados (GATE 1, Q3):** CV ES ≤ 450 KB · CV EN ≤ 450 KB ·
    **CV ATS ≤ 200 KB (canario: si lo supera ⇒ fuente mal subsetteada o imagen colándose)**.
    Los actuales pesan 419/420 KB → verificación contra el umbral nuevo en FASE 7 (ADR-004).
@@ -127,9 +127,8 @@ scripts/{build-css.mjs,build-cv.mjs,dev.mjs}
 docs/{SPEC,CONSTRAINTS,ARCHITECTURE,VERIFICATION}.md, docs/adr/ADR-00{1..6}-*.md
 ```
 
-Nota: el GATE 1 mencionó "`src/` se reserva para `src/styles/` **y `src/js/`**", lo que
-contradice "mantener V1 (sin `src/js/`)". Se mantiene V1 a la espera de confirmación
-(ítem abierto GATE 2, §10).
+Nota (cerrado en GATE 2, A1): el GATE 1 mencionó "`src/` se reserva para `src/styles/` y
+`src/js/`" — fue un lapsus; **V1 manda: no hay `src/js/`** (fuente JS en `assets/js/`).
 
 ## 6. Comandos
 
@@ -223,19 +222,16 @@ Un commit atómico Conventional por fase (`docs:`, `chore:`, `refactor:`, `build
    `chore: baseline before refactor — untracked ATS + pending CSS`.
 8. **`package-lock.json`**: fuera de `.gitignore`, trackeado (ADR-006).
 
-### Abiertos para GATE 2 (correcciones detectadas al escribir los ADRs)
+### Cerradas en GATE 2 (A1–A4 + N1–N4)
 
-- **A1 — `src/js/`:** el GATE 1 dice "`src/` se reserva para `src/styles/` y `src/js/`",
-  pero también "mantener V1" (V1 = no existe `src/js/`, JS fuente en `assets/js/`).
-  Implementación actual: **V1**. ¿Confirmar o se crea `src/js/`?
-- **A2 — Font Awesome (ADR-005 "Abierto"):** el plan decía "SVG inline en el CV (solo ~8
-  iconos)"; la medición real es **79 instancias / 38 glifos** (CV 44/35, portafolio 35/29,
-  ATS 0). Recomendación: **webfonts FA auto-hospedadas (0 churn)** frente a 79 reescrituras
-  a SVG. ¿Confirmar (i) o se va a (ii) por fases?
-- **A3 — Pesos de Inter (ADR-005):** se pidieron 400/600/700; el sitio usa también
-  **500 y 800** (`font-medium` ×38, `font-weight: 500/800` en CSS). Decisión: subset de
-  5 pesos estáticos o **fuente variable** (recomendado, cubre todo).
-- **A4 — Cascada de idioma del portafolio (ADR-003):** con `navigator.language` solo en el CV,
-  `/` y `/cv/` pueden mostrar idiomas distintos en un navegador EN sin localStorage.
-  Opciones (a) aplicar la misma cascada en `/`, (b) quitar `navigator.language` del CV.
-  Por ahora: instrucción literal (solo CV).
+- **A1 → sin `src/js/`** (V1 firme): `src/` solo estilos; JS fuente en `assets/js/` (ADR-001).
+- **A2 → FA webfonts auto-hospedadas** (opción (i), 0 churn); SVG inline queda como mejora
+  post-refactor (ADR-005).
+- **A3 → Inter fuente variable** (latin + latin-ext, `font-display: swap`, ≤ 100 KB; si no
+  cabe → 5 pesos estáticos documentando el trade-off) (ADR-005).
+- **A4 → sin `navigator.language`** en el CV: cascada `?lang`/ruta > `localStorage` > `es`;
+  portafolio sin cambio (ADR-003; opción (a) en "Mejoras fuera de alcance").
+- **N1** rutas físicas + `content` de Tailwind ampliado → ADR-002.
+- **N2** precheck de `build:css` con códigos de salida 1/2/3 → ADR-004.
+- **N3** presupuesto `assets/fonts/` ≈ 240 KB (parar si ±20 %) → ADR-005.
+- **N4** fila "CDNs externos = 0 con `rg`" → CONSTRAINTS (tabla Enforced).
