@@ -21,7 +21,7 @@ reportes de verificación por fase alojados en `docs/verification/`.
 | 3 | `docs/verification/lint-baseline-fase3.md` | done (baseline 47) |
 | 4 | — | lint = 47 (CSS only; gate lint nivel 1, no-regresión) |
 | 5 | `docs/verification/lint-fase5.md` | done (lint 34 = todo `no-inline-style`; main.css 31033 B; deuda inline → FASE 6) |
-| 6 | `docs/verification/lint-fase6.md` | pendiente |
+| 6 | `docs/verification/lint-fase6.md` | done (lint 0; N4 0; fonts 82196/307200 B; texto visible intacto; Lighthouse baseline ×4 en `docs/verification/lighthouse-fase6-*.json`) |
 | 7 | `docs/verification/pdfs-fase7.md` | pendiente |
 | 8 | `docs/verification/rutas-fase8.md` | pendiente |
 | 9 | `docs/verification/final-fase9.md` (lint + Lighthouse + CWV + contenido + PDFs) | pendiente |

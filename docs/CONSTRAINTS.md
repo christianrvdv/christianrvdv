@@ -1,6 +1,6 @@
 # Constraints
 
-Last reviewed: 2026-10-15 (GATE 4 — enmiendas: clasificación D1, gate lint D2, presupuesto tokens D3). Proyecto: refactor estructural portafolio + CV.
+Last reviewed: 2026-10-15 (GATE 6 — FASE 6 completa: lint 47→34→0, N4=0, E1, presupuestos 6a-6c. Enmiendas GATE 4 D1-D3 siguen vigentes). Proyecto: refactor estructural portafolio + CV.
 
 > Lee `docs/SPEC.md` antes de escribir código. **No debilitar este archivo para que un cambio pase.**
 
@@ -51,8 +51,8 @@ Cada fila tiene comando. Una dimensión con número y sin comando es una aspirac
 | `tokens.css` (nuevo, FASE 4) | 10 645 B (DTCG + paleta extendida; piso CSS irrecucible ~6 KB) | ≤ 12 KB |
 | `index.html` | 89 409 B | no debe crecer |
 | `assets/js/main.js` (ex-`script.js`, → modular) | 34 668 B / 492 ln | no debe crecer en total |
-| CV inline `<style>` | ~710 ln | debe llegar a ~0 en `cv/index.html` |
-| `lint:html` errores | 47 (FASE 3 y FASE 4; FASE 4 no toca HTML — gate rule nivel 1) | 0 al llegar a FASE 9 |
+| CV inline `<style>` | 0 ln (extraído a `assets/css/cv.css`, FASE 6a; 710 ln en FASE 3-5) | cumplido |
+| `lint:html` errores | 47 (FASE 3-4) → 34 (FASE 5) → **0 (FASE 6b)** | 0; debe mantenerse en FASE 9 |
 | Clasificación tokens | 4 tokens RGB sin usos `/NN` (`background`, `on-surface`, `on-surface-variant`, `primary-container`) conservan la forma RGB: cambiarlos alteraría 6 utilidades compiladas: excepción 4c ratificada en GATE 4 (D1) | sin acción; documentada |
 | Lighthouse actual | sin baseline | capturar en FASE 9 antes/después |
 
@@ -66,8 +66,9 @@ Regla del gate de `lint:html`, tres niveles:
    Decremento estricto y verificable.
 3. **FASE 9 (final)**: conteo = 0. Si no llega a 0, GATE 9 fallido.
 
-Baselines: FASE 3 = 47. FASE 4 = 47 (CSS only, no toca HTML). FASE 5 debe bajar
-< 47. FASE 6 debe bajar < FASE 5. FASE 9 = 0.
+Baselines: FASE 3 = 47. FASE 4 = 47 (CSS only, no toca HTML). FASE 5 = 34
+(< 47 ✓). FASE 6 = 0 (< 34 ✓, alcanzado en la sub-fase 6b; FASE 9 debe
+mantener 0).
 
 Comandos de conteo:
 
