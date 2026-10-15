@@ -1,6 +1,6 @@
 # Constraints
 
-Last reviewed: 2026-10-15 (FASE 1). Proyecto: refactor estructural portafolio + CV.
+Last reviewed: 2026-10-15 (GATE 3 — enmienda lint). Proyecto: refactor estructural portafolio + CV.
 
 > Lee `docs/SPEC.md` antes de escribir código. **No debilitar este archivo para que un cambio pase.**
 
@@ -28,7 +28,7 @@ Last reviewed: 2026-10-15 (FASE 1). Proyecto: refactor estructural portafolio + 
 | Dimensión | Regla | Comando (Checked by) | Cuándo corre |
 |---|---|---|---|
 | Build | exit 0, sin warnings de Tailwind | `npm run build` | cada commit de fase |
-| HTML | 0 errores de validación | `npm run lint:html` (`npx html-validate`) | cada commit de fase |
+| HTML | **0 errores** (estado final estricto: FASE 9 en adelante) | `npm run lint:html` (`npx html-validate`) | FASE 9 en adelante; decrecimiento forzado desde FASE 3 (ver «Gate rules (lint)») |
 | Performance | Lighthouse ≥ 90 (desktop) en `/`, `/cv`, `/cv/en`, `/cv/ats` | `npx lighthouse <url> --preset=desktop --output=json` | FASE 9 + PR |
 | Accessibility | Lighthouse ≥ 95 (4 páginas) | ídem (`--preset=desktop`) | FASE 9 + PR |
 | SEO | Lighthouse ≥ 95 (4 páginas) | ídem | FASE 9 + PR |
@@ -46,11 +46,39 @@ Cada fila tiene comando. Una dimensión con número y sin comando es una aspirac
 
 | Métrica | Hoy | Dirección |
 |---|---|---|
-| `estilo.css` (CSS compilado) | 30 180 B | no debe crecer > 15 % |
+| `main.css` (ex-`estilo.css`, compilado) | 30 151 B tras FASE 3 (purga de `.outline`, 29 B, aceptada en GATE 3) | no debe crecer > 15 % |
 | `index.html` | 89 409 B | no debe crecer |
-| `script.js` (→ modular) | 34 668 B / 492 ln | no debe crecer en total |
+| `assets/js/main.js` (ex-`script.js`, → modular) | 34 668 B / 492 ln | no debe crecer en total |
 | CV inline `<style>` | ~710 ln | debe llegar a ~0 en `cv/index.html` |
+| `lint:html` errores | 47 (FASE 3, baseline) | decreciente, 0 al llegar a FASE 9 |
 | Lighthouse actual | sin baseline | capturar en FASE 9 antes/después |
+
+## Gate rules (lint, aprobadas en GATE 3)
+
+1. La tabla «Enforced with numbers» mantiene la regla estricta `lint:html = 0 errores`
+   para el estado FINAL (FASE 9 en adelante).
+2. El conteo se registra en «Medido, aún no forzado»: arranca en **47** (baseline FASE 3).
+3. En cada gate (4, 5, 6, 7, 8) el conteo de `lint:html` no puede aumentar respecto al
+   gate anterior; si aumenta, el commit de esa fase no se aprueba hasta arreglarlo.
+   **Decremento obligatorio**, no solo «no empeorar»: el conteo debe seguir un plan
+   decreciente verificable hacia 0 (la deuda no se acumula en silencio).
+4. FASE 9 cierra con **0 errores**. Si no llega a 0, es GATE 9 fallido.
+
+Comandos de conteo:
+
+```bash
+npm run lint:html 2>&1 | tail -1   # "✖ N problems (N errors, 0 warnings)"
+rg -c 'error' docs/verification/lint-*.md | sort
+```
+
+### Notas GATE 3 (aceptadas, fuera de alcance)
+
+- `Browserslist: caniuse-lite is outdated` en `npm run build:css`: **pre-existente**
+  (Tailwind 3.4.19 vendoriza datos de 2024; `caniuse-lite` local ya está en latest).
+  No bloquea; tratarlo exige Tailwind 4 (fuera de alcance).
+- `estilo.css → assets/css/main.css` (FASE 3): purga de 29 B de la utilidad no usada
+  `.outline` — única diferencia byte-real, artefacto del escaneo de `tailwind.config.js`.
+  Cambio esperado del build, aceptado.
 
 ## Excepciones
 
