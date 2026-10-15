@@ -1,6 +1,6 @@
 # Constraints
 
-Last reviewed: 2026-10-15 (GATE 3 — enmienda lint). Proyecto: refactor estructural portafolio + CV.
+Last reviewed: 2026-10-15 (GATE 4 — enmiendas: clasificación D1, gate lint D2, presupuesto tokens D3). Proyecto: refactor estructural portafolio + CV.
 
 > Lee `docs/SPEC.md` antes de escribir código. **No debilitar este archivo para que un cambio pase.**
 
@@ -38,6 +38,7 @@ Last reviewed: 2026-10-15 (GATE 3 — enmienda lint). Proyecto: refactor estruct
 | Contenido | diff de texto visible = solo rutas/marcado | `diff docs/before/*.txt docs/after/*.txt` | FASE 9 |
 | PDFs | 3 archivos, texto seleccionable; CV ES ≤ 450 KB · CV EN ≤ 450 KB · **CV ATS ≤ 200 KB** (canario: si lo supera ⇒ fuente mal subsetteada o imagen colándose) | `npm run build:cv` (exit 1 si se supera) + apertura en Chrome | FASE 7 |
 | Tamaño CSS | `assets/css/main.css` ≤ 35 KB (baseline hoy: `estilo.css` 30 KB) | `Get-Item` | cada build |
+| Tamaño tokens | `src/styles/tokens.css` ≤ 12 KB (presupuesto revisado en GATE 4; original 8 KB — justificación en ADR-002 «Consecuencias») | `Get-Item` | cada build |
 | CDN externos | 0 referencias a `fonts.googleapis` / `cdnjs.cloudflare` / `avatars.githubusercontent` | `rg "https?://(fonts\.googleapis|cdnjs\.cloudflare|avatars\.githubusercontent)" index.html cv/` → 0 hits | FASE 6 y PR |
 
 Cada fila tiene comando. Una dimensión con número y sin comando es una aspiración, no una restricción.
@@ -46,29 +47,34 @@ Cada fila tiene comando. Una dimensión con número y sin comando es una aspirac
 
 | Métrica | Hoy | Dirección |
 |---|---|---|
-| `main.css` (ex-`estilo.css`, compilado) | 30 151 B tras FASE 3 (purga de `.outline`, 29 B, aceptada en GATE 3) | no debe crecer > 15 % |
+| `main.css` (ex-`estilo.css`, compilado) | 31 010 B tras FASE 4 (+2,8 % vs baseline 30 151 B; purga de `.outline` 29 B aceptada en GATE 3) | no debe crecer > 15 % |
+| `tokens.css` (nuevo, FASE 4) | 10 645 B (DTCG + paleta extendida; piso CSS irrecucible ~6 KB) | ≤ 12 KB |
 | `index.html` | 89 409 B | no debe crecer |
 | `assets/js/main.js` (ex-`script.js`, → modular) | 34 668 B / 492 ln | no debe crecer en total |
 | CV inline `<style>` | ~710 ln | debe llegar a ~0 en `cv/index.html` |
-| `lint:html` errores | 47 (FASE 3, baseline) | decreciente, 0 al llegar a FASE 9 |
+| `lint:html` errores | 47 (FASE 3 y FASE 4; FASE 4 no toca HTML — gate rule nivel 1) | 0 al llegar a FASE 9 |
+| Clasificación tokens | 4 tokens RGB sin usos `/NN` (`background`, `on-surface`, `on-surface-variant`, `primary-container`) conservan la forma RGB: cambiarlos alteraría 6 utilidades compiladas: excepción 4c ratificada en GATE 4 (D1) | sin acción; documentada |
 | Lighthouse actual | sin baseline | capturar en FASE 9 antes/después |
 
-## Gate rules (lint, aprobadas en GATE 3)
+## Gate rules (lint, GATE 3 + reescritura GATE 4/D2)
 
-1. La tabla «Enforced with numbers» mantiene la regla estricta `lint:html = 0 errores`
-   para el estado FINAL (FASE 9 en adelante).
-2. El conteo se registra en «Medido, aún no forzado»: arranca en **47** (baseline FASE 3).
-3. En cada gate (4, 5, 6, 7, 8) el conteo de `lint:html` no puede aumentar respecto al
-   gate anterior; si aumenta, el commit de esa fase no se aprueba hasta arreglarlo.
-   **Decremento obligatorio**, no solo «no empeorar»: el conteo debe seguir un plan
-   decreciente verificable hacia 0 (la deuda no se acumula en silencio).
-4. FASE 9 cierra con **0 errores**. Si no llega a 0, es GATE 9 fallido.
+Regla del gate de `lint:html`, tres niveles:
+
+1. **Gates que NO tocan HTML linteado** (FASE 4, 7, 8): conteo ≤ baseline.
+   Medir y exigir no-regresión.
+2. **Gates que SÍ tocan HTML linteado** (FASE 5, 6): conteo < gate anterior.
+   Decremento estricto y verificable.
+3. **FASE 9 (final)**: conteo = 0. Si no llega a 0, GATE 9 fallido.
+
+Baselines: FASE 3 = 47. FASE 4 = 47 (CSS only, no toca HTML). FASE 5 debe bajar
+< 47. FASE 6 debe bajar < FASE 5. FASE 9 = 0.
 
 Comandos de conteo:
 
 ```bash
 npm run lint:html 2>&1 | tail -1   # "✖ N problems (N errors, 0 warnings)"
 rg -c 'error' docs/verification/lint-*.md | sort
+# fallback Windows (rg no está en PATH): Select-String -Path docs\verification\lint-*.md -Pattern 'error'
 ```
 
 ### Notas GATE 3 (aceptadas, fuera de alcance)
