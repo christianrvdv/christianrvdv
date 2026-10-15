@@ -1,0 +1,60 @@
+/*! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2023 Fonticons, Inc.
+ * Subconjunto local (FASE 6c.4): solo los glifos usados por el portafolio/CV. */
+
+/* @font-face */
+@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:900;font-display:block;src:url("../../fonts/fa-solid-900-subset.woff2") format("woff2")}
+@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:400;font-display:block;src:url("../../fonts/fa-regular-400-subset.woff2") format("woff2")}
+@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:block;src:url("../../fonts/fa-brands-400-subset.woff2") format("woff2")}
+
+/* reglas base */
+.fa,.fa-brands,.fa-classic,.fa-regular,.fa-sharp,.fa-solid,.fab,.far,.fas{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:var(--fa-display,inline-block);font-style:normal;font-variant:normal;line-height:1;text-rendering:auto}
+.fa-classic,.fa-regular,.fa-solid,.far,.fas{font-family:"Font Awesome 6 Free"}
+.fa-brands,.fab{font-family:"Font Awesome 6 Brands"}
+:host,:root{--fa-style-family-brands:"Font Awesome 6 Brands";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}
+.fa-brands,.fab{font-weight:400}
+:host,:root{--fa-font-regular:normal 400 1em/1 "Font Awesome 6 Free"}
+.fa-regular,.far{font-weight:400}
+:host,:root{--fa-style-family-classic:"Font Awesome 6 Free";--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Free"}
+.fa-solid,.fas{font-weight:900}
+
+/* glifos usados (38) */
+.fa-bolt:before{content:"\f0e7"}
+.fa-briefcase:before{content:"\f0b1"}
+.fa-check-circle:before{content:"\f058"}
+.fa-code:before{content:"\f121"}
+.fa-code-branch:before{content:"\f126"}
+.fa-cog:before{content:"\f013"}
+.fa-credit-card:before{content:"\f09d"}
+.fa-cubes:before{content:"\f1b3"}
+.fa-database:before{content:"\f1c0"}
+.fa-external-link-alt:before{content:"\f35d"}
+.fa-file-alt:before{content:"\f15c"}
+.fa-file-code:before{content:"\f1c9"}
+.fa-file-pdf:before{content:"\f1c1"}
+.fa-globe-americas:before{content:"\f57d"}
+.fa-key:before{content:"\f084"}
+.fa-leaf:before{content:"\f06c"}
+.fa-map-marked-alt:before{content:"\f5a0"}
+.fa-map-marker-alt:before{content:"\f3c5"}
+.fa-mountain:before{content:"\f6fc"}
+.fa-network-wired:before{content:"\f6ff"}
+.fa-pen-fancy:before{content:"\f5ac"}
+.fa-phone-alt:before{content:"\f879"}
+.fa-print:before{content:"\f02f"}
+.fa-server:before{content:"\f233"}
+.fa-shield-alt:before{content:"\f3ed"}
+.fa-tachometer-alt:before{content:"\f625"}
+.fa-terminal:before{content:"\f120"}
+.fa-css3-alt:before{content:"\f38b"}
+.fa-docker:before{content:"\f395"}
+.fa-github:before{content:"\f09b"}
+.fa-html5:before{content:"\f13b"}
+.fa-java:before{content:"\f4e4"}
+.fa-js:before{content:"\f3b8"}
+.fa-node-js:before{content:"\f3d3"}
+.fa-php:before{content:"\f457"}
+.fa-react:before{content:"\f41b"}
+.fa-symfony:before{content:"\f83d"}
+.fa-envelope:before{content:"\f0e0"}
