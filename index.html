@@ -43,7 +43,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="estilo.css" rel="stylesheet">
+    <link href="/assets/css/main.css" rel="stylesheet">
     <!-- ✅ Inter variable font (mismo que cv_christian.html) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -57,7 +57,7 @@
     Saltar al contenido principal
 </a>
 
-<header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-500" role="banner">
+<header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-500">
     <nav class="bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl border-b border-white/10 dark:border-white/5 shadow-lg shadow-black/5"
          aria-label="Navegación principal">
         <div class="flex justify-between items-center h-16 px-margin_mobile md:px-margin_desktop max-w-container_max_width mx-auto">
@@ -78,15 +78,15 @@
                    href="#projects" data-i18n="nav.projects">Proyectos</a>
             </div>
             <div class="flex items-center gap-4">
-                <button id="themeToggle" aria-label="Alternar tema"
+                <button id="themeToggle" type="button" aria-label="Alternar tema"
                         class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer focus-ring">
                     <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
                 </button>
-                <button id="languageToggle" aria-label="Cambiar idioma"
+                <button id="languageToggle" type="button" aria-label="Cambiar idioma"
                         class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer font-bold text-sm focus-ring">
                     <span class="language-text">ES</span>
                 </button>
-                <button id="mobileMenuBtn"
+                <button id="mobileMenuBtn" type="button"
                         class="md:hidden text-on-surface-variant cursor-pointer focus-ring"
                         aria-label="Menú" aria-expanded="false" aria-controls="mobileMenu">
                     <span class="material-symbols-outlined" aria-hidden="true">menu</span>
@@ -364,14 +364,14 @@
                         <div class="flex items-center gap-3 mb-4">
                             <span class="material-symbols-outlined text-3xl text-primary"
                                   aria-hidden="true">cloud</span>
-                            <h3 class="font-headline-md text-headline-md" data-i18n="skills.devops.title">DevOps &
+                            <h3 class="font-headline-md text-headline-md" data-i18n="skills.devops.title">DevOps &amp;
                                 Cloud</h3>
                         </div>
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.devops.desc">Herramientas de
                             contenerización, orquestación y nube.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
-                                <i class="fab fa-docker mr-1.5 text-xs text-primary" aria-hidden="true"></i>Docker & Compose
+                                <i class="fab fa-docker mr-1.5 text-xs text-primary" aria-hidden="true"></i>Docker &amp; Compose
                             </span>
                             <span class="px-3 py-1 bg-white/10 dark:bg-white/10 rounded-full text-sm font-medium">
                                 <i class="fas fa-server mr-1.5 text-xs text-primary" aria-hidden="true"></i>Nginx / Apache
@@ -421,7 +421,7 @@
                         <div class="flex items-center gap-3 mb-4">
                             <span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">account_tree</span>
                             <h3 class="font-headline-md text-headline-md" data-i18n="skills.architecture.title">
-                                Arquitectura & Seguridad</h3>
+                                Arquitectura &amp; Seguridad</h3>
                         </div>
                         <p class="text-on-surface-variant text-sm mb-4" data-i18n="skills.architecture.desc">Patrones de
                             diseño, microservicios, autenticación avanzada y buenas prácticas.</p>
@@ -1018,8 +1018,7 @@
     </div>
 </main>
 
-<footer class="w-full border-t border-white/10 bg-surface-container/30 dark:bg-surface-dim/30 backdrop-blur-md mt-24"
-        role="contentinfo">
+<footer class="w-full border-t border-white/10 bg-surface-container/30 dark:bg-surface-dim/30 backdrop-blur-md mt-24">
     <div class="max-w-container_max_width mx-auto px-margin_mobile md:px-margin_desktop py-8">
         <div class="flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex flex-col items-center md:items-start gap-2 text-center md:text-left">
@@ -1047,12 +1046,12 @@
     </div>
 </footer>
 
-<button id="backToTop"
+<button id="backToTop" type="button"
         class="fixed bottom-6 right-6 w-12 h-12 bg-primary/80 backdrop-blur-sm text-on-primary rounded-full shadow-lg shadow-black/30 hover:bg-primary hover:scale-110 transition-all flex items-center justify-center z-40 opacity-0 pointer-events-none border border-white/20 focus-ring"
         aria-label="Volver arriba">
     <span class="material-symbols-outlined" aria-hidden="true">keyboard_arrow_up</span>
 </button>
 
-<script src="script.js" defer></script>
+<script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>
