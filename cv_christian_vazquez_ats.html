@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christián R. Vázquez — Full Stack Developer</title>
+    <style>
+        /* ===== ATS-FRIENDLY STYLES =====
+           - Sin columnas, sin iconos, sin imágenes.
+           - Fuente estándar, tamaño legible.
+           - Máxima compatibilidad con parsers ATS. */
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            background: #ffffff;
+            color: #000000;
+            font-family: Arial, Helvetica, "Segoe UI", sans-serif;
+            font-size: 11pt;
+            line-height: 1.45;
+        }
+
+        .cv {
+            max-width: 800px;      /* ~ A4 útil */
+            margin: 0 auto;
+            padding: 24px 28px;
+        }
+
+        /* Encabezado */
+        header { margin-bottom: 18px; }
+
+        h1 {
+            font-size: 20pt;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .headline {
+            font-size: 12pt;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact {
+            font-size: 10.5pt;
+            line-height: 1.6;
+        }
+
+        .contact a { color: #000; text-decoration: none; }
+
+        /* Secciones */
+        section { margin-bottom: 16px; }
+
+        h2 {
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            margin-top: 8px;
+            margin-bottom: 2px;
+        }
+
+        .meta {
+            font-size: 10pt;
+            margin-bottom: 4px;
+        }
+
+        p { margin-bottom: 6px; }
+
+        ul {
+            margin: 4px 0 8px 18px;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 2px;
+            font-size: 10.5pt;
+        }
+
+        /* Habilidades en texto plano */
+        .skills p {
+            font-size: 10.5pt;
+            margin-bottom: 4px;
+        }
+
+        .skills strong { font-weight: 700; }
+
+        /* Proyectos */
+        .project {
+            margin-bottom: 8px;
+        }
+
+        .project .title {
+            font-weight: 700;
+            font-size: 11pt;
+        }
+
+        .project .stack {
+            font-size: 10pt;
+            font-style: italic;
+        }
+
+        .project .link {
+            font-size: 10pt;
+            word-break: break-all;
+        }
+
+        /* Impresión */
+        @media print {
+            @page { size: A4; margin: 12mm; }
+            body { font-size: 10.5pt; }
+            .cv { padding: 0; max-width: 100%; }
+            a { color: #000; text-decoration: none; }
+            section { page-break-inside: avoid; }
+            h2 { page-break-after: avoid; }
+        }
+    </style>
+</head>
+<body>
+<div class="cv">
+
+    <!-- ==================== ENCABEZADO ==================== -->
+    <header>
+        <h1>Christián R. Vázquez</h1>
+        <div class="headline">Ingeniero en Ciencias Informáticas | Full Stack Developer</div>
+        <div class="contact">
+            Jatibonico, Sancti Spíritus, Cuba<br>
+            Teléfono: (+53) 56449593<br>
+            Email: christianrvdv.1999@gmail.com<br>
+            GitHub: https://github.com/Christianrvdv<br>
+            Portafolio: https://christianrvdv.netlify.app
+        </div>
+    </header>
+
+    <!-- ==================== PERFIL ==================== -->
+    <section>
+        <h2>Perfil Profesional</h2>
+        <p>
+            Ingeniero en Ciencias Informáticas y Desarrollador Full Stack con experiencia en
+            Symfony 7/8, Spring Boot 3, React y arquitecturas modernas. Especializado en APIs REST,
+            microservicios, seguridad (JWT, OAuth2, 2FA) y despliegue con Docker. Capacidad para
+            asumir el ciclo completo de desarrollo: modelado de datos, lógica de negocio, frontend
+            y despliegue. Actualmente curso una Maestría en Informática Aplicada.
+        </p>
+    </section>
+
+    <!-- ==================== EXPERIENCIA ==================== -->
+    <section>
+        <h2>Experiencia Profesional</h2>
+
+        <h3>Desarrollador Full Stack — Freelance</h3>
+        <div class="meta">Proyectos Independientes | 2024 — Presente | Remoto</div>
+        <ul>
+            <li>SGR-Turnos: sistema bancario anti-colas con Symfony 8, JWT, rate limiting, auditoría y exportación Excel.</li>
+            <li>ComercioLocal: SaaS e-commerce con Stripe, OAuth2 (Google/Facebook), 2FA y Redis.</li>
+            <li>Desarrollo de APIs RESTful y microservicios con Spring Boot y Docker.</li>
+            <li>Uso de agentes de IA (Claude Code, OpenCode) con harness engineering para acelerar el ciclo de desarrollo.</li>
+        </ul>
+
+        <h3>Desarrollador Backend — Centro de Desarrollo Local</h3>
+        <div class="meta">2021 — 2024 | Sancti Spíritus, Cuba</div>
+        <ul>
+            <li>Desarrollo y mantenimiento de aplicaciones web con Java / Spring Boot y PHP / Symfony.</li>
+            <li>Construcción de interfaces frontend con HTML5, CSS3, JavaScript y Tailwind.</li>
+            <li>Metodologías ágiles (Scrum), control de versiones Git y soporte técnico.</li>
+        </ul>
+
+        <h3>Practicante de Desarrollo de Software — Universidad de las Ciencias Informáticas (UCI)</h3>
+        <div class="meta">2018 — 2021 | La Habana, Cuba</div>
+        <ul>
+            <li>Proyectos académicos con Java, PHP y MySQL.</li>
+            <li>Aplicación de patrones de diseño y buenas prácticas bajo supervisión.</li>
+        </ul>
+    </section>
+
+    <!-- ==================== EDUCACIÓN ==================== -->
+    <section>
+        <h2>Educación</h2>
+
+        <h3>Maestría en Informática Aplicada</h3>
+        <div class="meta">Universidad José Martí (UNISS) | 2025 — Presente</div>
+        <p>Especialización en arquitecturas distribuidas y sistemas de alta concurrencia.</p>
+
+        <h3>Ingeniería en Ciencias Informáticas</h3>
+        <div class="meta">Universidad de las Ciencias Informáticas (UCI) | 2017 — 2022</div>
+        <p>Formación basada en proyectos reales, con énfasis en fundamentos de computación, ingeniería de software, bases de datos y tecnologías de vanguardia.</p>
+    </section>
+
+    <!-- ==================== HABILIDADES ==================== -->
+    <section class="skills">
+        <h2>Habilidades Técnicas</h2>
+        <p><strong>Lenguajes:</strong> PHP 8, Java 17, JavaScript, TypeScript, SQL, Kotlin.</p>
+        <p><strong>Frameworks:</strong> Symfony 7/8, Spring Boot 3, Node.js, React, Alpine.js, Twig, Stimulus.</p>
+        <p><strong>Frontend:</strong> HTML5, CSS3, Tailwind CSS, React, TypeScript.</p>
+        <p><strong>Bases de datos:</strong> MySQL, Doctrine ORM, Redis.</p>
+        <p><strong>DevOps y Cloud:</strong> Docker, Nginx, Apache, CI/CD, Git.</p>
+        <p><strong>Arquitectura y Seguridad:</strong> JWT, OAuth2, 2FA, Stripe, microservicios (Kong), rate limiting, clean code.</p>
+        <p><strong>IA aplicada al desarrollo:</strong> Claude Code, OpenCode, GitHub Copilot, prompt engineering, harness engineering.</p>
+    </section>
+
+    <!-- ==================== PROYECTOS ==================== -->
+    <section>
+        <h2>Proyectos Destacados</h2>
+
+        <div class="project">
+            <div class="title">SGR-Turnos Web</div>
+            <div class="stack">React 19, Vite, TypeScript, TanStack Query, Zustand, JWT</div>
+            <div>SPA para reserva de turnos bancarios con rutas protegidas, refresh token deduplicado, formularios con React Hook Form + Zod y dark mode.</div>
+            <div class="link">https://github.com/christianrvdv/sgr-turnos-react-web</div>
+        </div>
+
+        <div class="project">
+            <div class="title">SGR-Turnos-Bandec (App Móvil)</div>
+            <div class="stack">Android, Kotlin, Jetpack Compose</div>
+            <div>App nativa para turnos bancarios con JWT, sincronización offline y notificaciones push.</div>
+        </div>
+
+        <div class="project">
+            <div class="title">ComercioLocal SaaS</div>
+            <div class="stack">Symfony, Stripe, OAuth2, 2FA, Redis</div>
+            <div>Plataforma e-commerce con carrito, panel de administración y pagos con Stripe.</div>
+        </div>
+
+        <div class="project">
+            <div class="title">app_almacen</div>
+            <div class="stack">Symfony 7</div>
+            <div>Control de inventario, facturación PDF (dompdf) y dashboard de métricas.</div>
+            <div class="link">https://github.com/Christianrvdv/app_almacen</div>
+        </div>
+
+        <div class="project">
+            <div class="title">Auth System + JWT</div>
+            <div class="stack">Symfony</div>
+            <div>Autenticación JWT, Voters, auditoría y pruebas unitarias.</div>
+            <div class="link">https://github.com/Christianrvdv/auth-system</div>
+        </div>
+
+        <div class="project">
+            <div class="title">Microservicios Biblioteca</div>
+            <div class="stack">Spring Boot, API Gateway (Kong), Eureka</div>
+            <div>Arquitectura de microservicios con comunicación asíncrona.</div>
+            <div class="link">https://github.com/Christianrvdv/sistema-biblioteca-microservicios</div>
+        </div>
+
+        <div class="project">
+            <div class="title">App BANCEC</div>
+            <div class="stack">Android, ZXing</div>
+            <div>Solicitud de tarjetas magnéticas con QR, exportación Excel y estadísticas.</div>
+            <div class="link">https://github.com/Christianrvdv/SolicitudtarjetaBANDEC</div>
+        </div>
+    </section>
+
+    <!-- ==================== IDIOMAS ==================== -->
+    <section>
+        <h2>Idiomas</h2>
+        <p><strong>Español:</strong> Nativo.</p>
+        <p><strong>Inglés:</strong> Básico (A2).</p>
+    </section>
+
+</div>
+</body>
+</html>
