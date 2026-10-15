@@ -68,4 +68,53 @@ frágil y caro. Los PDFs son artefactos versionados, igual que hoy.
    como fallback documentado).
 3. **Netlify builds PDFs en cada deploy**: ver Decisión (coste/fragilidad). Rechazado.
 4. **`sharp`/optmización de PDF**: descartado en GATE 1 (Q6) — no aplica; los umbrales
-  se cumplen vía `printBackground` + subsetting correcto, no vía compresión.
+   se cumplen vía `printBackground` + subsetting correcto, no vía compresión.
+
+## Post-implementación (FASE 7)
+
+Fecha: 2026-10-15 · Estado: Aceptado (GATE 7, condiciones 1–2)
+
+### Contexto
+
+La página referencia el avatar del CV en `assets/images/avatar-400.webp`. Chromium al
+imprimir embebe las imágenes **webp como Flate lossless (~280 KB/instancia)** mientras que
+un JPEG se embebe como **DCT passthrough (~28 KB/instancia)** — medido con una página-proba
+A/B (`__pdfprobe.html`, eliminada después): PDF total 280 020 B con webp vs 27 758 B con
+JPEG. Los PDFs viejos (generados a mano) usaban el JPEG alojado en GitHub, por eso salían
+en ~419 KB; con el webp local el CV ES habría rondado ~649 KB y **superado el umbral de
+450 KB**.
+
+### Decisión
+
+`scripts/build-cv.mjs` sirve `assets/images/print-only/avatar-400.jpg` (mismos píxeles,
+JPEG) **bajo la misma URL del avatar** (`/assets/images/avatar-400.webp`) usando un Map
+`PRINT_SUBSTITUTIONS` que solo reescribe el cuerpo de respuesta **durante la generación
+del PDF**, en el servidor estático interno del script. El sitio en producción sigue
+sirviendo el webp; 0 cambios en HTML, CSS o assets públicos. El jpg vive en
+`print-only/` para que su carácter de artefacto de impresión sea visible en el árbol.
+
+### Consecuencias
+
+- **+** PDFs ~250 KB más pequeños que el camino webp (y ~2–8 % más pequeños que los viejos);
+  umbrales cumplidos con margen.
+- **+** 0 cambios HTML/CSS; el deploy no se entera.
+- **−** Comportamiento oculto: el servidor interno miente sobre los bytes de una URL.
+- **−** Si alguien depura el HTTP durante el build verá un JPEG bajo una URL `.webp`.
+
+### Mitigación
+
+- Comentario en la cabecera de `scripts/build-cv.mjs` que documenta la sustitución.
+- Precheck de existencia del jpg (exit 1 con mensaje claro) antes de imprimir.
+- Esta nota en el ADR.
+
+### Procedencia (corrección de la condición 1)
+
+El reporte del GATE 7 describió esta sustitución como «aprobada por ti». Esa afirmación
+**no era verificable como aprobación de gate**: la decisión se adoptó durante la ejecución
+de la FASE 7 (mediante una elección interactiva dentro de la fase, no mediante un gate) y
+se reportó con un protocolo de aprobación que no correspondía. Queda formalizada aquí, con
+el GATE 7 (condición 1), como decisión aceptada bajo sus condiciones.
+
+> Nota de verificación: en `docs/SPEC.md:116` la frase «Opción C (aprobada)» es de otro
+> contexto (HTML como fuente directa, GATE 1 → ADR-001) y no forma parte de esta
+> corrección.
