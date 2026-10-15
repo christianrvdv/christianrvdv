@@ -16,6 +16,8 @@
  * previos). El sitio sigue sirviendo .webp; este servidor responde el JPEG
  * equivalente (mismos píxeles, assets/images/avatar-400.jpg) bajo la misma
  * URL durante la impresión. Solo afecta al PDF, nunca al deploy.
+ * Ruta exacta: assets/images/print-only/avatar-400.jpg (ver ADR-004
+ * «Post-implementación (FASE 7)» para el contexto completo).
  *
  * Códigos de salida:
  *   0  éxito
@@ -77,15 +79,15 @@ function precheck() {
       process.exit(1);
     }
   }
-  if (!existsSync(path.join(ROOT, 'assets', 'images', 'avatar-400.jpg'))) {
-    console.error('[precheck] falta assets/images/avatar-400.jpg — sustitución de impresión requerida por ADR-004 (generar desde assets/images/avatar-400.webp)');
+  if (!existsSync(path.join(ROOT, 'assets', 'images', 'print-only', 'avatar-400.jpg'))) {
+    console.error('[precheck] falta assets/images/print-only/avatar-400.jpg — sustitución de impresión requerida por ADR-004 (generar desde assets/images/avatar-400.webp)');
     process.exit(1);
   }
 }
 
 /* Sustitución de impresión: misma URL, bytes JPEG (ver cabecera). */
 const PRINT_SUBSTITUTIONS = new Map([
-  ['/assets/images/avatar-400.webp', path.join(ROOT, 'assets', 'images', 'avatar-400.jpg')],
+  ['/assets/images/avatar-400.webp', path.join(ROOT, 'assets', 'images', 'print-only', 'avatar-400.jpg')],
 ]);
 
 /* ---------- 2) Servidor estático interno (puerto dinámico) ---------- */
