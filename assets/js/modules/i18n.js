@@ -3,7 +3,7 @@
 // Portafolio: localStorage || 'es' (sin cambio). CV: cascada ADR-003 (A4):
 // ?lang > ruta /cv/en/ > localStorage > 'es'.
 
-const I18N_BASE = '/assets/i18n';
+const I18N_BASE = new URL('../../i18n', import.meta.url);
 
 export async function loadTranslations(scope) {
     const [es, en] = await Promise.all([
@@ -88,7 +88,7 @@ export function initCvI18n(dict) {
     let lang = null;
     if (paramLang === 'en' || paramLang === 'es') {
         lang = paramLang;
-    } else if (window.location.pathname === '/cv/en' || window.location.pathname.startsWith('/cv/en/')) {
+    } else if (window.location.pathname.replace(/\/+$/, '').endsWith('/cv/en')) {
         lang = 'en';
     } else {
         try {
@@ -111,8 +111,8 @@ export function initCvI18n(dict) {
         const pdfLink = document.getElementById('cv-pdf-link');
         if (pdfLink) {
             pdfLink.href = useLang === 'en'
-                ? '/assets/docs/cv-christian-vazquez-en.pdf'
-                : '/assets/docs/cv-christian-vazquez.pdf';
+                ? new URL('../../docs/cv-christian-vazquez-en.pdf', import.meta.url).href
+                : new URL('../../docs/cv-christian-vazquez.pdf', import.meta.url).href;
         }
     };
 

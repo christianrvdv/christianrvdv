@@ -1,0 +1,64 @@
+﻿index.html:41: <link href="/assets/css/main.css" rel="stylesheet">
+index.html:42: <link rel="stylesheet" href="/assets/css/material-symbols.css">
+index.html:43: <link rel="stylesheet" href="/assets/css/vendor/fontawesome.css">
+index.html:116: <img src="/assets/images/avatar-200.webp" srcset="/assets/images/avatar-200.webp 1x, /assets/images/avatar-400.webp 2x" alt="Christián R. Vazquez" class="w-full h-full object-cover" fetchpriority="high" loading="eager" width="200" height="200">
+index.html:124: <img src="/assets/images/avatar-200.webp" srcset="/assets/images/avatar-200.webp 1x, /assets/images/avatar-400.webp 2x" alt="Christián R. Vazquez" class="w-full h-full object-cover" fetchpriority="high" loading="eager" width="200" height="200">
+index.html:169: <img src="/assets/images/avatar-200.webp" srcset="/assets/images/avatar-200.webp 1x, /assets/images/avatar-400.webp 2x" alt="Christián R. Vazquez" class="w-full h-full object-cover" loading="lazy" width="200" height="200">
+index.html:1024: <script type="module" src="/assets/js/main.js"></script>
+index.html:10: <link rel="stylesheet" href="/assets/css/vendor/fontawesome.css">
+index.html:11: <link rel="stylesheet" href="/assets/css/main.css">
+index.html:12: <link rel="stylesheet" href="/assets/css/cv.css">
+index.html:18: <a id="cv-pdf-link" href="/assets/docs/cv-christian-vazquez.pdf" download class="btn-pdf"><i class="fas fa-file-pdf"></i> <span
+index.html:26: <img src="/assets/images/avatar-400.webp"
+index.html:307: <script type="module" src="/assets/js/cv.js"></script>
+index.html:10: <link rel="stylesheet" href="/assets/css/vendor/fontawesome.css">
+index.html:11: <link rel="stylesheet" href="/assets/css/main.css">
+index.html:12: <link rel="stylesheet" href="/assets/css/cv.css">
+index.html:18: <a id="cv-pdf-link" href="/assets/docs/cv-christian-vazquez.pdf" download class="btn-pdf"><i class="fas fa-file-pdf"></i> <span
+index.html:26: <img src="/assets/images/avatar-400.webp"
+index.html:307: <script type="module" src="/assets/js/cv.js"></script>
+main.css:1: :root{--color-primary:#1abc9c;--color-accent:#7c5cfc;--color-background:#fbf9f8;--color-surface:#fff;--color-surface-dim:#e4e2e1;--color-surface-container:#f0eded;--color-on-surface:#1b1c1c;--color-on-surface-variant:#3c4a45;--color-outline:#6c7a75;--color-white-alpha-10:hsla(0,0%,100%,.1);--color-background-rgb:251,249,248;--color-surface-rgb:255,255,255;--color-surface-dim-rgb:228,226,225;--color-surface-container-rgb:240,237,237;--color-on-surface-rgb:27,28,28;--color-on-surface-variant-rgb:60,74,69;--color-primary-rgb:26,188,156;--color-accent-rgb:124,92,252;--color-on-primary-rgb:255,255,255;--color-primary-container-rgb:26,188,156;--color-surface-tint:#006b58;--color-surface-variant:#e4e2e1;--color-surface-container-low:#f6f3f2;--color-on-error-container:#93000a;--color-on-primary-container:#004538;--color-inverse-primary:#4eddbb;--color-on-tertiary-fixed:#091d2e;--color-surface-bright:#fbf9f8;--color-surface-container-lowest:#fff;--color-secondary-fixed:#cce5ff;--color-on-primary-fixed:#002019;--color-surface-container-high:#eae8e7;--color-error-container:#ffdad6;--color-secondary-container:#5cb8fd;--color-on-tertiary:#fff;--color-inverse-on-surface:#f3f0f0;--color-on-secondary-fixed-variant:#004b73;--color-primary-fixed:#6ff9d6;--color-on-primary-fixed-variant:#005141;--color-tertiary-fixed-dim:#b5c8df;--color-tertiary-container:#96a9be;--color-tertiary:#4e6073;--color-on-error:#fff;--color-on-secondary-fixed:#001d31;--color-on-tertiary-fixed-variant:#36485b;--color-outline-variant:#bbcac3;--color-on-secondary:#fff;--color-primary-container:#1abc9c;--color-tertiary-fixed:#d1e4fb;--color-on-tertiary-container:#2c3e50;--color-on-secondary-container:#00476e;--color-on-primary:#fff;--color-surface-container-highest:#e4e2e1;--color-inverse-surface:#303030;--color-error:#ba1a1a;--color-primary-fixed-dim:#4eddbb;--color-secondary:#006397;--color-secondary-fixed-dim:#92ccff;--color-on-background:#1b1c1c;--font-sans:"Inter",ui-sans-serif,system-ui,sans-serif;--font-mono:ui-monospace,SFMono-Regular,monospace;--space-unit:8px;--space-gutter:24px;--space-margin-mobile:16px;--space-margin-desktop:48px;--space-container-max-width:1200px;--space-sidebar-width:280px;--radius-sm:0.5rem;--radius-md:1rem;--radius-lg:1.5rem;--radius-full:9999px;--shadow-sm:0 4px 6px -1px rgba(0,0,0,.1);--shadow-md:0 10px 15px -3px rgba(0,0,0,.1);--shadow-lg:0 25px 50px -12px rgba(0,0,0,.25);--shadow-glow:0 0 20px 4px rgba(26,188,156,.6);--shadow-card-hover:0 20px 40px -15px rgba(26,188,156,.25);--cv-accent:#1abc9c;--cv-accent-dark:#006b58;--cv-accent-print:#0d9488;--cv-bg-light:#f8fafc;--cv-border:#e2e8f0;--cv-text-primary:#0f172a;--cv-text-secondary:#475569;--cv-text-muted:#64748b;--cv-card-bg:#fff;--cv-skill-bg:#f1f5f9;--cv-dot-gray:#cbd5e1;--cv-transition:all 0.2s ease}.dark{--color-primary:#1abc9c;--color-accent:#7c5cfc;--color-background:#0a0f1a;--color-surface:#131b2a;--color-surface-dim:#0d1421;--color-surface-container:#1a2332;--color-on-surface:#e2e8f0;--color-on-surface-variant:#94a3b8;--color-outline:#475569;--color-white-alpha-10:hsla(0,0%,100%,.1);--color-background-rgb:10,15,26;--color-surface-rgb:19,27,42;--color-surface-dim-rgb:13,20,33;--color-surface-container-rgb:26,35,50;--color-on-surface-rgb:226,232,240;--color-on-surface-variant-rgb:148,163,184;--color-primary-rgb:26,188,156;--color-accent-rgb:124,92,252;--color-on-primary-rgb:0,32,25;--color-primary-container-rgb:26,188,156;--color-surface-tint:#006b58;--color-surface-variant:#1e293b;--color-on-primary-container:#6ee7b7;--color-inverse-primary:#4eddbb;--color-primary-container:#1abc9c;--color-on-primary:#002019;--color-secondary:#38bdf8;--color-error:#f87171}@font-face{font-family:Inter;font-style:normal;font-weight:300 800;font-display:swap;src:url(/assets/fonts/inter-latin.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }
+i18n.js:6: const I18N_BASE = '/assets/i18n';
+i18n.js:114: ? '/assets/docs/cv-christian-vazquez-en.pdf'
+i18n.js:115: : '/assets/docs/cv-christian-vazquez.pdf';
+tokens.css:165: src: url('/assets/fonts/inter-latin.woff2') format('woff2');
+=== AUDITORIA POST-MIGRACION (FASE 8.5) ===
+--- HTMLs: patrones href/src/srcset con ruta absoluta interna ---
+(ninguno - 0 rutas absolutas internas en HTML)
+--- HTMLs: ocurrencias de '/assets' (deben ser solo https externos) ---
+D:\1 - Proyectos\christianrvdv\index.html:28: <meta property="og:image" content="https://christianrvdv.netlify.app/assets/images/avatar-400.webp">
+D:\1 - Proyectos\christianrvdv\index.html:35: <meta name="twitter:image" content="https://christianrvdv.netlify.app/assets/images/avatar-400.webp">
+D:\1 - Proyectos\christianrvdv\cv\index.html:10: <link rel="stylesheet" href="../assets/css/vendor/fontawesome.css">
+D:\1 - Proyectos\christianrvdv\cv\index.html:11: <link rel="stylesheet" href="../assets/css/main.css">
+D:\1 - Proyectos\christianrvdv\cv\index.html:12: <link rel="stylesheet" href="../assets/css/cv.css">
+D:\1 - Proyectos\christianrvdv\cv\index.html:18: <a id="cv-pdf-link" href="../assets/docs/cv-christian-vazquez.pdf" download class="btn-pdf"><i class="fas fa-file-pdf"></i> <span
+D:\1 - Proyectos\christianrvdv\cv\index.html:26: <img src="../assets/images/avatar-400.webp"
+D:\1 - Proyectos\christianrvdv\cv\index.html:307: <script type="module" src="../assets/js/cv.js"></script>
+D:\1 - Proyectos\christianrvdv\cv\en\index.html:10: <link rel="stylesheet" href="../../assets/css/vendor/fontawesome.css">
+D:\1 - Proyectos\christianrvdv\cv\en\index.html:11: <link rel="stylesheet" href="../../assets/css/main.css">
+D:\1 - Proyectos\christianrvdv\cv\en\index.html:12: <link rel="stylesheet" href="../../assets/css/cv.css">
+D:\1 - Proyectos\christianrvdv\cv\en\index.html:18: <a id="cv-pdf-link" href="../../assets/docs/cv-christian-vazquez.pdf" download class="btn-pdf"><i class="fas fa-file-pdf"></i> <span
+D:\1 - Proyectos\christianrvdv\cv\en\index.html:26: <img src="../../assets/images/avatar-400.webp"
+D:\1 - Proyectos\christianrvdv\cv\en\index.html:307: <script type="module" src="../../assets/js/cv.js"></script>
+--- CSS/JS: '/assets' ---
+(ninguno - 0 rutas absolutas /assets en CSS/JS)
+
+=== RESUMEN FASE 8.5 (conteos de instancias '/assets' INTERNAS) ===
+ANTES:
+  index.html        : 13  (3 CSS links + 3 img con src/srcset x2 + 1 script)
+  cv/index.html     :  6  (3 CSS + 1 PDF + 1 avatar + 1 script)
+  cv/en/index.html  :  6  (3 CSS + 1 PDF + 1 avatar + 1 script)
+  cv/ats/index.html :  0  (E1: CSS inline; sin <link> externos; NO tocado)
+  assets/css/main.css : 1 (@font-face Inter url(/assets/fonts/inter-latin.woff2))
+  src/styles/tokens.css: 1 (fuente de verdad de @font-face)
+  assets/js/modules/i18n.js: 3 (I18N_BASE + 2 PDFs)
+  TOTAL ANTES: 32 instancias internas
+
+DESPUES:
+  HTMLs internas: 0 (ver secciones anteriores)
+  CSS/JS '/assets': 0 (main.css regenerado: url(../fonts/inter-latin.woff2))
+  Externas conservadas (intencional): index.html og:image/twitter:image (https://christianrvdv.netlify.app/...) = 2
+  extras migrados (no '/assets' pero rotos en GH Pages):
+    index.html href="cv_christian.html" x2 -> href="cv/" (legacy; Netlify lo salvaba con 301)
+    i18n.js pathname check '/cv/en' -> endsWith('/cv/en') tras normalizar slashes (subpath /christianrvdv/)
+  TOTAL DESPUES: 0 internas
