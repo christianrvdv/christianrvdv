@@ -8,6 +8,11 @@
 
     <meta name="theme-color" content="#ffffff">
 
+    <link rel="preload" href="../assets/fonts/fa-solid-900-subset.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/fa-regular-400-subset.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/fa-brands-400-subset.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
     <link rel="stylesheet" href="../assets/css/vendor/fontawesome.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/cv.css">
@@ -48,10 +53,10 @@
             <!-- Sobre mí -->
             <section class="cv-section-mb">
                 <div class="section-header"><h2 data-i18n="cv.about.title">Sobre Mí</h2></div>
-                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="cv.about.p1"></p>
-                <p class="text-slate-600 text-sm leading-relaxed mt-3" data-i18n="cv.about.p2"></p>
-                <p class="text-slate-600 text-sm leading-relaxed mt-3" data-i18n="cv.about.p3"></p>
-                <p class="text-slate-600 text-sm leading-relaxed mt-3" data-i18n="cv.about.p4"></p>
+                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="cv.about.p1">Ingeniero en Ciencias Informáticas y <strong>Full Stack Developer</strong> con una visión integral del desarrollo de software. Mi formación en la UCI sentó las bases de una ingeniería sólida, que he evolucionado construyendo soluciones completas con <strong>Symfony 7/8</strong>, <strong>Spring Boot 3</strong> y arquitecturas modernas, siempre pensando en el producto final.</p>
+                <p class="text-slate-600 text-sm leading-relaxed mt-3" data-i18n="cv.about.p2">Me motiva transformar ideas en productos funcionales, limpios y eficientes, asumiendo la responsabilidad de todo el ciclo: desde el modelado de datos y la lógica de negocio hasta la interfaz de usuario y el despliegue. He trabajado en entornos empresariales (Centro de Desarrollo Local, 2021–2024) y en proyectos independientes de alta complejidad, como sistemas de turnos bancarios (<strong>SGR-Turnos</strong>) y plataformas SaaS con <strong>Stripe</strong>, <strong>OAuth2</strong> y <strong>2FA</strong>, donde he actuado como arquitecto y desarrollador principal.</p>
+                <p class="text-slate-600 text-sm leading-relaxed mt-3" data-i18n="cv.about.p3">Mi dominio técnico abarca tanto el backend (Java/Spring Boot, PHP/Symfony, Node.js, Doctrine ORM) como el frontend moderno (React, TypeScript, Tailwind CSS, Alpine.js, Twig, JavaScript vanilla). Esta versatilidad me permite tomar decisiones que equilibran rendimiento, mantenibilidad y experiencia de usuario, adaptándome a las necesidades de cada proyecto sin perder de vista la visión global.</p>
+                <p class="text-slate-600 text-sm leading-relaxed mt-3" data-i18n="cv.about.p4">Actualmente curso una <strong>Maestría en Informática Aplicada</strong> para profundizar en arquitecturas distribuidas y sistemas de alta concurrencia, convencido de que el aprendizaje continuo es el motor que impulsa soluciones innovadoras y escalables. Además, configuro entornos de <strong>desarrollo agéntico (harness engineering)</strong> con agentes de terminal para potenciar la productividad del equipo.</p>
             </section>
 
             <!-- Experiencia -->
@@ -69,9 +74,9 @@
                             <span class="text-[10px] font-bold text-slate-400" data-i18n="cv.exp.freelance.date">2024 — Presente</span>
                         </div>
                         <ul class="text-sm text-slate-600 mt-1 space-y-1 list-disc list-inside leading-relaxed">
-                            <li class="no-underline" data-i18n="cv.exp.freelance.item1"></li>
-                            <li class="no-underline" data-i18n="cv.exp.freelance.item2"></li>
-                            <li class="no-underline" data-i18n="cv.exp.freelance.item3"></li>
+                            <li class="no-underline" data-i18n="cv.exp.freelance.item1"><strong>SGR-Turnos</strong>: sistema bancario anti‑colas con Symfony 8, JWT, rate limiting, auditoría y exportación Excel.</li>
+                            <li class="no-underline" data-i18n="cv.exp.freelance.item2"><strong>ComercioLocal</strong>: SaaS e‑commerce con Stripe, OAuth2 (Google/Facebook), 2FA y Redis.</li>
+                            <li class="no-underline" data-i18n="cv.exp.freelance.item3">Desarrollo de APIs RESTful, microservicios con Spring Boot y Docker. Uso de agentes de IA (Claude Code, OpenCode) con <strong>harness engineering</strong> para acelerar el ciclo de desarrollo.</li>
                         </ul>
                     </div>
 
@@ -86,9 +91,9 @@
                             <span class="text-[10px] font-bold text-slate-400" data-i18n="cv.exp.junior.date">2021 — 2024</span>
                         </div>
                         <ul class="text-sm text-slate-600 mt-1 space-y-1 list-disc list-inside leading-relaxed">
-                            <li class="no-underline" data-i18n="cv.exp.junior.item1"></li>
-                            <li class="no-underline" data-i18n="cv.exp.junior.item2"></li>
-                            <li class="no-underline" data-i18n="cv.exp.junior.item3"></li>
+                            <li class="no-underline" data-i18n="cv.exp.junior.item1">Desarrollo y mantenimiento de aplicaciones web con Java / Spring Boot y PHP / Symfony.</li>
+                            <li class="no-underline" data-i18n="cv.exp.junior.item2">Construcción de interfaces frontend con HTML5, CSS3, JavaScript y Tailwind.</li>
+                            <li class="no-underline" data-i18n="cv.exp.junior.item3">Metodologías ágiles (Scrum), control de versiones Git y soporte técnico.</li>
                         </ul>
                     </div>
 
@@ -103,8 +108,8 @@
                             <span class="text-[10px] font-bold text-slate-400" data-i18n="cv.exp.intern.date">2018 — 2021</span>
                         </div>
                         <ul class="text-sm text-slate-600 mt-1 space-y-1 list-disc list-inside leading-relaxed">
-                            <li class="no-underline" data-i18n="cv.exp.intern.item1"></li>
-                            <li class="no-underline" data-i18n="cv.exp.intern.item2"></li>
+                            <li class="no-underline" data-i18n="cv.exp.intern.item1">Proyectos académicos con Java, PHP y MySQL.</li>
+                            <li class="no-underline" data-i18n="cv.exp.intern.item2">Aplicación de patrones de diseño y buenas prácticas bajo supervisión.</li>
                         </ul>
                     </div>
                 </div>
