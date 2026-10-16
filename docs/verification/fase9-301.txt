@@ -1,0 +1,32 @@
+# FASE 9.1 - Verificacion 301 con netlify-cli (motor real)
+# Motor: netlify-cli 27.12.1 ("netlify dev --port 8888 --offline", config local netlify.toml)
+# Fecha: 2026-10-16
+# Resultado: 10/10 redirects 301 OK + destinos verificados 200 OK
+
+| URL origen | HTTP | Location |
+|---|---|---|
+| /cv-en | 301 Moved Permanently | /cv/index.html?lang=en |
+| /cv_christian.html | 301 Moved Permanently | /cv/ |
+| /cv_christian | 301 Moved Permanently | /cv/ |
+| /cv_christian_vazquez.pdf | 301 Moved Permanently | /assets/docs/cv-christian-vazquez.pdf |
+| /cv_christian_vazquez_en.pdf | 301 Moved Permanently | /assets/docs/cv-christian-vazquez-en.pdf |
+| /cv_christian_vazquez_ats.html | 301 Moved Permanently | /cv/ats/ |
+| /cv_christian_vazquez_ats | 301 Moved Permanently | /cv/ats/ |
+| /imagen/sgr1300.webp | 301 Moved Permanently | /assets/images/projects/sgr1300.webp |
+| /estilo.css | 301 Moved Permanently | /assets/css/main.css |
+| /script.js | 301 Moved Permanently | /assets/js/main.js |
+
+## Verificacion de destinos (follow manual)
+| Destino | HTTP |
+|---|---|
+| /cv/index.html?lang=en | 200 OK |
+| /cv/ | 200 OK |
+| /assets/docs/cv-christian-vazquez.pdf | 200 OK |
+| /assets/docs/cv-christian-vazquez-en.pdf | 200 OK |
+| /cv/ats/ | 200 OK |
+| /assets/images/projects/sgr1300.webp | 200 OK |
+| /assets/css/main.css | 200 OK |
+| /assets/js/main.js | 200 OK |
+
+Cierre del limite GATE 8: los 301 estan verificados en el motor real de Netlify (netlify dev),
+no solo en la config. Plan B (rama test-deploy) no fue necesario.

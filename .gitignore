@@ -48,3 +48,5 @@ pnpm-debug.log*
 # .tailwind-cache/.
 
 .idea/
+# Local Netlify folder
+.netlify
