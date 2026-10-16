@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title data-i18n="cv.title">Christián Vazquez · Full Stack Developer CV</title>
+    <meta name="description" content="CV de Christián R. Vazquez — Full Stack Developer (PHP/Symfony, Java/Spring, React). Experiencia, proyectos y contacto.">
 
     <meta name="theme-color" content="#ffffff">
 
@@ -19,7 +20,7 @@
             data-i18n="cv.button.pdf">Descargar PDF</span></a>
 </div>
 
-<div class="a4-page">
+<main class="a4-page" id="main-content">
     <header class="cv-header">
         <div class="header-info">
             <div class="avatar avatar-relative">
@@ -116,8 +117,8 @@
                     <div>
                         <div class="flex flex-wrap justify-between items-start">
                             <div>
-                                <h4 class="font-bold text-slate-800 text-sm" data-i18n="cv.studies.masters.title">
-                                    Maestría en Informática Aplicada</h4>
+                                <h3 class="font-bold text-slate-800 text-sm" data-i18n="cv.studies.masters.title">
+                                    Maestría en Informática Aplicada</h3>
                                 <p class="text-sm text-slate-500" data-i18n="cv.studies.masters.university">Universidad
                                     José Martí (UNISS)</p>
                             </div>
@@ -130,8 +131,8 @@
                     <div>
                         <div class="flex flex-wrap justify-between items-start">
                             <div>
-                                <h4 class="font-bold text-slate-800 text-sm" data-i18n="cv.studies.degree.title">
-                                    Ingeniería en Ciencias Informáticas</h4>
+                                <h3 class="font-bold text-slate-800 text-sm" data-i18n="cv.studies.degree.title">
+                                    Ingeniería en Ciencias Informáticas</h3>
                                 <p class="text-sm text-slate-500" data-i18n="cv.studies.degree.university">Universidad
                                     de las Ciencias Informáticas (UCI)</p>
                             </div>
@@ -150,21 +151,21 @@
                 <div class="section-header"><h2 data-i18n="cv.projects.title">Proyectos Destacados</h2></div>
                 <div class="projects-grid">
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.mobile_sgrturnos.title">SGR-Turnos-Bandec</span> <span
-                                class="badge">Android</span></h5>
+                        <h3><span data-i18n="cv.projects.mobile_sgrturnos.title">SGR-Turnos-Bandec</span> <span
+                                class="badge">Android</span></h3>
                         <p data-i18n="cv.projects.mobile_sgrturnos.desc">App nativa con Kotlin y Jetpack Compose para
                             reserva de turnos bancarios, con JWT, sincronización offline y notificaciones push.</p>
                         <span class="text-xs text-slate-400" data-i18n="cv.projects.demo">(demo en desarrollo)</span>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.sgrturnos.title">SGR-Turnos</span> <span class="badge">Symfony 8</span>
-                        </h5>
+                        <h3><span data-i18n="cv.projects.sgrturnos.title">SGR-Turnos</span> <span class="badge">Symfony 8</span>
+                        </h3>
                         <p data-i18n="cv.projects.sgrturnos.desc">Gestión de turnos bancarios anti‑cola con JWT, rate
                             limiting, auditoría y exportación Excel.</p>
                         <span class="text-xs text-slate-400" data-i18n="cv.projects.demo">(demo en desarrollo)</span>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.sgrweb.title">SGR-Turnos Web</span> <span class="badge">React 19</span></h5>
+                        <h3><span data-i18n="cv.projects.sgrweb.title">SGR-Turnos Web</span> <span class="badge">React 19</span></h3>
                         <p data-i18n="cv.projects.sgrweb.desc">SPA con React 19, Vite 8 y TypeScript para reserva de
                             turnos bancarios. TanStack Query v5, Zustand, rutas protegidas, JWT refresh deduplicado,
                             formularios con React Hook Form + Zod y dark mode.</p>
@@ -172,32 +173,32 @@
                            class="card-link"><i class="fab fa-github"></i> github.com/christianrvdv/sgr-turnos-react-web</a>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.comerciolocal.title">ComercioLocal</span> <span class="badge">SaaS</span>
-                        </h5>
+                        <h3><span data-i18n="cv.projects.comerciolocal.title">ComercioLocal</span> <span class="badge">SaaS</span>
+                        </h3>
                         <p data-i18n="cv.projects.comerciolocal.desc">Plataforma e‑commerce con Stripe, OAuth2, 2FA,
                             carrito y panel admin.</p>
                         <a href="https://islamarket.aserenet.com/" target="_blank" class="card-link"><i
                                 class="fas fa-external-link-alt"></i> islamarket.aserenet.com</a>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.almacen.title">app_almacen</span> <span
-                                class="badge">Symfony 7</span></h5>
+                        <h3><span data-i18n="cv.projects.almacen.title">app_almacen</span> <span
+                                class="badge">Symfony 7</span></h3>
                         <p data-i18n="cv.projects.almacen.desc">Control de inventario, facturación PDF (dompdf) y
                             dashboard de métricas.</p>
                         <a href="https://github.com/Christianrvdv/app_almacen" target="_blank" class="card-link"><i
                                 class="fab fa-github"></i> github.com/Christianrvdv/app_almacen</a>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.auth.title">Auth System + JWT</span> <span class="badge">Symfony</span>
-                        </h5>
+                        <h3><span data-i18n="cv.projects.auth.title">Auth System + JWT</span> <span class="badge">Symfony</span>
+                        </h3>
                         <p data-i18n="cv.projects.auth.desc">Autenticación JWT, Voters, auditoría y pruebas
                             unitarias.</p>
                         <a href="https://github.com/Christianrvdv/auth-system" target="_blank" class="card-link"><i
                                 class="fab fa-github"></i> github.com/Christianrvdv/auth-system</a>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.microservices.title">Microservicios Biblioteca</span> <span
-                                class="badge">Spring Boot</span></h5>
+                        <h3><span data-i18n="cv.projects.microservices.title">Microservicios Biblioteca</span> <span
+                                class="badge">Spring Boot</span></h3>
                         <p data-i18n="cv.projects.microservices.desc">API Gateway (Kong), Eureka, comunicación
                             asíncrona.</p>
                         <a href="https://github.com/Christianrvdv/sistema-biblioteca-microservicios" target="_blank"
@@ -205,8 +206,8 @@
                             github.com/Christianrvdv/sistema-biblioteca-microservicios</a>
                     </div>
                     <div class="bento-card">
-                        <h5><span data-i18n="cv.projects.android.title">App BANCEC</span> <span
-                                class="badge">Android</span></h5>
+                        <h3><span data-i18n="cv.projects.android.title">App BANCEC</span> <span
+                                class="badge">Android</span></h3>
                         <p data-i18n="cv.projects.android.desc">Solicitud de tarjetas magnéticas con QR (ZXing),
                             exportación Excel y estadísticas.</p>
                         <a href="https://github.com/Christianrvdv/SolicitudtarjetaBANDEC" target="_blank"
@@ -302,7 +303,7 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 
 <script type="module" src="../assets/js/cv.js"></script>
 </body>

@@ -87,7 +87,7 @@ body {
 }
 
 .text-cv-accent {
-    color: var(--accent);
+    color: #0f766e;
 }
 
 .avatar-badge {
@@ -117,7 +117,7 @@ body {
 }
 
 .title p {
-    color: var(--accent);
+    color: #0f766e;
     font-weight: 600;
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -256,7 +256,7 @@ body {
     flex-direction: column;
 }
 
-.bento-card h5 {
+.bento-card h3 {
     font-weight: 700;
     color: #1e293b;
     font-size: 0.85rem;
@@ -266,12 +266,12 @@ body {
     flex-wrap: wrap;
 }
 
-.bento-card h5 .badge {
+.bento-card h3 .badge {
     font-size: 0.65rem;
     background: #f1f5f9;
     padding: 0.15rem 0.5rem;
     border-radius: 9999px;
-    color: var(--accent);
+    color: #0f766e;
     font-weight: 600;
 }
 
@@ -283,7 +283,7 @@ body {
 }
 
 .bento-card p.text-cv-accent {
-    color: var(--accent);
+    color: #0f766e;
 }
 
 .bento-card .card-link {
@@ -352,7 +352,7 @@ body {
 }
 
 .btn-pdf {
-    background: var(--accent);
+    background: #0f766e;
     color: white;
 }
 
@@ -371,6 +371,8 @@ body {
 .text-slate-500 {
     color: #64748b;
 }
+
+.text-slate-400, .text-slate-300 { color: #64748b; }
 
 .font-bold {
     font-weight: 700;
@@ -663,11 +665,11 @@ body {
         page-break-inside: avoid !important;
     }
 
-    .bento-card h5 {
+    .bento-card h3 {
         font-size: 0.85rem !important;
     }
 
-    .bento-card h5 .badge {
+.bento-card h3 .badge {
         font-size: 0.65rem !important;
         background: #f1f5f9 !important;
         color: var(--accent-print) !important;
@@ -702,7 +704,7 @@ body {
         page-break-inside: avoid !important;
     }
 
-    .title p, .contact-grid i, .skill-tag i, .sidebar-section-title i, .bento-card h5 .badge {
+    .title p, .contact-grid i, .skill-tag i, .sidebar-section-title i, .bento-card h3 .badge {
         color: var(--accent-print) !important;
     }
 
