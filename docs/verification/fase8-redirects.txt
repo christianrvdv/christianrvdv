@@ -64,3 +64,12 @@ Plan de verificacion de 301 en FASE 9 (cuando se pueda instalar el CLI)
   3. Smoke Chrome headless de /cv-en (esperado: 301 y la pagina EN) y /imagen/sgr1300.webp.
 
 Nota: build.command = "npm run build:css" (alias identico de npm run build en package.json; ADR-004 lo cita como npm run build).
+
+
+Enmienda post-verificacion (misma FASE 8, aprobada por decision del usuario)
+  Se anaden dos 301 para variantes SIN extension (enlaces historicos estilo
+  Pretty URLs; la URL /cv_christian sin .html daba 404 incluso en Netlify):
+    301 /cv_christian              -> /cv/
+    301 /cv_christian_vazquez_ats  -> /cv/ats/
+  Validacion estatica re-ejecutada: 13/13 redirects con targets existentes en disco.
+  (serve no los aplica tampoco: misma limitacion documentada arriba.)

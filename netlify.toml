@@ -32,6 +32,11 @@
   status = 301
 
 [[redirects]]
+  from = "/cv_christian"
+  to = "/cv/"
+  status = 301
+
+[[redirects]]
   from = "/cv_christian_vazquez.pdf"
   to = "/assets/docs/cv-christian-vazquez.pdf"
   status = 301
@@ -43,6 +48,11 @@
 
 [[redirects]]
   from = "/cv_christian_vazquez_ats.html"
+  to = "/cv/ats/"
+  status = 301
+
+[[redirects]]
+  from = "/cv_christian_vazquez_ats"
   to = "/cv/ats/"
   status = 301
 
