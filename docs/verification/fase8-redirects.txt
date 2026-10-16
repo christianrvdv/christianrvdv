@@ -1,0 +1,66 @@
+FASE 8 - Verificacion de redirects y headers (netlify.toml)
+Fecha: 2026-10-16
+
+Metodo y limitacion
+  - netlify CLI NO esta instalado en el entorno. Ruta (c) de la FASE 8:
+    se verifica con `npx serve -l 8888 .`, que NO interpreta netlify.toml.
+    Los codigos "esperado" son los que aplicara Netlify en produccion (tabla
+    derivada de netlify.toml); los "obtenidos" son reales bajo serve.
+  - Validacion ESTATICA del netlify.toml (script tomlcheck.mjs): los 11 redirects
+    apuntan a ficheros/directorios que EXISTEN en el repo (11/11 OK) y los
+    6 bloques de headers son los esperados (1 seguridad + 5 cache).
+  - Las URLs con "esperado 301" dan 404 bajo serve: es la limitacion documentada,
+    NO un bug de la config. Se verificarán en FASE 9 (ver Plan abajo).
+  - OJO: serve aplica su propio cleanUrls y responde 301 /cv_christian.html ->
+    /cv_christian (sin .html); eso es comportamiento de serve, NO de netlify.toml.
+  - NOTA de nombre: la lista de la fase citaba /assets/fonts/inter-variable-latin.woff2;
+    el fichero real es /assets/fonts/inter-latin.woff2 (tokens.css:165, url() real).
+    El nombre viejo daria 404 incluso en Netlify (no existe en el repo); se usa el real.
+
+curl.exe -I  ->  http://127.0.0.1:8888
+
+URL                                        ESPERADO (Netlify)                             OBTENIDO (serve)                       NOTA
+------------------------------------------------------------------------------------------------------------------------------------------------------
+/                                          200                                            200                                    pagina raiz (estatica)
+/cv                                        200 (rewrite)                                  200                                    rewrite 200 -> /cv/index.html
+/cv/en                                     200 (rewrite)                                  200                                    rewrite 200 -> /cv/en/index.html
+/cv/ats                                    200 (rewrite)                                  200                                    rewrite 200 -> /cv/ats/index.html
+/cv-en                                     301 -> /cv/index.html?lang=en                  404                                    redirect historico
+/cv_christian.html                         301 -> /cv/                                    301 -> /cv_christian                   redirect historico
+/cv_christian_vazquez.pdf                  301 -> /assets/docs/cv-christian-vazquez.pdf   404                                    redirect historico
+/cv_christian_vazquez_en.pdf               301 -> /assets/docs/cv-christian-vazquez-en.pdf 404                                    redirect historico
+/cv_christian_vazquez_ats.html             301 -> /cv/ats/                                301 -> /cv_christian_vazquez_ats       redirect historico
+/imagen/sgr1300.webp                       301 -> /assets/images/projects/sgr1300.webp    404                                    redirect historico
+/estilo.css                                301 -> /assets/css/main.css                    404                                    redirect historico
+/script.js                                 301 -> /assets/js/main.js                      404                                    redirect historico
+/assets/css/main.css                       200                                            200                                    asset nuevo
+/assets/fonts/inter-latin.woff2            200                                            200                                    asset nuevo (nombre real)
+
+Verificacion estatica del TOML (targets -> disco)
+  200 /cv            -> cv/index.html                 OK (existe)
+  200 /cv/en         -> cv/en/index.html              OK (existe)
+  200 /cv/ats        -> cv/ats/index.html             OK (existe)
+  301 /cv-en         -> /cv/index.html?lang=en        OK (existe; i18n lee ?lang > ruta > localStorage)
+  301 /cv_christian.html -> /cv/                       OK
+  301 /cv_christian_vazquez.pdf    -> /assets/docs/cv-christian-vazquez.pdf     OK (existe)
+  301 /cv_christian_vazquez_en.pdf -> /assets/docs/cv-christian-vazquez-en.pdf  OK (existe)
+  301 /cv_christian_vazquez_ats.html -> /cv/ats/       OK
+  301 /imagen/*      -> /assets/images/projects/:splat  OK (dir existe)
+  301 /estilo.css    -> /assets/css/main.css          OK (existe)
+  301 /script.js     -> /assets/js/main.js            OK (existe)
+
+Headers (netlify.toml)
+  /*                                  X-Frame-Options=nosniff/Referrer/Permissions (securidad, MANTENIDO de la version anterior)
+  /assets/images/*                    public, max-age=31536000, immutable
+  /assets/fonts/*                     public, max-age=31536000, immutable
+  /assets/css/*                       max-age=604800
+  /assets/js/*                        max-age=604800
+  /assets/docs/*.pdf                  max-age=86400
+  ELIMINADOS: cache de /imagen/*, /*.css y /*.js en la raiz (paths viejos, ahora 301)
+
+Plan de verificacion de 301 en FASE 9 (cuando se pueda instalar el CLI)
+  1. npx netlify-cli dev  (o netlify deploy --dry-run) sobre este netlify.toml
+  2. Re-ejecutar las 12 URL de esta tabla con curl.exe -I y anexar los codigos reales.
+  3. Smoke Chrome headless de /cv-en (esperado: 301 y la pagina EN) y /imagen/sgr1300.webp.
+
+Nota: build.command = "npm run build:css" (alias identico de npm run build en package.json; ADR-004 lo cita como npm run build).

@@ -1,18 +1,65 @@
 [build]
+  command = "npm run build:css"
   publish = "."
   [build.environment]
     NODE_VERSION = "20"
 
-# Redirecciones específicas (NO catch-all para no romper CV/PDF/imágenes)
+# Rewrites 200 (contenido en su ruta canónica)
 [[redirects]]
   from = "/cv"
-  to = "/cv_christian.html"
+  to = "/cv/index.html"
   status = 200
 
 [[redirects]]
-  from = "/cv-en"
-  to = "/cv_christian.html?lang=en"
+  from = "/cv/en"
+  to = "/cv/en/index.html"
   status = 200
+
+[[redirects]]
+  from = "/cv/ats"
+  to = "/cv/ats/index.html"
+  status = 200
+
+# Redirects 301 de URLs históricas (NO catch-all: rompería CV/PDF/imágenes)
+[[redirects]]
+  from = "/cv-en"
+  to = "/cv/index.html?lang=en"
+  status = 301
+
+[[redirects]]
+  from = "/cv_christian.html"
+  to = "/cv/"
+  status = 301
+
+[[redirects]]
+  from = "/cv_christian_vazquez.pdf"
+  to = "/assets/docs/cv-christian-vazquez.pdf"
+  status = 301
+
+[[redirects]]
+  from = "/cv_christian_vazquez_en.pdf"
+  to = "/assets/docs/cv-christian-vazquez-en.pdf"
+  status = 301
+
+[[redirects]]
+  from = "/cv_christian_vazquez_ats.html"
+  to = "/cv/ats/"
+  status = 301
+
+[[redirects]]
+  from = "/imagen/*"
+  to = "/assets/images/projects/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/estilo.css"
+  to = "/assets/css/main.css"
+  status = 301
+
+[[redirects]]
+  from = "/script.js"
+  to = "/assets/js/main.js"
+  status = 301
 
 # Headers de seguridad
 [[headers]]
@@ -23,19 +70,28 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
-# Cache de imágenes
+# Cache de assets versionados por contenido
 [[headers]]
-  for = "/imagen/*"
+  for = "/assets/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Cache de CSS/JS
 [[headers]]
-  for = "/*.css"
+  for = "/assets/fonts/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/*.js"
+  for = "/assets/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "max-age=604800"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "max-age=604800"
+
+[[headers]]
+  for = "/assets/docs/*.pdf"
+  [headers.values]
+    Cache-Control = "max-age=86400"
