@@ -1,0 +1,9 @@
+diff --git "a/docs\\before\\index.txt" "b/docs\\after\\index.txt"
+index 6199383..ef62e28 100644
+--- "a/docs\\before\\index.txt"
++++ "b/docs\\after\\index.txt"
+@@ -185,3 +185,4 @@ Ver demo
+ Código
+ Full Stack Developer
+ © 2025 Christián R. Vazquez. Construido con precisión y lógica.
++Idioma cambiado a español

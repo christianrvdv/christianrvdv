@@ -1,0 +1,97 @@
+diff --git "a/docs\\before\\cv-en.txt" "b/docs\\after\\cv-en.txt"
+index 16c06eb..ea1cd47 100644
+--- "a/docs\\before\\cv-en.txt"
++++ "b/docs\\after\\cv-en.txt"
+@@ -1,13 +1,18 @@
+-Print Download PDF
++Print
++Download PDF
+ CHRISTIÁN R. VAZQUEZ
+-Full Stack Developer
+-christianrvdv.1999@gmail.com github.com/Christianrvdv christianrvdv.netlify.app (+53) 56449593 Jatibonico, Sancti Spíritus, Cuba
+-About Me
++FULL STACK DEVELOPER
++christianrvdv.1999@gmail.com
++github.com/Christianrvdv
++christianrvdv.netlify.app
++(+53) 56449593
++Jatibonico, Sancti Spíritus, Cuba
++ABOUT ME
+ Computer Science Engineer and Full Stack Developer with a comprehensive vision of software development. My education at UCI provided a solid engineering foundation, which I have evolved by building complete solutions with Symfony 7/8, Spring Boot 3 and modern architectures, always thinking about the final product.
+ I am motivated by transforming ideas into functional, clean and efficient products, taking responsibility for the entire cycle: from data modeling and business logic to the user interface and deployment. I have worked in enterprise environments (Local Development Center, 2021–2024) and on high‑complexity independent projects, such as banking queue systems (SGR-Turnos) and SaaS platforms with Stripe, OAuth2 and 2FA, where I have acted as architect and lead developer.
+ My technical expertise covers both backend (Java/Spring Boot, PHP/Symfony, Node.js, Doctrine ORM) and modern frontend (React, TypeScript, Tailwind CSS, Alpine.js, Twig, vanilla JavaScript). This versatility allows me to make decisions that balance performance, maintainability and user experience, adapting to the needs of each project without losing sight of the overall vision.
+ I am currently pursuing a Master's in Applied Informatics to deepen my knowledge in distributed architectures and high‑concurrency systems, convinced that continuous learning is the engine that drives innovative and scalable solutions. I also configure agentic development environments (harness engineering) with terminal agents to boost team productivity.
+-Experience
++EXPERIENCE
+ Full Stack Developer · Freelance
+ Independent Projects
+ 2024 — Present
+@@ -25,7 +30,7 @@ University of Informatics Sciences (UCI)
+ 2018 — 2021
+ Academic projects with Java, PHP and MySQL.
+ Application of design patterns and best practices under supervision.
+-Education
++EDUCATION
+ Master's in Applied Informatics
+ Universidad José Martí (UNISS)
+ 2025 — Present
+@@ -34,32 +39,40 @@ Computer Science Engineering
+ University of Informatics Sciences (UCI)
+ 2017 — 2022
+ Project‑based education with emphasis on computing fundamentals, software engineering, databases and cutting‑edge technologies.
+-Featured Projects
+-SGR-Turnos-Bandec (Mobile App) Android
++FEATURED PROJECTS
++SGR-Turnos-Bandec (Mobile App)
++Android
+ Native app (Kotlin/Compose) for banking queues: JWT auth, offline sync and push notifications.
+ (demo in development)
+-SGR-Turnos Symfony 8
++SGR-Turnos
++Symfony 8
+ Banking queue management with JWT, rate limiting, auditing and Excel export.
+ (demo in development)
+-SGR-Turnos Web React 19
++SGR-Turnos Web
++React 19
+ SPA with React 19, Vite 8 and TypeScript for banking appointment booking. TanStack Query v5, Zustand, protected routes, deduplicated JWT refresh, forms with React Hook Form + Zod and dark mode.
+ github.com/christianrvdv/sgr-turnos-react-web
+-ComercioLocal SaaS
++ComercioLocal
++SaaS
+ E‑commerce platform with Stripe, OAuth2, 2FA, shopping cart and admin panel.
+ islamarket.aserenet.com
+-app_almacen Symfony 7
++app_almacen
++Symfony 7
+ Inventory control, PDF invoicing (dompdf) and metrics dashboard.
+ github.com/Christianrvdv/app_almacen
+-Auth System + JWT Symfony
++Auth System + JWT
++Symfony
+ JWT authentication, Voters, audit logging and unit tests.
+ github.com/Christianrvdv/auth-system
+-Library Microservices Spring Boot
++Library Microservices
++Spring Boot
+ API Gateway (Kong), Eureka, asynchronous communication.
+ github.com/Christianrvdv/sistema-biblioteca-microservicios
+-BANCEC App Android
++BANCEC App
++Android
+ Magnetic card request with QR (ZXing), Excel export and statistics.
+ github.com/Christianrvdv/SolicitudtarjetaBANDEC
+-Technical Skills
++TECHNICAL SKILLS
+ LANGUAGES & FRAMEWORKS
+ PHP 8.x
+ Symfony 7/8
+@@ -93,7 +106,7 @@ Skills
+ Harness Engineering
+ GitHub Copilot
+ Prompt Engineering
+-Languages
++LANGUAGES
+ Spanish
+ Native
+ English
