@@ -116,10 +116,10 @@ Fixes aplicados (solo HTML, sin tocar CSS ni JS):
 
 ## Gaps y justificaciones
 
-- **G1 — `/cv/ats/` a11y 96 (no 100), ambos modos.** Auditoría `landmark-one-main` (peso 3, binary): el documento ATS no tiene landmark `<main>` (su raíz es `<div class="cv">`). **No bloqueante** (≥ 95). Fix propuesto (fuera del alcance de 9.3, que para el ATS solo contempla lang/meta): envolver `.cv` en `<main>` o añadir `role="main"` — sin cambio de contenido visible ni de layout. Pendiente de decisión en 9.4+.
-- **G2 — `/` desktop a11y 98 (no 100).** Auditoría `heading-order` (peso 3): el `<aside>` lateral (`class="hidden lg:flex"`, index.html:165) contiene un `<h3>` "Christián V." (línea 172) **antes** del primer `<h2>` (línea 230). En móvil el aside está oculto → la auditoría no aplica y da 100. **No bloqueante** (≥ 95). Fix propuesto: cambiar ese `<h3>` por `<h2>` (el tamaño tipográfico viene de clases Tailwind, no del tag, por lo que no habría cambio visual) o mover el aside tras la primera sección.
+- **G1 — `/cv/ats/` a11y 96 (no 100), ambos modos.** Auditoría `landmark-one-main` (peso 3, binary): el documento ATS no tiene landmark `<main>` (su raíz es `<div class="cv">`). **No bloqueante** (≥ 95). Fix propuesto (fuera del alcance de 9.3, que para el ATS solo contempla lang/meta): envolver `.cv` en `<main>` o añadir `role="main"` — sin cambio de contenido visible ni de layout. **→ RESUELTO en la remediación GATE 9.3**: `<div class="cv">` → `<main class="cv">` (commit 24a5248); a11y ATS 96 → **100** en desktop (2 corridas).
+- **G2 — `/` desktop a11y 98 (no 100).** Auditoría `heading-order` (peso 3): el `<aside>` lateral (`class="hidden lg:flex"`, index.html:165) contiene un `<h3>` "Christián V." (línea 172) **antes** del primer `<h2>` (línea 230). En móvil el aside está oculto → la auditoría no aplica y da 100. **No bloqueante** (≥ 95). Fix propuesto: cambiar ese `<h3>` por `<h2>` (el tamaño tipográfico viene de clases Tailwind, no del tag, por lo que no habría cambio visual) o mover el aside tras la primera sección. **→ RESUELTO en la remediación GATE 9.3**: `<h3>` → `<h2>` (commit 24a5248); a11y `/` 98 → **100** en desktop (2 corridas). Verificado además que la posición izquierda del aside es por orden DOM dentro del flex container (index.html:163–987), no por CSS (sin reglas `aside`, sin `order-*`), por lo que el cambio de tag no altera el layout.
 - **G3 — `label-content-name-mismatch` en `#languageToggle`** (index, ambos modos). Auditoría con **peso 0** en la categoría accessibility → no afecta el score (móvil da 100 pese a fallar). Documentada como known-gap cosmético del nombre accesible del botón de idioma.
-- **G4 — Varianza de performance en `/` (rangos 21 y 14 puntos).** Investigada: no es inestabilidad de la página. En la corrida lenta, **todas** las peticiones locales tardaron ~1 s (server TTFB observado 66 ms vs 13 ms en la corrida rápida; `main.css` 1077 ms, `avatar-200.webp` 1050 ms, etc.), con TBT = 0 y CLS = 0 — patrón de **contención de CPU de la máquina** (Chrome del usuario al 100 % de carga durante la sesión), no de la página. Las corridas 2 y 3 son estables (98/99 desktop, 92/93 móvil) y a11y/SEO tienen varianza 0 en las 24 corridas. Se usan medianas según protocolo; en `/cv/` y `/cv/en/` (medidos tras los fixes, en condiciones más calmadas) la varianza fue 0–1.
+- **G4 — Varianza de performance en `/` (rangos 21 y 14 puntos).** Investigada: no es inestabilidad de la página. En la corrida lenta, **todas** las peticiones locales tardaron ~1 s (server TTFB observado 66 ms vs 13 ms en la corrida rápida; `main.css` 1077 ms, `avatar-200.webp` 1050 ms, etc.), con TBT = 0 y CLS = 0 — patrón de **contención de CPU de la máquina** (Chrome del usuario al 100 % de carga durante la sesión), no de la página. Las corridas 2 y 3 son estables (98/99 desktop, 92/93 móvil) y a11y/SEO tienen varianza 0 en las 24 corridas. Se usan medianas según protocolo; en `/cv/` y `/cv/en/` (medidos tras los fixes, en condiciones más calmadas) la varianza fue 0–1. **→ Confirmado en la remediación GATE 9.3**: 3 corridas desktop de `/` con la máquina en calma dieron perf 100, 100, 100 (rango 0; TTFB 53/4/2 ms, TBT 0/0/43 ms) → mediana **100**.
 - **G5 — Sin compresión en el servidor local.** `uses-compression: false` en todos los JSONs: `scripts/serve.mjs` no gzip. Es artefacto del entorno local; en Netlify sí hay compresión. No afecta los scores de esta medición (auditoría con peso 0).
 
 ## Casos especiales (checklist de la fase)
@@ -138,6 +138,72 @@ Fixes aplicados (solo HTML, sin tocar CSS ni JS):
 
 No se tocaron CSS (`main.css`, `cv.css`, `fontawesome.css`), JS ni el index. `/cv/ats/index.html` solo recibió la meta description (contenido intacto).
 
+## Remediación GATE 9.3 (P1–P4) — 2026-10-17
+
+Pendientes heredados del GATE y su resolución. Servidor local en 8888, Lighthouse 13.5.0, Chrome headless, mismos umbrales.
+
+### P1 — Re-medición de `/` en máquina limpia (A2)
+
+3 corridas desktop, sin carga concurrente:
+
+```
+/ Desktop (post-fixes):
+  Perf:  100, 100, 100         → mediana 100  (rango 0 — G4 confirmado)
+  A11y:  100, 100, 100         → mediana 100
+  SEO:   100, 100, 100         → mediana 100
+  FCP:   451, 550, 438 ms      → mediana 451 ms
+  LCP:   648, 610, 575 ms      → mediana 610 ms
+  TBT:   0, 0, 43 ms           → mediana 0 ms
+  CLS:   0, 0, 0               → mediana 0
+  TTFB:  53, 4, 2 ms           → mediana 4 ms
+```
+
+Mediana 100 ≥ 90 con rango 0 < 10 → **aceptado sin reservas**. La varianza de las 24 corridas originales (G4) se confirma como contención de la máquina, no de la página.
+
+### P2 — FOUC medido en `/cv/en/` (A1)
+
+Medición con Playwright (contexto frío, cache deshabilitada, muestreo rAF), 5 elementos clave (`cv.about.title`, `cv.experience.title`, `cv.studies.title`, `cv.button.print`, `cv.projects.title`):
+
+| Escenario | tPaint | Flip ES→EN | FOUC |
+|---|---|---|---|
+| `/cv/en/` Slow 3G (400 ms RTT, 400 kbps) | 3347 ms | 4405 ms | **1058 ms** |
+| `/cv/en/` sin throttle | 370 ms | 539 ms | **169 ms** |
+| `/cv/` (control, ambos escenarios) | — | sin flip | **0 ms** |
+
+Los 5 elementos flipean simultáneamente (`applyTranslations` es atómico; "Sobre Mí"→"About Me" entre ellos). **No es regresión de 9.3**: los 40 elementos en español dentro de `cv/en/index.html` ya existían antes (verificado sobre el diff del commit 9.3 sin tocarlo); 9.3 redujo el problema y llevó el CLS a 0, pero el FOUC de idioma quedaba >100 ms en ambos escenarios → Opción B (known-gap) descartada por el umbral del plan; se aplica la **Opción A: prefill completo EN** (P4).
+
+### P3 — Fixes a11y (B1/B2)
+
+- **B1 — `index.html:172`**: `<h3>` → `<h2>` del nombre en el aside del hero (único fallo `heading-order`, peso 3). El tamaño tipográfico ya venía de clases Tailwind; la posición izquierda del aside es por orden DOM (sin reglas CSS `aside`), por lo que no hay cambio visual ni de layout.
+- **B2 — `cv/ats/index.html:130,270`**: `<div class="cv">` → `<main class="cv">` (cierra `landmark-one-main`, peso 3). Los selectores `.cv` no llevan prefijo `div` → sin cambio de CSS; el `<header>` interno deja de ser banner (sin nuevo fallo).
+
+Verificación (Lighthouse desktop, 2 corridas por página):
+
+```
+/ Desktop:        a11y 98 → 100, perf 99/100, heading-order = 1 (pass)
+/cv/ats/ Desktop: a11y 96 → 100, perf 100/100, landmark-one-main = 1 (pass)
+```
+
+`label-content-name-mismatch` (G3, peso 0) sigue presente en `/` y no afecta el score.
+
+### P4 — Prefill completo EN en `/cv/en/` (B3)
+
+`cv/en/index.html` pasó de 12/68 elementos `data-i18n` en inglés a **68/68** (43 reemplazos ES→EN) usando el texto exacto de `assets/i18n/cv.en.json` — el mismo string que escribe `applyTranslations` — por lo que **el contenido visible no cambia** (SPEC 7.1). Verificado por scanner: `innerHTML` de cada elemento === valor del dict EN (0 discrepancias); sin placeholders, sin self-closing, sin atributos después de `data-i18n`.
+
+FOUC re-medido (mismo harness): **0 ms** en Slow 3G y sin throttle (0 flips; tPaint = tAllExpected). Con JS deshabilitado, `/cv/en/` pinta completo en inglés.
+
+CLS: 12 corridas del harness Playwright por variante (pre-fix y post-fix, JS on/off, contexto frío) → CLS = 0 en las 24. En Lighthouse, 1 de 5 corridas desktop post-fix dio CLS 0.1827 / perf 91 (culprit: sección EXPERIENCIA) — **no reproducible** (las otras 4 dieron CLS 0 y perf 100; el harness da 0 también con el archivo pre-fix) → atribuido al mismo race de fuentes/timing del entorno (G4), no al prefill. Medianas `/cv/en/` desktop: perf 100, CLS 0, a11y 100.
+
+### Commits de la remediación
+
+```
+f5e9710 docs(verification): Lighthouse 4 paginas + fixes lang/meta + preload fuentes (FASE 9.3)   [amend del asunto, cuerpo preservado]
+24a5248 refactor(a11y): heading-order en / y landmark en ATS (FASE 9.3)
+766a599 fix(i18n): prefill completo EN en cv/en (FASE 9.3)
+```
+
+`npm run lint:html` → exit 0 (0 errores en `index.html` + los 3 CV). Sin rebuild de CSS: los cambios son de tag/contenido, sin clases nuevas ni selectores por elemento; `assets/css/main.css` intacto.
+
 ## Conclusión
 
-Umbral duro cumplido en las 8 combinaciones (a11y ≥ 95, SEO ≥ 95, perf desktop ≥ 90) y también en los umbrales suaves de móvil (≥ 85). **GATE 9.3: PASS → procede a FASE 9.4.**
+Umbral duro cumplido en las 8 combinaciones originales (a11y ≥ 95, SEO ≥ 95, perf desktop ≥ 90) y en los umbrales suaves de móvil (≥ 85). Tras la remediación: a11y **100** en las 3 páginas con fallos conocidos, FOUC de `/cv/en/` **0 ms** y `/` re-medida en 100/100/100. **GATE 9.3 (incluida la remediación P1–P4): PASS → procede a FASE 9.4.**
