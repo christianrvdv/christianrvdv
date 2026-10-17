@@ -4,96 +4,98 @@ module.exports = {
     content: ["./*.html", "./cv/**/*.html", "./assets/js/**/*.js"],
     theme: {
         extend: {
-            // Clasificación de colores (ADR-002, FASE 4) — dos formas, sin excepción:
-            // (a) RGB + <alpha-value>: tokens usados con /NN en HTML/JS (bg-primary/50, …)
-            //     requiere triple --color-*-rgb en :root y .dark.
-            // (b) var() plano: todo lo demás.
-            // Fuente de verdad de valores: src/styles/tokens.css.
+            // ============================================================
+            // COLOR — tokens nombrados por rol (Terminal Industrial)
+            // Se mapean a var(--color-*) en plano: el valor real (OKLCH, con
+            // HEX documentado) vive en src/styles/tokens.css. Sin <alpha-value>
+            // a propósito: el sistema es sólido + bordes, no translúcido.
+            // Para translucidez puntual: color-mix(in oklab, var(--color-accent) 12%, transparent)
+            // ============================================================
             colors: {
-                // ── (a) Con opacidad en HTML: primary, accent, surface, surface-dim,
-                //      surface-container, on-primary ──
-                // Conservados en RGB además (ya lo estaban; sin uso con /NN hoy):
-                // background, on-surface, on-surface-variant, primary-container.
-                // Motivo: cambiarlos a var() regenera esas utilidades con bytes
-                // distintos (mismo color renderizado) y la regla GATE 4 de diff
-                // cero en utilidades manda sobre la clasificación estricta.
-                'primary': 'rgb(var(--color-primary-rgb) / <alpha-value>)',
-                'accent': 'rgb(var(--color-accent-rgb) / <alpha-value>)',
-                'surface': 'rgb(var(--color-surface-rgb) / <alpha-value>)',
-                'surface-dim': 'rgb(var(--color-surface-dim-rgb) / <alpha-value>)',
-                'surface-container': 'rgb(var(--color-surface-container-rgb) / <alpha-value>)',
-                'on-primary': 'rgb(var(--color-on-primary-rgb) / <alpha-value>)',
-                'background': 'rgb(var(--color-background-rgb) / <alpha-value>)',
-                'on-surface': 'rgb(var(--color-on-surface-rgb) / <alpha-value>)',
-                'on-surface-variant': 'rgb(var(--color-on-surface-variant-rgb) / <alpha-value>)',
-                'primary-container': 'rgb(var(--color-primary-container-rgb) / <alpha-value>)',
+                background: 'var(--color-background)',
+                surface: 'var(--color-surface)',
+                'surface-elevated': 'var(--color-surface-elevated)',
+                foreground: 'var(--color-foreground)',
+                muted: 'var(--color-muted)',
+                border: 'var(--color-border)',
+                'border-strong': 'var(--color-border-strong)',
+                accent: 'var(--color-accent)',
+                'accent-muted': 'var(--color-accent-muted)',
+                'accent-ink': 'var(--color-accent-ink)',
+                focus: 'var(--color-focus)',
+                error: 'var(--color-error)',
+                success: 'var(--color-success)',
+                warn: 'var(--color-warn)',
+                link: 'var(--color-link)',
+                'link-visited': 'var(--color-link-visited)',
+            },
 
-                // ── (b) Sin opacidad (var plano) ──
-                'surface-tint': 'var(--color-surface-tint)',
-                'surface-variant': 'var(--color-surface-variant)',
-                'surface-container-low': 'var(--color-surface-container-low)',
-                'on-error-container': 'var(--color-on-error-container)',
-                'on-primary-container': 'var(--color-on-primary-container)',
-                'inverse-primary': 'var(--color-inverse-primary)',
-                'on-tertiary-fixed': 'var(--color-on-tertiary-fixed)',
-                'surface-bright': 'var(--color-surface-bright)',
-                'surface-container-lowest': 'var(--color-surface-container-lowest)',
-                'secondary-fixed': 'var(--color-secondary-fixed)',
-                'on-primary-fixed': 'var(--color-on-primary-fixed)',
-                'outline': 'var(--color-outline)',
-                'surface-container-high': 'var(--color-surface-container-high)',
-                'error-container': 'var(--color-error-container)',
-                'secondary-container': 'var(--color-secondary-container)',
-                'on-tertiary': 'var(--color-on-tertiary)',
-                'inverse-on-surface': 'var(--color-inverse-on-surface)',
-                'on-secondary-fixed-variant': 'var(--color-on-secondary-fixed-variant)',
-                'primary-fixed': 'var(--color-primary-fixed)',
-                'on-primary-fixed-variant': 'var(--color-on-primary-fixed-variant)',
-                'tertiary-fixed-dim': 'var(--color-tertiary-fixed-dim)',
-                'tertiary-container': 'var(--color-tertiary-container)',
-                'tertiary': 'var(--color-tertiary)',
-                'on-error': 'var(--color-on-error)',
-                'on-secondary-fixed': 'var(--color-on-secondary-fixed)',
-                'on-tertiary-fixed-variant': 'var(--color-on-tertiary-fixed-variant)',
-                'outline-variant': 'var(--color-outline-variant)',
-                'on-secondary': 'var(--color-on-secondary)',
-                'tertiary-fixed': 'var(--color-tertiary-fixed)',
-                'on-tertiary-container': 'var(--color-on-tertiary-container)',
-                'on-secondary-container': 'var(--color-on-secondary-container)',
-                'surface-container-highest': 'var(--color-surface-container-highest)',
-                'inverse-surface': 'var(--color-inverse-surface)',
-                'error': 'var(--color-error)',
-                'primary-fixed-dim': 'var(--color-primary-fixed-dim)',
-                'secondary': 'var(--color-secondary)',
-                'secondary-fixed-dim': 'var(--color-secondary-fixed-dim)',
-                'on-background': 'var(--color-on-background)',
-                'white-alpha-10': 'var(--color-white-alpha-10)',
-            },
-            spacing: {
-                margin_mobile: '16px',
-                container_max_width: '1200px',
-                unit: '8px',
-                sidebar_width: '280px',
-                margin_desktop: '48px',
-                gutter: '24px',
-            },
+            // ============================================================
+            // TIPOGRAFÍA — IBM Plex Mono es display + UI + labels.
+            // IBM Plex Sans SOLO para párrafos > ~80 caracteres (about,
+            // descripciones de proyecto). Umbral: 80 car. Si el texto cabe
+            // en una línea de UI, es mono. Ver docs/ADR tras FASE 2.
+            // ============================================================
             fontFamily: {
-                'headline-md': ['Inter', 'sans-serif'],
-                'headline-lg': ['Inter', 'sans-serif'],
-                'body-lg': ['Inter', 'sans-serif'],
-                'headline-lg-mobile': ['Inter', 'sans-serif'],
-                'label-sm': ['Inter', 'sans-serif'],
-                'body-md': ['Inter', 'sans-serif'],
-                'code': ['monospace'],
+                mono: ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+                sans: ['IBM Plex Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                display: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
+                ui: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
+                label: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
             },
+
+            // Escala modular nombrada por rol (8 roles; nada fuera de escala).
+            // tabular-nums se aplica por CSS base a headings/métricas (mono ya es tabular).
             fontSize: {
-                'headline-md': ['24px', {lineHeight: '1.3', fontWeight: '600'}],
-                'headline-lg': ['32px', {lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700'}],
-                'body-lg': ['18px', {lineHeight: '1.6', fontWeight: '400'}],
-                'headline-lg-mobile': ['24px', {lineHeight: '1.2', fontWeight: '700'}],
-                'label-sm': ['14px', {lineHeight: '1.2', letterSpacing: '0.05em', fontWeight: '600'}],
-                'body-md': ['16px', {lineHeight: '1.6', fontWeight: '400'}],
-                'code': ['14px', {lineHeight: '1.5', fontWeight: '400'}],
+                'display-xl': ['clamp(3rem, 8vw, 6.5rem)', { lineHeight: '0.95', letterSpacing: '-0.03em', fontWeight: '600' }],
+                'display-lg': ['clamp(2.25rem, 5vw, 3.5rem)', { lineHeight: '1.02', letterSpacing: '-0.02em', fontWeight: '600' }],
+                'heading': ['1.75rem', { lineHeight: '1.15', letterSpacing: '-0.01em', fontWeight: '600' }],
+                'subhead': ['1.25rem', { lineHeight: '1.35', fontWeight: '500' }],
+                'body': ['1rem', { lineHeight: '1.6', fontWeight: '400' }],
+                'caption': ['0.8125rem', { lineHeight: '1.45', fontWeight: '400' }],
+                'code': ['0.875rem', { lineHeight: '1.5', fontWeight: '400' }],
+                'mono-label': ['0.75rem', { lineHeight: '1.2', letterSpacing: '0.08em', fontWeight: '500' }],
+            },
+
+            // Espaciado semántico sobre base 8px. NO se pisa la escala numérica
+            // de Tailwind (la usan las páginas CV, fuera de alcance); la regla
+            // "múltiplos de 8" se aplica por convención vía estos tokens.
+            spacing: {
+                unit: 'var(--space-unit)',
+                gutter: 'var(--space-gutter)',
+                'margin-mobile': 'var(--space-margin-mobile)',
+                'margin-desktop': 'var(--space-margin-desktop)',
+                'section-gap': 'var(--space-section-gap)',
+                'panel-padding': 'var(--space-panel-padding)',
+            },
+
+            // Radios: SOLO 0 y full (ancla Terminal). Sin excepciones.
+            borderRadius: {
+                none: '0',
+                sm: '0', DEFAULT: '0', md: '0', lg: '0', xl: '0', '2xl': '0', '3xl': '0',
+                full: '9999px',
+            },
+
+            // Sombras: NINGUNA. La separación es con bordes de 1px o guías
+            // de 1px dashed. Se anulan los defaults para que nada las reintroduzca.
+            boxShadow: {
+                none: 'none',
+                DEFAULT: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'none', '2xl': 'none', inner: 'none',
+            },
+
+            // Motion: 3 duraciones.
+            transitionDuration: {
+                DEFAULT: '200ms',
+                fast: '120ms',
+                base: '200ms',
+                slow: '320ms',
+            },
+
+            // Motion: 2 curvas custom. Prohibido ease/linear.
+            transitionTimingFunction: {
+                DEFAULT: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                expo: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                quart: 'cubic-bezier(0.25, 1, 0.5, 1)',
             },
         },
     },

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview A — Swiss Technical</title>
+
+<!-- ============================================================
+     PREVIEW DESECHABLE — Fase 1 (dirección A: Swiss Technical).
+     NO forma parte del build. No toca tokens.css / tailwind.config.js /
+     input.css / index.html / assets/. Borrable sin efectos laterales.
+     TIPOGRAFÍA TEMPORAL: Inter Tight + Inter vía Google Fonts CDN.
+     El build final las auto-hospeda (subset latin/latin-ext, ADR-005).
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script>/* anti-FOUC: tema antes del primer paint (A es light-first) */
+(function(){try{var t=localStorage.getItem('pa-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+
+<style>
+:root{
+  --paper:#F7F7F5; --ink:#111312; --ink-2:#585A55; --ink-3:#8B8D87;
+  --signal:#E4002B; --rule:rgba(17,19,18,.16); --rule-soft:rgba(17,19,18,.07);
+  --font-d:'Inter Tight',system-ui,-apple-system,sans-serif;
+  --font-b:'Inter',system-ui,-apple-system,sans-serif;
+  --pad:20px; --nav-h:58px;
+}
+[data-theme="dark"]{
+  --paper:#111312; --ink:#F2F2EF; --ink-2:#A5AAA3; --ink-3:#6E736D;
+  --signal:#FF6B5A; --rule:rgba(242,242,239,.18); --rule-soft:rgba(242,242,239,.08);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-b);
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  transition:background-color .22s ease,color .22s ease}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+
+/* ── NAV: barra-folio única (resuelve el doble-nav) ── */
+.nav{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--rule)}
+.nav-inner{max-width:1440px;margin:0 auto;height:var(--nav-h);padding:0 var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:var(--font-d);font-weight:700;font-size:15px;letter-spacing:-.01em;color:var(--ink);text-decoration:none;line-height:1}
+.brand small{display:block;margin-top:3px;font-family:var(--font-b);font-weight:500;font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.nav-list{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+.nav-item{position:relative;display:flex;align-items:baseline;gap:7px;font-size:13px;
+  color:var(--ink-2);text-decoration:none;white-space:nowrap}
+.nav-item .num{font-variant-numeric:tabular-nums;font-size:11px;color:var(--ink-3);transition:color .2s ease}
+.nav-item::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--signal);
+  transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.nav-item:hover{color:var(--ink)}
+.nav-item:hover::after{transform:scaleX(1)}
+.nav-item.active{color:var(--ink)}
+.nav-item.active .num{color:var(--signal)}
+.nav-item.active::after{transform:scaleX(1)}
+.util{display:flex;align-items:center;gap:8px}
+.util button{font:inherit;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule);color:var(--ink-2);padding:7px 10px;cursor:pointer;
+  transition:color .18s ease,border-color .18s ease}
+.util button:hover{color:var(--ink);border-color:var(--ink-3)}
+.nav-toggle{display:none}
+
+/* ── HERO: retícula folio visible ── */
+.hero{position:relative;max-width:1440px;margin:0 auto;
+  padding:clamp(44px,7vw,96px) var(--pad) 0;
+  min-height:calc(100vh - var(--nav-h));
+  display:grid;grid-template-columns:repeat(12,1fr);
+  align-items:center;align-content:center;overflow:hidden}
+.grid-lines{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:repeating-linear-gradient(to right,var(--rule-soft) 0 1px,transparent 1px calc(100% / 12))}
+.hero-main,.folio,.scrollhint{position:relative;z-index:1}
+.hero-main{grid-column:1 / span 8;padding-right:24px}
+.folio{grid-column:9 / span 4;justify-self:end;min-width:220px;align-self:center}
+
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);margin-bottom:24px}
+.eyebrow i{width:7px;height:7px;background:var(--signal);display:block}
+h1{font-family:var(--font-d);font-weight:600;font-size:clamp(2.5rem,7.6vw,6.2rem);
+  line-height:.94;letter-spacing:-.035em;margin:0 0 20px}
+h1 .role{display:block;margin-top:.34em;font-weight:500;font-size:clamp(1.1rem,2.3vw,1.8rem);
+  letter-spacing:-.02em;color:var(--ink-2)}
+.sub{max-width:54ch;margin:0 0 36px;font-size:clamp(15px,1.15vw,17px);line-height:1.62;color:var(--ink-2)}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;text-decoration:none;
+  font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--ink);color:var(--ink);
+  transition:background-color .18s ease,color .18s ease,border-color .18s ease}
+.btn .arw{transition:transform .18s cubic-bezier(.16,1,.3,1)}
+.btn:hover .arw{transform:translateX(3px)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.primary:hover{background:var(--signal);border-color:var(--signal);color:#fff}
+.btn.ghost{background:transparent}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* artefacto folio: índice de secciones */
+.folio .cap{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);
+  border-bottom:1px solid var(--rule);padding-bottom:11px}
+.folio ol{list-style:none;margin:0;padding:0}
+.folio li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:10px 0;border-bottom:1px solid var(--rule-soft);font-size:13px;color:var(--ink-2)}
+.folio li .n{font-family:var(--font-d);font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink-3)}
+
+.scrollhint{position:absolute;left:var(--pad);bottom:26px;display:flex;align-items:center;gap:12px;
+  font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3)}
+.scrollhint .bar{position:relative;width:48px;height:1px;background:var(--ink-3);overflow:hidden}
+.scrollhint .bar::after{content:"";position:absolute;inset:0;background:var(--signal);
+  transform:translateX(-100%);animation:sweep 2.4s cubic-bezier(.16,1,.3,1) infinite}
+@keyframes sweep{0%{transform:translateX(-100%)}55%{transform:translateX(0)}100%{transform:translateX(100%)}}
+
+.reveal{opacity:0;transform:translateY(10px);animation:rise .7s cubic-bezier(.16,1,.3,1) both}
+.d1{animation-delay:.05s}.d2{animation-delay:.14s}.d3{animation-delay:.22s}
+.d4{animation-delay:.3s}.d5{animation-delay:.38s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ── Responsive real (cambia layout, no escala) ── */
+@media (max-width:1023px){
+  .brand small{display:none}
+  .hero{grid-template-columns:repeat(8,1fr)}
+  .grid-lines{background-image:repeating-linear-gradient(to right,var(--rule-soft) 0 1px,transparent 1px calc(100% / 8))}
+  .hero-main{grid-column:1 / span 8;padding-right:0}
+  .folio{grid-column:1 / span 8;justify-self:start;min-width:0;width:100%;margin-top:40px}
+}
+@media (max-width:900px){
+  .nav-list{display:none;position:absolute;top:var(--nav-h);left:0;right:0;flex-direction:column;gap:0;
+    background:var(--paper);border-bottom:1px solid var(--rule);padding:6px var(--pad) 14px}
+  .nav-list.open{display:flex}
+  .nav-item{padding:13px 0;border-bottom:1px solid var(--rule-soft)}
+  .nav-item::after{display:none}
+  .nav-toggle{display:inline-block}
+}
+@media (max-width:640px){
+  .hero{grid-template-columns:repeat(4,1fr);padding-bottom:104px}
+  .grid-lines{background-image:repeating-linear-gradient(to right,var(--rule-soft) 0 1px,transparent 1px calc(100% / 4))}
+  h1{font-size:clamp(2.1rem,11vw,3rem)}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal{animation:none;opacity:1;transform:none}
+  .scrollhint .bar::after{animation:none;transform:none;background:var(--rule)}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#">Christián R. Vazquez<small>Full Stack Developer</small></a>
+
+    <nav aria-label="Secciones">
+      <ul class="nav-list" id="navlist">
+        <li><a class="nav-item active" href="#about"><span class="num">01</span><span>Sobre mí</span></a></li>
+        <li><a class="nav-item" href="#skills"><span class="num">02</span><span>Habilidades</span></a></li>
+        <li><a class="nav-item" href="#studies"><span class="num">03</span><span>Estudios</span></a></li>
+        <li><a class="nav-item" href="#experience"><span class="num">04</span><span>Experiencia</span></a></li>
+        <li><a class="nav-item" href="#projects"><span class="num">05</span><span>Proyectos</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="util">
+      <button type="button" id="theme" aria-label="Alternar tema">Tema</button>
+      <button type="button" aria-label="Idioma">ES/EN</button>
+      <button type="button" class="nav-toggle" id="navtoggle" aria-expanded="false" aria-controls="navlist" aria-label="Menú">Menú</button>
+    </div>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="grid-lines" aria-hidden="true"></div>
+
+  <div class="hero-main">
+    <p class="eyebrow reveal d1"><i aria-hidden="true"></i>Disponible para proyectos</p>
+    <h1 class="reveal d2">
+      Christián R. Vazquez
+      <span class="role">Full Stack Developer</span>
+    </h1>
+    <p class="sub reveal d3">
+      Especializado en la construcción de sistemas distribuidos, microservicios de alto rendimiento y
+      arquitecturas escalables. Transformo lógica compleja en soluciones elegantes y eficientes.
+    </p>
+    <div class="cta reveal d4">
+      <a class="btn primary" href="#projects">Ver proyectos <span class="arw" aria-hidden="true">→</span></a>
+      <a class="btn ghost" href="cv/">Descargar CV <span class="arw" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <aside class="folio reveal d3" aria-label="Índice de secciones">
+    <p class="cap">Índice</p>
+    <ol>
+      <li><span>Sobre mí</span><span class="n">01</span></li>
+      <li><span>Habilidades</span><span class="n">02</span></li>
+      <li><span>Estudios</span><span class="n">03</span></li>
+      <li><span>Experiencia</span><span class="n">04</span></li>
+      <li><span>Proyectos</span><span class="n">05</span></li>
+    </ol>
+  </aside>
+
+  <div class="scrollhint"><span class="bar" aria-hidden="true"></span><span>Scroll</span></div>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  btn.addEventListener('click',function(){
+    var t=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',t);
+    try{localStorage.setItem('pa-theme',t);}catch(e){}
+  });
+  var tg=document.getElementById('navtoggle'), list=document.getElementById('navlist');
+  tg.addEventListener('click',function(){
+    var open=list.classList.toggle('open');
+    tg.setAttribute('aria-expanded',open?'true':'false');
+  });
+})();
+</script>
+</body>
+</html>

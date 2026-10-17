@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview C — Blueprint</title>
+
+<!-- ============================================================
+     PREVIEW DESECHABLE — Fase 1 (dirección C: Blueprint / plano técnico).
+     NO forma parte del build. No toca tokens.css / tailwind.config.js /
+     input.css / index.html / assets/. Borrable sin efectos laterales.
+     TIPOGRAFÍA TEMPORAL: Space Grotesk + Inter vía Google Fonts CDN.
+     El build final las auto-hospeda (subset latin/latin-ext, ADR-005).
+     Nota: Space Grotesk tiene soporte limitado de tnum; la anotación
+     numérica (regla, cotas) garantiza cifras de ancho fijo por diseño.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script>/* anti-FOUC: tema antes del primer paint (C es dark-first) */
+(function(){try{var t=localStorage.getItem('pc-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+
+<style>
+:root{
+  --bg:#0B1A2B; --ink:#DCE6F0; --ink-2:#93A9C0; --dim:#6E86A0;
+  --line:#31536F; --cyan:#7FD8E8; --panel:#0E2136;
+  --rule:rgba(220,230,240,.16); --rule-2:rgba(220,230,240,.08);
+  --font-d:'Space Grotesk',system-ui,sans-serif; --font-b:'Inter',system-ui,sans-serif;
+  --font-m:ui-monospace,'SFMono-Regular',monospace;
+  --rail:108px; --pad:20px;
+}
+[data-theme="light"]{
+  --bg:#EDF2F7; --ink:#0E2337; --ink-2:#42566B; --dim:#7A8CA0;
+  --line:#A9BECE; --cyan:#0E6E86; --panel:#F6FAFD;
+  --rule:rgba(14,35,55,.18); --rule-2:rgba(14,35,55,.08);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-b);
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  transition:background-color .22s ease,color .22s ease}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+.frame{display:grid;grid-template-columns:var(--rail) 1fr;min-height:100vh}
+
+/* ── RIEL: única navegación, con cotas de sección ── */
+.rail{position:sticky;top:0;z-index:20;height:100vh;background:var(--bg);border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:16px}
+.rail-brand{font-family:var(--font-m);font-size:11px;letter-spacing:.12em;color:var(--ink-2);
+  border:1px solid var(--rule);padding:6px}
+.rail-list{display:flex;flex-direction:column;gap:0;width:100%;margin-top:6px}
+.rail-item{position:relative;display:flex;flex-direction:column;gap:4px;text-decoration:none;
+  color:var(--ink-2);padding:11px 10px 11px 18px;border-left:1px solid var(--rule-2)}
+.rail-item .idx{font-family:var(--font-m);font-size:11px;font-variant-numeric:tabular-nums;color:var(--dim)}
+.rail-item .lbl{font-size:10px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;line-height:1.3}
+.rail-item .tk{position:absolute;left:-1px;top:50%;width:9px;height:1px;background:var(--dim);
+  transform:translateY(-50%);transition:width .25s cubic-bezier(.16,1,.3,1),background-color .2s ease}
+.rail-item:hover{color:var(--ink)}
+.rail-item:hover .tk{width:16px}
+.rail-item.active{color:var(--cyan);border-left-color:var(--cyan)}
+.rail-item.active .idx{color:var(--cyan)}
+.rail-item.active .tk{width:18px;background:var(--cyan)}
+.rail-dim{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--dim)}
+.rail-dim .dl{width:1px;height:60px;background:var(--rule-2)}
+.rail-dim .lbl{writing-mode:vertical-rl;font-family:var(--font-m);font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase}
+
+/* ── STAGE ── */
+.stage{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:100vh}
+.util{position:absolute;top:18px;right:var(--pad);z-index:5;display:flex;gap:8px}
+.util button{font:inherit;font-family:var(--font-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule);color:var(--ink-2);padding:6px 9px;cursor:pointer;
+  transition:color .15s ease,border-color .15s ease}
+.util button:hover{color:var(--ink);border-color:var(--ink-2)}
+
+/* líneas que se dibujan al cargar */
+.bp{position:absolute;inset:0;z-index:0;pointer-events:none}
+.bp .v{position:absolute;top:0;bottom:0;width:1px;background:var(--line);
+  transform:scaleY(0);transform-origin:top;animation:drawY .9s cubic-bezier(.16,1,.3,1) both}
+.bp .h{position:absolute;left:0;right:0;height:1px;background:var(--line);
+  transform:scaleX(0);transform-origin:left;animation:drawX 1s cubic-bezier(.16,1,.3,1) both}
+.bp .v:nth-child(1){animation-delay:.12s}
+.bp .v:nth-child(2){animation-delay:.26s}
+.bp .v:nth-child(3){animation-delay:.4s}
+.bp .h:nth-child(4){animation-delay:.52s}
+.bp .h:nth-child(5){animation-delay:.66s}
+@keyframes drawY{to{transform:scaleY(1)}}
+@keyframes drawX{to{transform:scaleX(1)}}
+
+.hero{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(44px,7vw,96px) clamp(24px,6vw,76px)}
+.hero-inner{max-width:780px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-m);font-size:10.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);margin-bottom:22px}
+.eyebrow b{color:var(--cyan);font-weight:500}
+h1{font-family:var(--font-d);font-weight:600;font-size:clamp(2.4rem,6.8vw,5.6rem);
+  line-height:.99;letter-spacing:-.03em;margin:0 0 20px;font-variant-numeric:tabular-nums}
+h1 .role{display:block;margin-top:.3em;font-weight:400;font-size:clamp(1.05rem,2.1vw,1.65rem);
+  letter-spacing:-.01em;color:var(--ink-2)}
+.sub{max-width:56ch;margin:0 0 34px;font-size:clamp(15px,1.12vw,17px);line-height:1.62;color:var(--ink-2)}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;padding:13px 20px;
+  font-family:var(--font-m);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink);border:1px solid var(--line);
+  transition:background-color .17s ease,color .17s ease,border-color .17s ease}
+.btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.btn.solid{background:var(--cyan);border-color:var(--cyan);color:var(--bg)}
+.btn.solid:hover{background:transparent;color:var(--cyan)}
+.btn .arw{transition:transform .17s cubic-bezier(.16,1,.3,1)}
+.btn:hover .arw{transform:translateX(3px)}
+
+/* regla de escala (cotas) */
+.ruler{position:relative;z-index:2;display:flex;align-items:flex-end;gap:0;
+  padding:0 clamp(24px,6vw,76px) 22px;height:34px}
+.ruler::before{content:"";position:absolute;left:clamp(24px,6vw,76px);right:clamp(24px,6vw,76px);bottom:22px;
+  height:1px;background:var(--rule)}
+.ruler .tick{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;
+  border-left:1px solid var(--rule-2);height:100%;font-family:var(--font-m);font-size:10px;
+  font-variant-numeric:tabular-nums;color:var(--dim);padding-left:3px}
+.ruler .tick:last-child{border-right:1px solid var(--rule-2)}
+
+.scrollhint{position:absolute;right:var(--pad);bottom:24px;z-index:3;display:flex;align-items:center;gap:9px;
+  font-family:var(--font-m);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.scrollhint .t{color:var(--cyan);font-variant-numeric:tabular-nums}
+
+/* ── Responsive real (cambia layout, no escala) ── */
+@media (max-width:1279px){
+  :root{--rail:88px}
+  .rail-item{padding-left:16px}
+}
+@media (max-width:767px){
+  .frame{grid-template-columns:1fr}
+  .rail{position:static;height:auto;width:100%;flex-direction:row;align-items:stretch;gap:0;
+    padding:0;border-right:none;border-bottom:1px solid var(--rule);overflow-x:auto}
+  .rail-brand{display:none}
+  .rail-list{flex-direction:row;margin:0;width:auto;min-width:100%}
+  .rail-item{padding:12px 14px;border-left:none;border-right:1px solid var(--rule-2);white-space:nowrap}
+  .rail-item .tk{display:none}
+  .rail-item.active{box-shadow:inset 0 -2px 0 var(--cyan)}
+  .rail-dim{display:none}
+  .hero{padding:44px 20px 30px}
+  .ruler{display:none}
+  h1{font-size:clamp(2rem,10.5vw,3rem)}
+  .scrollhint{position:static;margin:0 20px 26px}
+}
+@media (prefers-reduced-motion:reduce){
+  .bp .v,.bp .h{animation:none;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <aside class="rail">
+    <div class="rail-brand" aria-hidden="true">CRV</div>
+
+    <nav class="rail-list" aria-label="Secciones">
+      <a class="rail-item active" href="#about"><span class="tk" aria-hidden="true"></span><span class="idx">01</span><span class="lbl">Sobre mí</span></a>
+      <a class="rail-item" href="#skills"><span class="tk" aria-hidden="true"></span><span class="idx">02</span><span class="lbl">Habilidades</span></a>
+      <a class="rail-item" href="#studies"><span class="tk" aria-hidden="true"></span><span class="idx">03</span><span class="lbl">Estudios</span></a>
+      <a class="rail-item" href="#experience"><span class="tk" aria-hidden="true"></span><span class="idx">04</span><span class="lbl">Experiencia</span></a>
+      <a class="rail-item" href="#projects"><span class="tk" aria-hidden="true"></span><span class="idx">05</span><span class="lbl">Proyectos</span></a>
+    </nav>
+
+    <div class="rail-dim" aria-hidden="true">
+      <span class="lbl">Viewport 0–100vh</span>
+      <span class="dl"></span>
+    </div>
+  </aside>
+
+  <div class="stage">
+    <div class="util">
+      <button type="button" id="theme" aria-label="Alternar tema">Tema</button>
+      <button type="button" aria-label="Idioma">ES/EN</button>
+    </div>
+
+    <main class="hero">
+      <div class="bp" aria-hidden="true">
+        <span class="v" style="left:25%"></span>
+        <span class="v" style="left:50%"></span>
+        <span class="v" style="left:75%"></span>
+        <span class="h" style="top:24%"></span>
+        <span class="h" style="top:80%"></span>
+      </div>
+
+      <div class="hero-inner">
+        <p class="eyebrow"><b aria-hidden="true">▣</b> Disponible para proyectos</p>
+        <h1>
+          Christián R. Vazquez
+          <span class="role">Full Stack Developer</span>
+        </h1>
+        <p class="sub">
+          Especializado en la construcción de sistemas distribuidos, microservicios de alto rendimiento y
+          arquitecturas escalables. Transformo lógica compleja en soluciones elegantes y eficientes.
+        </p>
+        <div class="cta">
+          <a class="btn solid" href="#projects">Ver proyectos <span class="arw" aria-hidden="true">→</span></a>
+          <a class="btn" href="cv/">Descargar CV <span class="arw" aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </main>
+
+    <div class="ruler" aria-hidden="true">
+      <span class="tick">0</span><span class="tick">1</span><span class="tick">2</span><span class="tick">3</span>
+      <span class="tick">4</span><span class="tick">5</span><span class="tick">6</span><span class="tick">7</span>
+      <span class="tick">8</span><span class="tick">9</span><span class="tick">10</span><span class="tick">11</span>
+      <span class="tick">12</span>
+    </div>
+
+    <div class="scrollhint">
+      <span>scroll</span><span aria-hidden="true">↓</span><span class="t">0.00 → 1.00</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  btn.addEventListener('click',function(){
+    var t=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',t);
+    try{localStorage.setItem('pc-theme',t);}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
