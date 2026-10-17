@@ -1,0 +1,187 @@
+Saltar al contenido principal
+FullStack
+Sobre mí
+Habilidades
+Estudios
+Experiencia
+Proyectos
+ES
+DISPONIBLE PARA PROYECTOS
+Christián R. Vazquez
+Full Stack Developer
+Especializado en la construcción de sistemas distribuidos, microservicios de alto rendimiento y arquitecturas escalables. Transformo lógica compleja en soluciones elegantes y eficientes.
+VER PROYECTOS
+DESCARGAR CV
+Christián V.
+Full Stack Developer
+Sobre mí
+Habilidades
+Estudios
+Experiencia
+Proyectos
+Descargar CV
+Sobre mí
+Hola, soy Christián Vazquez, Ingeniero en Ciencias Informáticas y Desarrollador Backend con experiencia comprobada en empresas y proyectos freelance. Mi formación en la UCI me proporcionó una base sólida en ingeniería de software, que he consolidado trabajando con Symfony, Spring Boot y arquitecturas modernas.
+Mi motivación es transformar ideas en código funcional, limpio y eficiente, siguiendo las mejores prácticas. He trabajado como desarrollador backend en el Centro de Desarrollo Local (2021-2024) y actualmente desarrollo proyectos independientes de alta complejidad, como sistemas de turnos bancarios y plataformas SaaS con Stripe y autenticación OAuth2/2FA.
+Mi experiencia se especializa en el desarrollo backend con Java (Spring Boot), PHP (Symfony 7/8) y Node.js, dominando frameworks como Doctrine ORM. Además, poseo sólidos conocimientos en frontend, construyendo interfaces modernas y reactivas con Tailwind CSS, Alpine.js, React, Twig y JavaScript vanilla. Esta versatilidad me permite adaptarme a entornos full-stack cuando el proyecto lo demanda.
+Actualmente curso una Maestría en Informática Aplicada para profundizar en arquitecturas distribuidas y sistemas de alta concurrencia, demostrando mi compromiso con el crecimiento continuo.
+Cuando no estoy programando, disfruto la lectura, el tiempo en familia y aprender nuevas tecnologías. Creo firmemente en el aprendizaje continuo y en mantenerme actualizado con las últimas tendencias en desarrollo backend y cloud.
+Habilidades Técnicas
+Lenguajes
+Dominio en lenguajes de programación y runtimes (Node.js) para desarrollo backend y sistemas.
+Java (Spring Boot, Android)
+PHP 8.x
+JavaScript
+TypeScript
+Node.js
+SQL
+Frameworks Backend
+Frameworks y runtimes principales utilizados en proyectos profesionales y personales, incluyendo Node.js.
+Symfony 7/8
+Spring Boot 3.x
+Doctrine ORM
+Node.js
+Bases de Datos
+Gestión y diseño de bases de datos relacionales y NoSQL.
+MySQL / MariaDB
+PostgreSQL
+SQLite
+Redis
+DevOps & Cloud
+Herramientas de contenerización, orquestación y nube.
+Docker & Compose
+Nginx / Apache
+PHP-FPM
+CI/CD
+Frontend (Intermedio)
+Construcción de interfaces funcionales y responsivas con herramientas modernas.
+HTML5 / CSS3
+Tailwind CSS
+React
+Alpine.js
+Twig / Stimulus
+Leaflet.js
+Arquitectura & Seguridad
+Patrones de diseño, microservicios, autenticación avanzada y buenas prácticas.
+Microservicios (Kong)
+JWT / OAuth2
+2FA / Google Authenticator
+Rate Limiting
+Stripe (payments)
+Desarrollo Asistido por IA
+Configuro entornos de desarrollo agéntico (harness engineering) y uso agentes de terminal para acelerar el ciclo de desarrollo, mejorar la calidad del código y automatizar tareas repetitivas.
+Claude Code
+OpenCode
+Skills
+Harness Engineering
+GitHub Copilot
+Prompt Engineering
+Estudios
+2025 - Presente
+Maestría en Informática Aplicada
+Universidad José Martí (UNISS)
+Complementando mi formación de grado con una especialización que busca cerrar la brecha entre la teoría avanzada en informática y su aplicación práctica en entornos empresariales y de investigación. Me estoy enfocando en adquirir competencias de alto nivel para el diseño e implementación de sistemas complejos que respondan a desafíos tecnológicos actuales.
+2017 - 2022
+Ingeniería en Ciencias Informáticas
+Universidad de las Ciencias Informáticas (UCI)
+Graduado de un programa de ingeniería con un enfoque práctico en el desarrollo de software. La formación en la UCI se caracterizó por un modelo de aprendizaje basado en proyectos reales, donde consolidé mis conocimientos en fundamentos de la computación, ingeniería de software, bases de datos y tecnologías de vanguardia, preparándome para enfrentar desafíos complejos en el ámbito del desarrollo de software.
+Experiencia
+2024 - Presente
+Desarrollador Backend
+Freelance / Proyectos Independientes
+Desarrollo de aplicaciones web robustas utilizando Symfony, Spring Boot y Node.js. Implementación de APIs RESTful, diseño de bases de datos MySQL, y creación de arquitecturas escalables. Colaboración en el ciclo completo de desarrollo desde el análisis hasta el despliegue.
+2021 - 2024
+Desarrollador Backend
+Centro de Desarrollo Local
+Desarrollo de aplicaciones móviles nativas para Android utilizando Java (Android Nativo). Desarrollo y mantenimiento de aplicaciones web utilizando Java y Spring Boot. Creación de interfaces de usuario con HTML, CSS y JavaScript. Soporte técnico y resolución de incidencias en sistemas existentes. Participación en equipos ágiles para el desarrollo de soluciones empresariales.
+2018 - 2021
+Practicante de Desarrollo de Software
+Universidad de las Ciencias Informáticas
+Desarrollo de proyectos académicos y de investigación aplicando metodologías de ingeniería de software. Implementación de soluciones con Java y PHP. Aprendizaje y aplicación de patrones de diseño, bases de datos y mejores prácticas de desarrollo bajo supervisión académica.
+Proyectos Destacados
+VER TODO EL GITHUB
+SGR-Turnos-Bandec – App Móvil para Gestión de Turnos Bancarios
+Aplicación Android moderna desarrollada con Kotlin y Jetpack Compose para la reserva y gestión de turnos bancarios. Permite consultar sucursales, ver disponibilidad en calendario interactivo y reservar turnos con autenticación JWT. Implementa sincronización offline con Room, paginación remota con Paging 3 y notificaciones push con Firebase Cloud Messaging. Comunicación con backend Symfony 8 vía Retrofit.
+Kotlin
+Jetpack Compose
+Room + Retrofit
+FCM + Paging 3
+Hilt / Material 3
+Próximamente (demo en desarrollo)
+Contactar
+SISTEMA BACKEND AVANZADO
+SGR-Turnos - Gestión de Turnos Bancarios
+Sistema integral de gestión y reserva de turnos bancarios desarrollado con Symfony 8 para eliminar la especulación en filas. Incluye control de frecuencia anti-colero, calendario avanzado, auditoría exhaustiva, JWT authentication, rate limiting y exportación a Excel. Optimizado para entornos de alta concurrencia en redes locales.
+Symfony 8
+PHP 8.4
+Tailwind + Alpine.js
+JWT + Rate Limiting
+Próximamente (demo en desarrollo)
+Contactar
+SGR-Turnos Web – Reservas Bancarias
+SPA desarrollada con React 19, Vite 8 y TypeScript para la reserva de turnos bancarios. Implementa TanStack Query v5 para server state con caching y deduplicación, Zustand para estado del cliente con persistencia, rutas protegidas con React Router 7, refresh de JWT deduplicado (una sola petición para 401 concurrentes), formularios con React Hook Form + Zod y dark mode con estrategia de clase en Tailwind. Consume la API Symfony 8 del backend SGR-Turnos vía Axios con interceptores de refresh silencioso.
+React 19
+Vite 8
+TypeScript
+TanStack Query v5
+Zustand
+React Router 7
+Código
+SAAS / E-COMMERCE
+ComercioLocal - Plataforma E-commerce
+Plataforma SaaS completa para comercios locales. Implementa pasarela de pagos Stripe, autenticación social OAuth2 (Google/Facebook), 2FA con Google Authenticator, catálogos de productos, carrito de compras y panel de administración. Backend Symfony 7.4, frontend con Tailwind, Alpine.js y Stimulus.
+Symfony 7.4
+Stripe
+OAuth2 + 2FA
+Redis
+Ver sitio
+Contactar
+SISTEMA BACKEND
+Sistema de Gestión de Inventario y Ventas
+Sistema completo desarrollado con Symfony 7.3 para gestión de inventario, ventas, compras y análisis de datos. Incluye control de stock por ubicaciones, facturación PDF (dompdf), dashboard con métricas, exportación a Excel (PhpSpreadsheet) y servicios especializados para lógica de negocio compleja.
+Symfony 7.3
+MySQL
+dompdf / PhpSpreadsheet
+Próximamente (demo en desarrollo)
+Código
+SISTEMA BACKEND SEGURO
+Sistema de Autenticación y Control de Acceso
+Sistema completo de seguridad desarrollado con Symfony 7.3 que implementa autenticación JWT, autorización granular con Voters, registro de auditoría exhaustivo, gestión de usuarios, sistema de roles, validación de DTOs, logs de seguridad y pruebas unitarias completas (PHPUnit).
+Symfony 7.3
+JWT + Voters
+PHPUnit
+Próximamente (demo en desarrollo)
+Código
+Sistema de Biblioteca con Microservicios
+Sistema distribuido escalable desarrollado con Spring Boot 3 para gestión completa de biblioteca. Implementa microservicios especializados para libros, usuarios, préstamos y notificaciones, con Kong API Gateway, service discovery y comunicación asíncrona mediante mensajería. Docker Compose para orquestación.
+Spring Boot 3
+Kong API Gateway
+Docker Compose
+Próximamente (demo en desarrollo)
+Código
+Sistema Móvil para Gestión de Solicitudes de Tarjetas BANCEC
+Aplicación Android completa desarrollada para optimizar el proceso de recepción de solicitudes de tarjetas magnéticas en entornos bancarios. Incluye captura de datos mediante QR (ZXing), gestión de clientes, exportación/importación Excel, estadísticas en tiempo real y transferencia segura de datos entre dispositivos.
+Android Nativo
+Java + QR
+SQLite + Excel
+Próximamente (demo en desarrollo)
+Código
+PORTAFOLIO EN VIVO
+Portafolio Full Stack Developer — Este sitio
+El sitio que estás viendo. Desarrollado con HTML5, Tailwind CSS y JavaScript vanilla. Implementa tema oscuro/claro persistente, navegación suave, animaciones al scroll, cambio de idioma (ES/EN) y está optimizado en accesibilidad y SEO.
+HTML5
+Tailwind CSS
+JavaScript
+a11y + i18n
+Este sitio
+Código
+PORTAFOLIO PROFESIONAL
+Portafolio Profesional Responsive
+Single Page Application moderna desarrollada con HTML5, CSS3 y JavaScript vanilla. Incluye diseño responsive, tema claro/oscuro persistente, navegación suave, animaciones al scroll, formulario de contacto con Netlify Forms y traducción a inglés.
+HTML5/CSS3
+Tailwind
+JavaScript
+Ver demo
+Código
+Full Stack Developer
+© 2025 Christián R. Vazquez. Construido con precisión y lógica.

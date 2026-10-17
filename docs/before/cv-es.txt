@@ -1,0 +1,101 @@
+Imprimir Descargar PDF
+CHRISTIÁN R. VAZQUEZ
+Full Stack Developer
+christianrvdv.1999@gmail.com github.com/Christianrvdv christianrvdv.netlify.app (+53) 56449593 Jatibonico, Sancti Spíritus, Cuba
+Sobre Mí
+Ingeniero en Ciencias Informáticas y Full Stack Developer con una visión integral del desarrollo de software. Mi formación en la UCI sentó las bases de una ingeniería sólida, que he evolucionado construyendo soluciones completas con Symfony 7/8, Spring Boot 3 y arquitecturas modernas, siempre pensando en el producto final.
+Me motiva transformar ideas en productos funcionales, limpios y eficientes, asumiendo la responsabilidad de todo el ciclo: desde el modelado de datos y la lógica de negocio hasta la interfaz de usuario y el despliegue. He trabajado en entornos empresariales (Centro de Desarrollo Local, 2021–2024) y en proyectos independientes de alta complejidad, como sistemas de turnos bancarios (SGR-Turnos) y plataformas SaaS con Stripe, OAuth2 y 2FA, donde he actuado como arquitecto y desarrollador principal.
+Mi dominio técnico abarca tanto el backend (Java/Spring Boot, PHP/Symfony, Node.js, Doctrine ORM) como el frontend moderno (React, TypeScript, Tailwind CSS, Alpine.js, Twig, JavaScript vanilla). Esta versatilidad me permite tomar decisiones que equilibran rendimiento, mantenibilidad y experiencia de usuario, adaptándome a las necesidades de cada proyecto sin perder de vista la visión global.
+Actualmente curso una Maestría en Informática Aplicada para profundizar en arquitecturas distribuidas y sistemas de alta concurrencia, convencido de que el aprendizaje continuo es el motor que impulsa soluciones innovadoras y escalables. Además, configuro entornos de desarrollo agéntico (harness engineering) con agentes de terminal para potenciar la productividad del equipo.
+Experiencia
+Desarrollador Full Stack · Freelance
+Proyectos Independientes
+2024 — Presente
+SGR-Turnos: sistema bancario anti‑colas con Symfony 8, JWT, rate limiting, auditoría y exportación Excel.
+ComercioLocal: SaaS e‑commerce con Stripe, OAuth2 (Google/Facebook), 2FA y Redis.
+Desarrollo de APIs RESTful, microservicios con Spring Boot y Docker. Uso de agentes de IA (Claude Code, OpenCode) con harness engineering para acelerar el ciclo de desarrollo.
+Desarrollador Backend
+Centro de Desarrollo Local
+2021 — 2024
+Desarrollo y mantenimiento de aplicaciones web con Java / Spring Boot y PHP / Symfony.
+Construcción de interfaces frontend con HTML5, CSS3, JavaScript y Tailwind.
+Metodologías ágiles (Scrum), control de versiones Git y soporte técnico.
+Practicante de Desarrollo de Software
+Universidad de las Ciencias Informáticas (UCI)
+2018 — 2021
+Proyectos académicos con Java, PHP y MySQL.
+Aplicación de patrones de diseño y buenas prácticas bajo supervisión.
+Estudios
+Maestría en Informática Aplicada
+Universidad José Martí (UNISS)
+2025 — Presente
+Especialización en arquitecturas distribuidas y sistemas de alta concurrencia.
+Ingeniería en Ciencias Informáticas
+Universidad de las Ciencias Informáticas (UCI)
+2017 — 2022
+Formación basada en proyectos reales, con énfasis en fundamentos de computación, ingeniería de software, bases de datos y tecnologías de vanguardia.
+Proyectos Destacados
+SGR-Turnos-Bandec (App Móvil) Android
+App nativa (Kotlin/Compose) para turnos bancarios: JWT, sincronización offline y notificaciones push.
+(demo en desarrollo)
+SGR-Turnos Symfony 8
+Gestión de turnos bancarios anti‑cola con JWT, rate limiting, auditoría y exportación Excel.
+(demo en desarrollo)
+SGR-Turnos Web React 19
+SPA con React 19, Vite 8 y TypeScript para reserva de turnos bancarios. TanStack Query v5, Zustand, rutas protegidas, JWT refresh deduplicado, formularios con React Hook Form + Zod y dark mode.
+github.com/christianrvdv/sgr-turnos-react-web
+ComercioLocal SaaS
+Plataforma e‑commerce con Stripe, OAuth2, 2FA, carrito y panel admin.
+islamarket.aserenet.com
+app_almacen Symfony 7
+Control de inventario, facturación PDF (dompdf) y dashboard de métricas.
+github.com/Christianrvdv/app_almacen
+Auth System + JWT Symfony
+Autenticación JWT, Voters, auditoría y pruebas unitarias.
+github.com/Christianrvdv/auth-system
+Microservicios Biblioteca Spring Boot
+API Gateway (Kong), Eureka, comunicación asíncrona.
+github.com/Christianrvdv/sistema-biblioteca-microservicios
+App BANCEC Android
+Solicitud de tarjetas magnéticas con QR (ZXing), exportación Excel y estadísticas.
+github.com/Christianrvdv/SolicitudtarjetaBANDEC
+Habilidades Técnicas
+LENGUAJES & FRAMEWORKS
+PHP 8.x
+Symfony 7/8
+Java 17+
+Spring Boot 3
+JavaScript
+TypeScript
+Node.js
+SQL
+FRONTEND (INTERMEDIO)
+HTML5/CSS3
+Tailwind
+Alpine.js
+React
+Twig / Stimulus
+DEVOPS & CLOUD
+Docker
+Nginx/Apache
+Redis
+CI/CD
+ARQUITECTURA & SEGURIDAD
+JWT / OAuth2
+2FA
+Microservicios (Kong)
+Stripe
+Rate Limiting
+AI‑ASSISTED DEVELOPMENT
+Claude Code
+OpenCode
+Skills
+Harness Engineering
+GitHub Copilot
+Prompt Engineering
+Idiomas
+Español
+Nativo
+Inglés
+Básico (A2)
+CLEAN CODE · ARQUITECTURA ESCALABLE · SEGURIDAD

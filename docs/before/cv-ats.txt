@@ -1,0 +1,70 @@
+Christián R. Vázquez
+Ingeniero en Ciencias Informáticas | Full Stack Developer
+Jatibonico, Sancti Spíritus, Cuba
+Teléfono: (+53) 56449593
+Email: christianrvdv.1999@gmail.com
+GitHub: https://github.com/Christianrvdv
+Portafolio: https://christianrvdv.netlify.app
+Perfil Profesional
+Ingeniero en Ciencias Informáticas y Desarrollador Full Stack con experiencia en Symfony 7/8, Spring Boot 3, React y arquitecturas modernas. Especializado en APIs REST, microservicios, seguridad (JWT, OAuth2, 2FA) y despliegue con Docker. Capacidad para asumir el ciclo completo de desarrollo: modelado de datos, lógica de negocio, frontend y despliegue. Actualmente curso una Maestría en Informática Aplicada.
+Experiencia Profesional
+Desarrollador Full Stack — Freelance
+Proyectos Independientes | 2024 — Presente | Remoto
+SGR-Turnos: sistema bancario anti-colas con Symfony 8, JWT, rate limiting, auditoría y exportación Excel.
+ComercioLocal: SaaS e-commerce con Stripe, OAuth2 (Google/Facebook), 2FA y Redis.
+Desarrollo de APIs RESTful y microservicios con Spring Boot y Docker.
+Uso de agentes de IA (Claude Code, OpenCode) con harness engineering para acelerar el ciclo de desarrollo.
+Desarrollador Backend — Centro de Desarrollo Local
+2021 — 2024 | Sancti Spíritus, Cuba
+Desarrollo y mantenimiento de aplicaciones web con Java / Spring Boot y PHP / Symfony.
+Construcción de interfaces frontend con HTML5, CSS3, JavaScript y Tailwind.
+Metodologías ágiles (Scrum), control de versiones Git y soporte técnico.
+Practicante de Desarrollo de Software — Universidad de las Ciencias Informáticas (UCI)
+2018 — 2021 | La Habana, Cuba
+Proyectos académicos con Java, PHP y MySQL.
+Aplicación de patrones de diseño y buenas prácticas bajo supervisión.
+Educación
+Maestría en Informática Aplicada
+Universidad José Martí (UNISS) | 2025 — Presente
+Especialización en arquitecturas distribuidas y sistemas de alta concurrencia.
+Ingeniería en Ciencias Informáticas
+Universidad de las Ciencias Informáticas (UCI) | 2017 — 2022
+Formación basada en proyectos reales, con énfasis en fundamentos de computación, ingeniería de software, bases de datos y tecnologías de vanguardia.
+Habilidades Técnicas
+Lenguajes: PHP 8, Java 17, JavaScript, TypeScript, SQL, Kotlin.
+Frameworks: Symfony 7/8, Spring Boot 3, Node.js, React, Alpine.js, Twig, Stimulus.
+Frontend: HTML5, CSS3, Tailwind CSS, React, TypeScript.
+Bases de datos: MySQL, Doctrine ORM, Redis.
+DevOps y Cloud: Docker, Nginx, Apache, CI/CD, Git.
+Arquitectura y Seguridad: JWT, OAuth2, 2FA, Stripe, microservicios (Kong), rate limiting, clean code.
+IA aplicada al desarrollo: Claude Code, OpenCode, GitHub Copilot, prompt engineering, harness engineering.
+Proyectos Destacados
+SGR-Turnos Web
+React 19, Vite, TypeScript, TanStack Query, Zustand, JWT
+SPA para reserva de turnos bancarios con rutas protegidas, refresh token deduplicado, formularios con React Hook Form + Zod y dark mode.
+https://github.com/christianrvdv/sgr-turnos-react-web
+SGR-Turnos-Bandec (App Móvil)
+Android, Kotlin, Jetpack Compose
+App nativa para turnos bancarios con JWT, sincronización offline y notificaciones push.
+ComercioLocal SaaS
+Symfony, Stripe, OAuth2, 2FA, Redis
+Plataforma e-commerce con carrito, panel de administración y pagos con Stripe.
+app_almacen
+Symfony 7
+Control de inventario, facturación PDF (dompdf) y dashboard de métricas.
+https://github.com/Christianrvdv/app_almacen
+Auth System + JWT
+Symfony
+Autenticación JWT, Voters, auditoría y pruebas unitarias.
+https://github.com/Christianrvdv/auth-system
+Microservicios Biblioteca
+Spring Boot, API Gateway (Kong), Eureka
+Arquitectura de microservicios con comunicación asíncrona.
+https://github.com/Christianrvdv/sistema-biblioteca-microservicios
+App BANCEC
+Android, ZXing
+Solicitud de tarjetas magnéticas con QR, exportación Excel y estadísticas.
+https://github.com/Christianrvdv/SolicitudtarjetaBANDEC
+Idiomas
+Español: Nativo.
+Inglés: Básico (A2).
