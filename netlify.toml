@@ -20,6 +20,11 @@
   to = "/cv/ats/index.html"
   status = 200
 
+[[redirects]]
+  from = "/cv/en/ats"
+  to = "/cv/en/ats/index.html"
+  status = 200
+
 # Redirects 301 de URLs históricas (NO catch-all: rompería CV/PDF/imágenes)
 [[redirects]]
   from = "/cv-en"

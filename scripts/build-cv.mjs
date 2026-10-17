@@ -58,9 +58,10 @@ const MIME = {
 };
 
 const JOBS = [
-  { url: '/cv/',       out: 'cv-christian-vazquez.pdf',      label: 'CV ES',  maxKB: 450 },
-  { url: '/cv/en/',    out: 'cv-christian-vazquez-en.pdf',   label: 'CV EN',  maxKB: 450 },
-  { url: '/cv/ats/',   out: 'cv-christian-vazquez-ats.pdf',  label: 'CV ATS', maxKB: 200 },
+  { url: '/cv/',         out: 'cv-christian-vazquez.pdf',        label: 'CV ES',      maxKB: 450 },
+  { url: '/cv/en/',      out: 'cv-christian-vazquez-en.pdf',     label: 'CV EN',      maxKB: 450 },
+  { url: '/cv/ats/',     out: 'cv-christian-vazquez-ats.pdf',    label: 'CV ATS',     maxKB: 200 },
+  { url: '/cv/en/ats/',  out: 'cv-christian-vazquez-ats-en.pdf', label: 'CV ATS EN',  maxKB: 200 },
 ];
 
 /* ---------- 1) Precheck (exit 1) ---------- */
@@ -73,7 +74,7 @@ function precheck() {
     console.error('assets/css/cv.css no encontrado — Run npm run build:css first (cv.css es parte del build)');
     process.exit(1);
   }
-  for (const rel of ['cv/index.html', 'cv/en/index.html', 'cv/ats/index.html']) {
+  for (const rel of ['cv/index.html', 'cv/en/index.html', 'cv/ats/index.html', 'cv/en/ats/index.html']) {
     if (!existsSync(path.join(ROOT, rel))) {
       console.error(`[precheck] falta ${rel} — no se puede generar el PDF`);
       process.exit(1);

@@ -64,6 +64,7 @@
   "cv.footer.tagline": "clean code · scalable architecture · security",
   "cv.button.print": "Print",
   "cv.button.pdf": "Download PDF",
+  "cv.button.ats": "Download ATS CV",
   "cv.projects.mobile_sgrturnos.title": "SGR-Turnos-Bandec (Mobile App)",
   "cv.projects.mobile_sgrturnos.desc": "Native app (Kotlin/Compose) for banking queues: JWT auth, offline sync and push notifications."
 }

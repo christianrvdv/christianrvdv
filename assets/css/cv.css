@@ -330,7 +330,7 @@ body {
     gap: 0.75rem;
 }
 
-.btn-print, .btn-pdf {
+.btn-print, .btn-pdf, .btn-ats {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -354,6 +354,13 @@ body {
 .btn-pdf {
     background: #0f766e;
     color: white;
+}
+
+.btn-ats {
+    background: #ffffff;
+    color: #0f766e;
+    border: 2px solid #0f766e;
+    padding: 0.5rem 1rem;
 }
 
 .text-sm {
@@ -452,7 +459,7 @@ body {
         right: 1rem;
     }
 
-    .btn-print, .btn-pdf {
+    .btn-print, .btn-pdf, .btn-ats {
         padding: 0.5rem 0.9rem;
         font-size: 0.7rem;
     }
