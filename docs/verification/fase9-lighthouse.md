@@ -207,3 +207,101 @@ f5e9710 docs(verification): Lighthouse 4 paginas + fixes lang/meta + preload fue
 ## Conclusión
 
 Umbral duro cumplido en las 8 combinaciones originales (a11y ≥ 95, SEO ≥ 95, perf desktop ≥ 90) y en los umbrales suaves de móvil (≥ 85). Tras la remediación: a11y **100** en las 3 páginas con fallos conocidos, FOUC de `/cv/en/` **0 ms** y `/` re-medida en 100/100/100. **GATE 9.3 (incluida la remediación P1–P4): PASS → procede a FASE 9.4.**
+
+---
+
+# FASE 9.5 — Re-medición pre-push (2026-10-17)
+
+Mismo protocolo que 9.3: Lighthouse **13.5.0**, Chrome headless, servidor local `node scripts/serve.mjs` en 8888, 3 corridas por página/modo, valor de gate = **mediana**. JSONs: `lighthouse-fase9.5-{index|cv|cv-en|cv-ats}-{desktop|mobile}-run{1|2|3}.json` (24 archivos).
+
+## Tabla resumen (medianas 9.5)
+
+| Página | Modo | Perf | A11y | SEO | LCP | TBT | CLS | ¿Cumple? |
+|---|---|---|---|---|---|---|---|---|
+| `/` | Desktop | **100** | 100 | 100 | 623 ms | 0 ms | 0 | ✅ |
+| `/` | Móvil | **93** | 100 | 100 | 2733 ms | 0 ms | 0.012 | ✅ (≥ 85; gap LCP documentado) |
+| `/cv/` | Desktop | **100** | 100 | 100 | 532 ms | 0 ms | 0 | ✅ |
+| `/cv/` | Móvil | **98** | 100 | 100 | 2260 ms | 18 ms | 0 | ✅ |
+| `/cv/en/` | Desktop | **100** | 100 | 100 | 507 ms | 0 ms | 0 | ✅ |
+| `/cv/en/` | Móvil | **98** | 100 | 100 | 2188 ms | 22 ms | 0 | ✅ |
+| `/cv/ats/` | Desktop | **100** | 100 | 100 | 259 ms | 0 ms | 0 | ✅ (a11y 100: G1 confirmado) |
+| `/cv/ats/` | Móvil | **100** | 100 | 100 | 866 ms | 7 ms | 0 | ✅ |
+
+**Las 8 combinaciones cumplen los tres umbrales duros. Sin regresiones vs. 9.3/9.4.**
+
+## Detalle por página (3 corridas → mediana)
+
+```
+/ Desktop:
+  Perf:  99, 100, 100          → mediana 100
+  A11y:  100, 100, 100         → mediana 100
+  SEO:   100, 100, 100         → mediana 100
+  LCP:   760, 623, 621 ms      → mediana 623 ms
+  TBT:   0, 0, 0 ms            → mediana 0 ms
+  CLS:   0, 0, 0               → mediana 0
+
+/ Móvil:
+  Perf:  93, 89, 93            → mediana 93   (≥ 85, no bloqueante)
+  A11y:  100, 100, 100         → mediana 100
+  SEO:   100, 100, 100         → mediana 100
+  LCP:   2765, 2714, 2733 ms   → mediana 2733 ms  (gap móvil documentado desde 9.3)
+  TBT:   0, 190, 0 ms          → mediana 0 ms
+  CLS:   0.012, 0.012, 0.012   → mediana 0.012
+
+/cv/ Desktop:
+  Perf:  98, 100, 100          → mediana 100
+  A11y:  100, 100, 100         → mediana 100
+  SEO:   100, 100, 100         → mediana 100
+  LCP:   532, 568, 484 ms      → mediana 532 ms
+  TBT:   18, 0, 0 ms           → mediana 0 ms
+  CLS:   0.084, 0, 0           → mediana 0   (run1 0.084 ≤ 0.1)
+
+/cv/ Móvil:
+  Perf:  98, 98, 87            → mediana 98   (run3 outlier, ver abajo)
+  A11y:  100, 100, 100         → mediana 100
+  SEO:   100, 100, 100         → mediana 100
+  LCP:   2260, 2217, 2329 ms   → mediana 2260 ms
+  TBT:   14, 18, 167 ms        → mediana 18 ms
+  CLS:   0, 0, 0.183           → mediana 0
+
+/cv/en/ Desktop:
+  Perf:  100, 100, 100         → mediana 100
+  A11y:  100, 100, 100         → mediana 100
+  SEO:   100, 100, 100         → mediana 100
+  LCP:   507, 506, 510 ms      → mediana 507 ms
+  TBT:   0, 0, 0 ms            → mediana 0 ms
+  CLS:   0, 0, 0               → mediana 0
+
+/cv/en/ Móvil:
+  Perf:  98, 98, 98            → mediana 98
+  A11y:  100, 100, 100         → mediana 100
+  SEO:   100, 100, 100         → mediana 100
+  LCP:   2181, 2188, 2285 ms   → mediana 2188 ms
+  TBT:   84, 22, 17 ms         → mediana 22 ms
+  CLS:   0, 0, 0               → mediana 0
+
+/cv/ats/ Desktop:
+  Perf:  100, 100, 100         → mediana 100
+  A11y:  100, 100, 100         → mediana 100  (G1 resuelto: antes 96)
+  SEO:   100, 100, 100         → mediana 100
+  LCP:   550, 259, 253 ms      → mediana 259 ms
+  TBT:   0, 0, 0 ms            → mediana 0 ms
+  CLS:   0, 0, 0               → mediana 0
+
+/cv/ats/ Móvil:
+  Perf:  100, 100, 100         → mediana 100
+  A11y:  100, 100, 100         → mediana 100
+  SEO:   100, 100, 100         → mediana 100
+  LCP:   898, 861, 866 ms      → mediana 866 ms
+  TBT:   10, 7, 6 ms           → mediana 7 ms
+  CLS:   0, 0, 0               → mediana 0
+```
+
+## Observaciones 9.5
+
+- **Outlier `/cv/` móvil run3** (perf 87, CLS 0.183, TBT 167): mismo patrón no reproducible que el outlier P4 de 9.3 (`/cv/en/` desktop 1 de 5 corridas). Las otras 2 corridas dieron perf 98/98 y CLS 0/0; mediana 98/0. Atribuido al race de fuentes/timing del entorno (G4), no a regresión.
+- **G1 confirmado resuelto**: `/cv/ats/` a11y **100** en ambos modos (antes 96 por `landmark-one-main`).
+- **G4 sigue confirmada**: la única corrida < 90 en toda la batería es el outlier de arriba; `/` móvil se mueve en 89–93 con la mediana 93 (≥ 85, gap LCP documentado y aceptado).
+- Sin cambios de CSS/JS desde 9.4; esta batería mide el mismo árbol que el GATE 9.4 aprobado + la regeneración de PDFs (no afecta scores).
+
+**Batería 9.5: PASS — sin umbrales rotos, sin regresiones.**
