@@ -9,7 +9,7 @@
  * scrollear, así que IntersectionObserver nunca lo vería salir.
  */
 
-(() => {
+export function initBackToTop() {
     'use strict';
 
     const BTN_SELECTOR = '#backToTop';
@@ -72,4 +72,4 @@
     } else {
         init();
     }
-})();
+}

@@ -67,8 +67,10 @@
 ## Set de reveal — marcador, trigger y estado
 - **Marcador (HTML)**: atributo `data-animate` en `section-header`, `skill-category` y `project-card`.
   El `hero` panel NO lleva `data-animate`: dispara con `window.load`, no con IO.
-- **Marcador (Fase 4)**: los bloques llevan `data-animate` pero **sin** estado oculto en el CSS base, así
-  el skeleton se ve y funciona completo sin JS.
+- **Marcador (Fase 5, no Fase 4)**: el atributo `data-animate` se añade en Fase 5 junto con el nuevo
+  `scroll-animations.js`. En Fase 4 NO se marca nada: el `scroll-animations.js` que sigue cableado hoy
+  añade `opacity-0 translate-y-4` a todo `[data-animate]` y no hay regla `.visible` que lo revele, así que
+  marcarlos ahora los dejaría invisibles con JS. Fase 4 = HTML sin marcadores, todo visible.
 - **Estado (Fase 5)**: el observer añade la clase `.is-visible`; el estado oculto vive **solo** bajo
   `html.js [data-animate]:not(.is-visible)` → `{ opacity:0; transform:translateY(8px) }`.
 
