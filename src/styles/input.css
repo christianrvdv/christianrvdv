@@ -1,4 +1,5 @@
 @import "./tokens.css";
+@import "./components.css";
 
 @tailwind base;
 @tailwind components;
@@ -22,14 +23,12 @@
         font-family: var(--font-mono);
     }
 
-    /* El borde por defecto de la utilidad `border` es el token de borde. */
     *,
     *::before,
     *::after {
         border-color: var(--color-border);
     }
 
-    /* Métricas y titulares con cifras tabulares (la mono ya es tabular; explícito por contrato). */
     h1, h2, h3, h4, h5, h6,
     time, data, .tnum, [data-metric] {
         font-variant-numeric: tabular-nums;
@@ -53,14 +52,12 @@
         color: var(--color-muted);
     }
 
-    /* Foco visible obligatorio en todo interactivo. */
     :focus-visible {
         outline: var(--focus-ring-width) solid var(--focus-ring-color);
         outline-offset: var(--focus-ring-offset);
         border-radius: inherit;
     }
 
-    /* Sin text-[Npx] arbitrario: nada por debajo de 10px. */
     small {
         font-size: 0.8125rem;
     }
@@ -74,8 +71,6 @@
         font-variant-numeric: tabular-nums;
     }
 
-    /* Stagger: máximo 6 pasos de 40ms entre elementos; el 7.º en adelante
-       comparte el 6.º paso. Nunca aparecen todos a la vez. */
     .stagger > :nth-child(1) { transition-delay: 0ms; }
     .stagger > :nth-child(2) { transition-delay: calc(var(--stagger-step) * 1); }
     .stagger > :nth-child(3) { transition-delay: calc(var(--stagger-step) * 2); }
@@ -95,4 +90,12 @@
         transition-delay: 0ms !important;
         scroll-behavior: auto !important;
     }
+}
+
+/* Compensa la navbar fija en TODO destino con id dentro del portafolio:
+   cubre <section id>, <div id> y encabezados ancla. Ámbito main para no
+   tocar las páginas CV, que también cargan main.css. */
+main [id],
+section[id] {
+    scroll-margin-top: calc(var(--nav-height) + var(--space-gutter));
 }

@@ -1,0 +1,683 @@
+/* ============================================
+   COMPONENTES — Terminal Industrial
+   ============================================ */
+
+/* ------------------------------------------------------------------
+   NAVBAR — Escritorio (FIJO, siempre visible, --nav-height: 64px)
+   ------------------------------------------------------------------ */
+:root {
+    --nav-height: 64px;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-gutter);
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+}
+
+.navbar__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-unit);
+    text-decoration: none;
+    color: var(--color-foreground);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.navbar__brand:hover {
+    color: var(--color-accent);
+}
+
+.navbar__nav {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--space-gutter) * 1.5);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 0;
+    color: var(--color-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: color var(--motion-fast) var(--ease-out-expo),
+                border-color var(--motion-fast) var(--ease-out-expo);
+}
+
+.navbar__link:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
+.navbar__link[aria-current="location"] {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-unit);
+}
+
+/* Botón de tema / idioma — estilo terminal */
+.navbar__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-foreground);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: border-color var(--motion-fast) var(--ease-out-expo),
+                color var(--motion-fast) var(--ease-out-expo),
+                background-color var(--motion-fast) var(--ease-out-expo);
+}
+
+.navbar__btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.navbar__btn:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}
+
+/* ------------------------------------------------------------------
+   NAVBAR — Móvil (panel grid-template-rows 0fr→1fr + inert)
+   ------------------------------------------------------------------ */
+.navbar__mobile-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-foreground);
+    cursor: pointer;
+}
+
+.navbar__mobile-toggle:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+    .navbar__mobile-toggle {
+        display: flex;
+    }
+
+    /* Colapsa por fila (0fr→1fr). El padding vive en --inner, no aquí:
+       si estuviera en el contenedor el panel plegado no llegaría a 0 px. */
+    .navbar__nav {
+        position: fixed;
+        inset: var(--nav-height) 0 auto 0;
+        z-index: 30;
+        display: grid;
+        grid-template-rows: 0fr;
+        transition-property: grid-template-rows;
+        transition-duration: var(--motion-base);
+        transition-timing-function: var(--ease-out-expo);
+        background: var(--color-surface);
+        border-bottom: 1px solid var(--color-border);
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .navbar__nav.open {
+        grid-template-rows: 1fr;
+    }
+
+    /* La fila se clipa en --inner (sin padding propia). El padding vive en
+       --content, DENTRO del clip: así el panel plegado mide 0px exactos
+       (el padding de un elemento cuenta para su min-content). */
+    .navbar__nav-inner {
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .navbar__nav-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-unit);
+        padding: var(--space-gutter);
+    }
+
+    .navbar__link {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1rem;
+    }
+
+    .navbar__actions {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding-top: var(--space-unit);
+        border-top: 1px solid var(--color-border);
+    }
+
+    .navbar__btn {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+/* Desktop: always visible, no hidden attribute */
+@media (min-width: 769px) {
+    .navbar__nav {
+        display: flex !important;
+        position: static;
+        inset: auto;
+        z-index: auto;
+        grid-template-rows: none;
+        transition: none;
+        background: transparent;
+        border: none;
+        padding: 0;
+        overflow: visible;
+    }
+
+    .navbar__nav-inner {
+        overflow: visible;
+        min-height: auto;
+    }
+
+    .navbar__nav-content {
+        display: flex;
+        align-items: center;
+        gap: calc(var(--space-gutter) * 1.5);
+        padding: 0;
+    }
+
+    .navbar__link {
+        width: auto;
+        padding: 6px 0;
+        font-size: 0.875rem;
+    }
+
+    .navbar__actions {
+        width: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        padding: 0;
+        border: none;
+    }
+
+    .navbar__btn {
+        flex: none;
+    }
+}
+
+/* ------------------------------------------------------------------
+   HERO — Panel terminal whoami
+   ------------------------------------------------------------------ */
+.hero {
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--space-section-gap) * 2) var(--space-gutter);
+}
+
+.hero__panel {
+    width: 100%;
+    max-width: 720px;
+    padding: var(--space-panel-padding);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+}
+
+.hero__prompt {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: calc(var(--space-gutter) * 1.5);
+    color: var(--color-accent);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.hero__prompt-symbol {
+    opacity: 0.7;
+}
+
+.hero__name {
+    margin: 0 0 var(--space-unit);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+}
+
+.hero__role {
+    margin: 0 0 var(--space-gutter);
+    color: var(--color-muted);
+    font-size: 1.25rem;
+    line-height: 1.35;
+    font-weight: 500;
+}
+
+.hero__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    margin: 0 0 calc(var(--space-gutter) * 1.5);
+    font-size: 0.875rem;
+    color: var(--color-foreground);
+}
+
+.hero__stack-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.hero__cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-unit);
+}
+
+.hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: background-color var(--motion-fast) var(--ease-out-expo),
+                color var(--motion-fast) var(--ease-out-expo),
+                border-color var(--motion-fast) var(--ease-out-expo);
+}
+
+.hero__cta--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    border: 2px solid var(--color-accent);
+}
+
+.hero__cta--primary:hover {
+    background: var(--color-accent-muted);
+    border-color: var(--color-accent-muted);
+}
+
+.hero__cta--ghost {
+    background: transparent;
+    color: var(--color-foreground);
+    border: 2px solid var(--color-border);
+}
+
+.hero__cta--ghost:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+/* ------------------------------------------------------------------
+   SECTION HEADER — Divisor terminal con guías
+   ------------------------------------------------------------------ */
+.section-header {
+    position: relative;
+    padding-bottom: var(--space-unit);
+    margin-bottom: var(--space-section-gap);
+    scroll-margin-top: calc(var(--nav-height) + var(--space-gutter));
+}
+
+.section-header__index {
+    display: inline-block;
+    margin-right: var(--space-unit);
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.section-header__title {
+    display: inline;
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+
+.section-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: repeating-linear-gradient(
+        to right,
+        var(--color-border),
+        var(--color-border) 8px,
+        transparent 8px,
+        transparent 16px
+    );
+}
+
+/* ------------------------------------------------------------------
+   SKILL CARD — Sección + h3 + ul (semántica correcta)
+   ------------------------------------------------------------------ */
+.skills-grid {
+    display: grid;
+    gap: var(--space-gutter);
+}
+
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.skill-category {
+    padding: var(--space-panel-padding);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: border-color var(--motion-fast) var(--ease-out-expo);
+}
+
+.skill-category:hover {
+    border-color: var(--color-accent);
+}
+
+.skill-category__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 var(--space-gutter);
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.skill-category__label::before {
+    content: "●";
+    font-size: 0.625rem;
+    line-height: 1;
+}
+
+.skill-category__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.skill-category__item {
+    padding: 4px 10px;
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    transition: border-color var(--motion-fast) var(--ease-out-expo),
+                color var(--motion-fast) var(--ease-out-expo);
+}
+
+.skill-category__item:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+/* ------------------------------------------------------------------
+   PROJECT CARD — Fila estilo ls -l
+   ------------------------------------------------------------------ */
+.projects-grid {
+    display: grid;
+    gap: var(--space-unit);
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: var(--space-gutter);
+    align-items: start;
+    padding: var(--space-panel-padding);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: border-color var(--motion-fast) var(--ease-out-expo),
+                background-color var(--motion-fast) var(--ease-out-expo);
+}
+
+.project-card:hover {
+    border-color: var(--color-border-strong);
+    background: var(--color-surface-elevated);
+}
+
+.project-card__index {
+    display: flex;
+    align-items: center;
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.project-card__content {
+    min-width: 0;
+}
+
+.project-card__title {
+    margin: 0 0 4px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.project-card__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    margin: 0 0 var(--space-unit);
+    font-size: 0.75rem;
+    color: var(--color-muted);
+}
+
+.project-card__stack-item {
+    padding: 2px 6px;
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.project-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-unit);
+}
+
+.project-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--color-link);
+    border: 1px solid var(--color-border);
+    transition: color var(--motion-fast) var(--ease-out-expo),
+                border-color var(--motion-fast) var(--ease-out-expo);
+}
+
+.project-card__link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.project-card__link:visited {
+    color: var(--color-link-visited);
+}
+
+/* ------------------------------------------------------------------
+   FOOTER — Prompt terminal repetido
+   ------------------------------------------------------------------ */
+.footer {
+    padding: calc(var(--space-section-gap) * 1.5) var(--space-gutter);
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+}
+
+.footer__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-gutter);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer__copyright {
+    color: var(--color-muted);
+    font-size: 0.8125rem;
+}
+
+.footer__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-gutter);
+}
+
+.footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-link);
+    border: 1px solid var(--color-border);
+    transition: color var(--motion-fast) var(--ease-out-expo),
+                border-color var(--motion-fast) var(--ease-out-expo);
+}
+
+.footer__link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.footer__link:visited {
+    color: var(--color-link-visited);
+}
+
+/* ------------------------------------------------------------------
+   BACK TO TOP — Flecha ascendente
+   ------------------------------------------------------------------ */
+.back-to-top {
+    position: fixed;
+    bottom: var(--space-gutter);
+    right: var(--space-gutter);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-foreground);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition-property: opacity, visibility, transform, border-color, color;
+    transition-duration: var(--motion-base), var(--motion-base), var(--motion-base), var(--motion-fast), var(--motion-fast);
+    transition-timing-function: var(--ease-out-expo);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.back-to-top:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}
+
+.back-to-top__icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2.5;
+}
+
+/* ------------------------------------------------------------------
+   UTILIDADES DE ESTADO
+   ------------------------------------------------------------------ */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.inert-polyfill {
+    pointer-events: none;
+    user-select: none;
+}
