@@ -11,7 +11,9 @@
     "build:cv": "node scripts/build-cv.mjs",
     "build": "npm run build:css",
     "serve": "node scripts/serve.mjs",
-    "lint:html": "npx html-validate index.html cv/**/*.html"
+    "lint:html": "npx html-validate index.html cv/**/*.html",
+    "lint:css": "node scripts/verify-css.mjs",
+    "lint": "npm run lint:html && npm run lint:css"
   },
   "repository": {
     "type": "git",

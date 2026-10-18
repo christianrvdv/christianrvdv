@@ -1,3 +1,11 @@
+/* ⚠️ ORDEN CRÍTICO DE IMPORTS — NO reordenar ni borrar:
+   1. tokens.css    → define :root/.dark (--color-*, --motion-*, --space-*,
+                      --stagger-step, @font-face). Sin esto, TODO el sistema
+                      de color/motion cae en silencio (bug de Fase 3: se
+                      reemplazó por components.css y ningún var() resolvía).
+   2. components.css → consume esos tokens (nav, hero, cards, footer…).
+   Guardia automática: `npm run lint:css` (scripts/verify-css.mjs) comprueba
+   que assets/css/main.css contiene --color-background y --motion-base. */
 @import "./tokens.css";
 @import "./components.css";
 

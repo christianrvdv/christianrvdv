@@ -2,6 +2,14 @@
    COMPONENTES — Terminal Industrial
    ============================================ */
 
+/* MOTION — contrato de reduced-motion (leer antes de añadir animaciones):
+   El colapso global a 0.01ms de input.css es SOLO una red de seguridad.
+   En Fase 5, las variantes reduced-motion de cada animación deben escribir
+   el estado final directamente (opacity:1; transform:none) bajo
+   @media (prefers-reduced-motion: reduce), SIN depender del collapse a
+   0.01ms. Objetivo: un fade suave / estado final inmediato, nunca un snap
+   perceptible. Ver docs/MOTION.md. */
+
 /* ------------------------------------------------------------------
    NAVBAR — Escritorio (FIJO, siempre visible, --nav-height: 64px)
    ------------------------------------------------------------------ */

@@ -29,7 +29,7 @@
 "foreground":{"$value":"#191C17"},"muted":{"$value":"#52574E"},"border":{"$value":"#818273"},
 "border-strong":{"$value":"#5D5F50"},"accent":{"$value":"#256A3E"},"accent-muted":{"$value":"#739F7C"},
 "accent-ink":{"$value":"#F7FCF5"},"focus":{"$value":"#256A3E"},"error":{"$value":"#B32228"},
-"success":{"$value":"#137738"},"warn":{"$value":"#895700"},"link":{"$value":"#09597D"},
+"success":{"$value":"#006E30"},"warn":{"$value":"#895700"},"link":{"$value":"#09597D"},
 "link-visited":{"$value":"#6D398E"} },
 "color-terminal": { "$type": "color",
 "background":{"$value":"#0D110C"},"surface":{"$value":"#161A15"},"surface-elevated":{"$value":"#1F241E"},
@@ -105,7 +105,7 @@
   --color-accent-ink: oklch(0.985 0.01 140);       /* #F7FCF5 — texto sobre accent */
   --color-focus: var(--color-accent);              /* #256A3E */
   --color-error: oklch(0.50 0.18 25);              /* #B32228 */
-  --color-success: oklch(0.50 0.13 150);           /* #137738 */
+  --color-success: oklch(0.47 0.13 150);           /* #006E30 — 5.2:1 vs bg */
   --color-warn: oklch(0.50 0.115 75);              /* #895700 — 5.0:1 vs bg */
   --color-link: oklch(0.44 0.09 235);              /* #09597D */
   --color-link-visited: oklch(0.45 0.14 310);      /* #6D398E */
@@ -186,7 +186,7 @@
     --color-accent-ink: #F7FCF5;
     --color-focus: #256A3E;
     --color-error: #B32228;
-    --color-success: #137738;
+    --color-success: #006E30;
     --color-warn: #895700;
     --color-link: #09597D;
     --color-link-visited: #6D398E;
