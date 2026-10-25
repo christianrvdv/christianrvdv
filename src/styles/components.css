@@ -254,6 +254,30 @@
     padding: max(calc(var(--space-section-gap) * 2), calc(var(--nav-height) + var(--space-gutter))) var(--space-gutter);
 }
 
+/* Pantallas cortas (iPhone SE 375x667, landscape movil): comprime el hero para
+   que el CTA entre en el fold sin scroll. No afecta a viewports normales. */
+@media (max-height: 700px) {
+    .hero {
+        min-height: auto;
+        align-items: flex-start;
+        padding-block: var(--space-unit);
+    }
+
+    .hero__panel {
+        padding: var(--space-gutter);
+    }
+
+    .hero__name {
+        font-size: clamp(1.875rem, 9vw, 2.75rem);
+    }
+
+    .hero__prompt,
+    .hero__role,
+    .hero__stack {
+        margin-bottom: var(--space-unit);
+    }
+}
+
 .hero__panel {
     width: 100%;
     max-width: 720px;
@@ -300,6 +324,12 @@
     margin: 0 0 calc(var(--space-gutter) * 1.5);
     font-size: 0.875rem;
     color: var(--color-foreground);
+}
+
+.hero__stack-prompt {
+    align-self: center;
+    color: var(--color-accent);
+    font-weight: 600;
 }
 
 .hero__stack-item {
@@ -501,10 +531,10 @@
 
 .project-card__media {
     grid-column: 1 / -1;
-    margin: calc(var(--space-panel-padding) * -1) calc(var(--space-panel-padding) * -1) 0;
     aspect-ratio: 16 / 9;
     overflow: hidden;
-    border-bottom: 1px solid var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: 0;
     background: var(--color-surface-elevated);
 }
 
@@ -513,6 +543,14 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 0;
+    filter: grayscale(100%) opacity(90%);
+    transition: filter var(--motion-base) var(--ease-out-expo);
+}
+
+.project-card:hover .project-card__media img,
+.project-card:focus-within .project-card__media img {
+    filter: grayscale(0%) opacity(100%);
 }
 
 .project-card__media--placeholder {
@@ -697,6 +735,62 @@
     height: 20px;
     stroke: currentColor;
     stroke-width: 2.5;
+}
+
+/* ------------------------------------------------------------------
+   MOTION — Reveal de entrada (Fase 5)
+   El estado oculto SOLO existe bajo html.js (progressive enhancement):
+   sin JS no se oculta nada. El IntersectionObserver anade .is-visible
+   una sola vez (unobserve) y nunca re-dispara al subir.
+   ------------------------------------------------------------------ */
+html.js [data-animate] {
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+        opacity var(--motion-base) var(--ease-out-expo) var(--reveal-delay, 0ms),
+        transform var(--motion-base) var(--ease-out-expo) var(--reveal-delay, 0ms);
+}
+
+html.js [data-animate].is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* skill-category y project-card conservan su feedback de hover (fast 120ms)
+   y no heredan el delay del stagger en border/background. */
+html.js .skill-category[data-animate],
+html.js .project-card[data-animate] {
+    transition:
+        opacity var(--motion-base) var(--ease-out-expo) var(--reveal-delay, 0ms),
+        transform var(--motion-base) var(--ease-out-expo) var(--reveal-delay, 0ms),
+        border-color var(--motion-fast) var(--ease-out-expo),
+        background-color var(--motion-fast) var(--ease-out-expo);
+}
+
+/* Hero: no usa IO; dispara con window.load. Recorrido 12px, 320ms, quart. */
+html.js .hero__panel {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity var(--motion-slow) var(--ease-out-quart),
+        transform var(--motion-slow) var(--ease-out-quart);
+}
+
+html.js .hero__panel.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* reduced-motion: la variante ES la estrategia (no el collapse global):
+   sin desplazamiento, solo un fade de opacidad. */
+@media (prefers-reduced-motion: reduce) {
+    html.js [data-animate],
+    html.js .skill-category[data-animate],
+    html.js .project-card[data-animate],
+    html.js .hero__panel {
+        transform: none;
+        transition: opacity var(--motion-base) var(--ease-out-expo) !important;
+    }
 }
 
 /* ------------------------------------------------------------------

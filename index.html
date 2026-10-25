@@ -7,6 +7,7 @@
     <!-- Anti-FOUC: resuelve el tema antes del primer paint (agnóstico al idioma) -->
     <script>
         (function () {
+            document.documentElement.classList.add('js');
             try {
                 var t = localStorage.getItem('theme');
                 var isDark = t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches);
@@ -127,6 +128,7 @@
             <h1 class="hero__name" id="hero-name">Christián R. Vazquez</h1>
             <p class="hero__role" data-i18n="profile.title">Full Stack Developer</p>
             <p class="hero__stack">
+                <span class="hero__stack-prompt" aria-hidden="true">&#10095;</span>
                 <span class="hero__stack-item">Java</span>
                 <span class="hero__stack-item">Doctrine</span>
                 <span class="hero__stack-item">PostgreSQL</span>
@@ -152,7 +154,7 @@
 
         <!-- 01 · Sobre mí -->
         <section id="about-detail" aria-labelledby="about-detail-title">
-            <div class="section-header">
+            <div class="section-header" data-animate>
                 <span class="section-header__index" aria-hidden="true">01</span>
                 <h2 class="section-header__title" id="about-detail-title" data-i18n="about.title">Sobre mí</h2>
             </div>
@@ -167,13 +169,13 @@
 
         <!-- 02 · Habilidades -->
         <section id="skills" aria-labelledby="skills-title">
-            <div class="section-header">
+            <div class="section-header" data-animate>
                 <span class="section-header__index" aria-hidden="true">02</span>
                 <h2 class="section-header__title" id="skills-title" data-i18n="skills.title">Habilidades Técnicas</h2>
             </div>
 
-            <div class="skills-grid">
-                <section class="skill-category">
+            <div class="skills-grid stagger">
+                <section class="skill-category" data-animate>
                     <h3 class="skill-category__label" data-i18n="skills.languages.title">Lenguajes</h3>
                     <p class="text-caption text-muted mb-gutter" data-i18n="skills.languages.desc">Dominio en lenguajes de programación y runtimes (Node.js) para desarrollo backend y sistemas.</p>
                     <ul class="skill-category__list">
@@ -186,7 +188,7 @@
                     </ul>
                 </section>
 
-                <section class="skill-category">
+                <section class="skill-category" data-animate>
                     <h3 class="skill-category__label" data-i18n="skills.frameworks.title">Frameworks Backend</h3>
                     <p class="text-caption text-muted mb-gutter" data-i18n="skills.frameworks.desc">Frameworks y runtimes principales utilizados en proyectos profesionales y personales, incluyendo Node.js.</p>
                     <ul class="skill-category__list">
@@ -197,7 +199,7 @@
                     </ul>
                 </section>
 
-                <section class="skill-category">
+                <section class="skill-category" data-animate>
                     <h3 class="skill-category__label" data-i18n="skills.databases.title">Bases de Datos</h3>
                     <p class="text-caption text-muted mb-gutter" data-i18n="skills.databases.desc">Gestión y diseño de bases de datos relacionales y NoSQL.</p>
                     <ul class="skill-category__list">
@@ -208,7 +210,7 @@
                     </ul>
                 </section>
 
-                <section class="skill-category">
+                <section class="skill-category" data-animate>
                     <h3 class="skill-category__label" data-i18n="skills.devops.title">DevOps &amp; Cloud</h3>
                     <p class="text-caption text-muted mb-gutter" data-i18n="skills.devops.desc">Herramientas de contenerización, orquestación y nube.</p>
                     <ul class="skill-category__list">
@@ -219,7 +221,7 @@
                     </ul>
                 </section>
 
-                <section class="skill-category">
+                <section class="skill-category" data-animate>
                     <h3 class="skill-category__label" data-i18n="skills.frontend.title">Frontend (Intermedio)</h3>
                     <p class="text-caption text-muted mb-gutter" data-i18n="skills.frontend.desc">Construcción de interfaces funcionales y responsivas con herramientas modernas.</p>
                     <ul class="skill-category__list">
@@ -232,7 +234,7 @@
                     </ul>
                 </section>
 
-                <section class="skill-category">
+                <section class="skill-category" data-animate>
                     <h3 class="skill-category__label" data-i18n="skills.architecture.title">Arquitectura &amp; Seguridad</h3>
                     <p class="text-caption text-muted mb-gutter" data-i18n="skills.architecture.desc">Patrones de diseño, microservicios, autenticación avanzada y buenas prácticas.</p>
                     <ul class="skill-category__list">
@@ -244,7 +246,7 @@
                     </ul>
                 </section>
 
-                <section class="skill-category">
+                <section class="skill-category" data-animate>
                     <h3 class="skill-category__label" data-i18n="skills.ai.title">Desarrollo Asistido por IA</h3>
                     <p class="text-caption text-muted mb-gutter" data-i18n="skills.ai.desc">Configuro entornos de desarrollo agéntico (harness engineering) y uso agentes de terminal para acelerar el ciclo de desarrollo, mejorar la calidad del código y automatizar tareas repetitivas.</p>
                     <ul class="skill-category__list">
@@ -261,7 +263,7 @@
 
         <!-- 03 · Estudios -->
         <section id="studies" aria-labelledby="studies-title">
-            <div class="section-header">
+            <div class="section-header" data-animate>
                 <span class="section-header__index" aria-hidden="true">03</span>
                 <h2 class="section-header__title" id="studies-title" data-i18n="study.title">Estudios</h2>
             </div>
@@ -283,7 +285,7 @@
 
         <!-- 04 · Experiencia -->
         <section id="experience" aria-labelledby="experience-title">
-            <div class="section-header">
+            <div class="section-header" data-animate>
                 <span class="section-header__index" aria-hidden="true">04</span>
                 <h2 class="section-header__title" id="experience-title" data-i18n="experience.title">Experiencia</h2>
             </div>
@@ -311,7 +313,7 @@
 
         <!-- 05 · Proyectos -->
         <section id="projects" aria-labelledby="projects-title">
-            <div class="section-header">
+            <div class="section-header" data-animate>
                 <span class="section-header__index" aria-hidden="true">05</span>
                 <h2 class="section-header__title" id="projects-title" data-i18n="projects.title">Proyectos Destacados</h2>
             </div>
@@ -321,7 +323,7 @@
             </p>
 
             <div class="projects-grid">
-                <article class="project-card">
+                <article class="project-card" data-animate>
                     <div class="project-card__media project-card__media--placeholder" aria-hidden="true"></div>
                     <span class="project-card__index" aria-hidden="true">01</span>
                     <div class="project-card__content">
@@ -342,7 +344,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-animate>
                     <div class="project-card__media">
                         <img src="assets/images/projects/sgr1300.webp"
                              srcset="assets/images/projects/sgr700.webp 700w, assets/images/projects/sgr1300.webp 1300w"
@@ -368,7 +370,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-animate>
                     <div class="project-card__media project-card__media--placeholder" aria-hidden="true"></div>
                     <span class="project-card__index" aria-hidden="true">03</span>
                     <div class="project-card__content">
@@ -389,7 +391,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-animate>
                     <div class="project-card__media">
                         <img src="assets/images/projects/comerciolocal1_1300.webp"
                              srcset="assets/images/projects/comerciolocal1_700.webp 700w, assets/images/projects/comerciolocal1_1300.webp 1300w"
@@ -415,7 +417,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-animate>
                     <div class="project-card__media">
                         <img src="assets/images/projects/almacen1300.webp"
                              srcset="assets/images/projects/almacen700.webp 700w, assets/images/projects/almacen1300.webp 1300w"
@@ -440,7 +442,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-animate>
                     <div class="project-card__media">
                         <img src="assets/images/projects/autenticacion1300.webp"
                              srcset="assets/images/projects/autenticacion700.webp 700w, assets/images/projects/autenticacion1300.webp 1300w"
@@ -465,7 +467,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-animate>
                     <div class="project-card__media project-card__media--placeholder" aria-hidden="true"></div>
                     <span class="project-card__index" aria-hidden="true">07</span>
                     <div class="project-card__content">
@@ -484,7 +486,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-animate>
                     <div class="project-card__media project-card__media--placeholder" aria-hidden="true"></div>
                     <span class="project-card__index" aria-hidden="true">08</span>
                     <div class="project-card__content">
@@ -503,7 +505,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-animate>
                     <div class="project-card__media">
                         <img src="assets/images/projects/portafoliotailwind1300.webp"
                              srcset="assets/images/projects/portafoliotailwind700.webp 700w, assets/images/projects/portafoliotailwind1300.webp 1300w"
@@ -529,7 +531,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-animate>
                     <div class="project-card__media">
                         <img src="assets/images/projects/portafoliocss1300.webp"
                              srcset="assets/images/projects/portafoliocss700.webp 700w, assets/images/projects/portafoliocss1300.webp 1300w"
