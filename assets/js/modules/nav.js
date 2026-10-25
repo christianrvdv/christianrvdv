@@ -188,6 +188,9 @@
                 const href = anchor.getAttribute('href');
                 if (!href || href === '#') return;
 
+                // El skip-link usa navegacion nativa para mover el foco a <main>
+                if (anchor.classList.contains('skip-link')) return;
+
                 const target = document.querySelector(href);
                 if (!target) return;
 

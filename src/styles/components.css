@@ -808,11 +808,12 @@ html.js .hero__panel.is-visible {
     border-width: 0;
 }
 
-.hidden {
-    display: none !important;
-}
-
 .inert-polyfill {
     pointer-events: none;
     user-select: none;
+}
+
+/* Destino del skip-link: recibe foco sin dibujar un anillo de contenedor */
+main:focus {
+    outline: none;
 }

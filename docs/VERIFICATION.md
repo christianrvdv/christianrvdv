@@ -32,3 +32,13 @@ reportes de verificación por fase alojados en `docs/verification/`.
 | 10 | `docs/ARCHITECTURE.md` + ADR-009 + este índice | done (documentación de cierre; imagen OG optimizada a 1600×900 / <250 KB) |
 
 **Refactor completado el 2026-10-17. 36+ commits. Todos los gates PASS.**
+
+## Rediseño dirección B — Terminal Industrial (rama `redesign`)
+
+Ciclo posterior al cierre del 2026-10-17. Stack y contenido congelados; solo cambia la capa visual/motion.
+
+| Fase | Reporte | Estado |
+|---|---|---|
+| 4B | — | done (i18n clave-a-clave en `index.html`; borrados `theme.js`, `mobile-menu.js`, `active-nav.js`, `navbar.js`; 6 imágenes webp reales con `srcset`; 4 placeholders neutros) |
+| 5 | `docs/MOTION.md` + `docs/verification/fase5-nojs-{375,1280}.png` | done (IO único para 22 `[data-animate]`; curvas 200 ms expo / 320 ms quart verificadas; stagger 40 ms; reduced-motion en estado final; hero iPhone SE `CTA bottom 602 ≤ 667`) |
+| 6 | `docs/verification/redesign-fase6-auditoria.md` | done (scorecard 92.3/100, color 95; 0 anti-patrones en portafolio; 0 errores/404 en Netlify raíz + GH Pages subdirectorio; skip link corregido; `.hidden` eliminada) |
