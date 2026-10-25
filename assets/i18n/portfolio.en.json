@@ -41,6 +41,7 @@
   "experience.intern.description": "Development of academic and research projects applying software engineering methodologies. Implementation of solutions with Java and PHP. Learning and application of design patterns, databases, and development best practices under academic supervision.",
   "projects.title": "Featured Projects",
   "projects.view_all": "VIEW ALL GITHUB",
+  "projects.no_preview": "[ No preview ]",
   "projects.sgrturnos.type": "Advanced Backend System",
   "projects.sgrturnos.title": "SGR-Turnos - Banking Queue Management",
   "projects.sgrturnos.description": "Comprehensive banking queue management system developed with Symfony 8 to eliminate speculation in lines. Includes anti-queue frequency control, advanced calendar, exhaustive audit logging, JWT authentication, rate limiting, and Excel export. Optimized for high-concurrency local network environments.",

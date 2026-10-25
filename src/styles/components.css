@@ -514,7 +514,7 @@
 
 .project-card {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr);
     gap: var(--space-gutter);
     align-items: start;
     padding: var(--space-panel-padding);
@@ -522,6 +522,14 @@
     border: 1px solid var(--color-border);
     transition: border-color var(--motion-fast) var(--ease-out-expo),
                 background-color var(--motion-fast) var(--ease-out-expo);
+}
+
+/* Dos columnas desde tablet; cada tarjeta es index + contenido, con enlaces a lo ancho */
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-gutter);
+    }
 }
 
 .project-card:hover {
@@ -532,6 +540,7 @@
 .project-card__media {
     grid-column: 1 / -1;
     aspect-ratio: 16 / 9;
+    width: 100%;
     overflow: hidden;
     border: 1px solid var(--color-border);
     border-radius: 0;
@@ -559,12 +568,13 @@
     justify-content: center;
 }
 
-.project-card__media--placeholder::after {
-    content: ">_";
+.project-card__media-label {
     color: var(--color-muted);
     font-family: var(--font-mono);
-    font-size: 1.5rem;
-    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0.08em;
 }
 
 .project-card__index {
@@ -609,6 +619,7 @@
 .project-card__links {
     display: flex;
     flex-wrap: wrap;
+    grid-column: 1 / -1;
     gap: var(--space-unit);
 }
 
@@ -640,7 +651,7 @@
    FOOTER — Prompt terminal repetido
    ------------------------------------------------------------------ */
 .footer {
-    padding: calc(var(--space-section-gap) * 1.5) var(--space-gutter);
+    padding: var(--space-gutter);
     background: var(--color-surface);
     border-top: 1px solid var(--color-border);
     font-family: var(--font-mono);
@@ -648,11 +659,10 @@
 
 .footer__grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-gutter);
-    max-width: 1200px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-unit);
+    max-width: 72rem;
     margin: 0 auto;
 }
 
@@ -663,27 +673,28 @@
 
 .footer__actions {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: var(--space-gutter);
+    gap: 4px var(--space-gutter);
 }
 
 .footer__link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 10px;
+    min-height: 24px;
+    padding: 4px 0;
     text-decoration: none;
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--color-link);
-    border: 1px solid var(--color-border);
-    transition: color var(--motion-fast) var(--ease-out-expo),
-                border-color var(--motion-fast) var(--ease-out-expo);
+    border: 0;
+    transition: color var(--motion-fast) var(--ease-out-expo);
 }
 
 .footer__link:hover {
     color: var(--color-accent);
-    border-color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .footer__link:visited {

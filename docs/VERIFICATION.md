@@ -20,6 +20,7 @@ reportes de verificación por fase alojados en `docs/verification/`.
 | 4 | — | done (lint = 47, CSS only; gate lint nivel 1, no-regresión) |
 | 5 | `docs/verification/lint-fase5.md` | done (lint 34 = todo `no-inline-style`; deuda inline → FASE 6) |
 | 6 | `docs/verification/lint-fase6.md` | done (lint 0; N4 0; fonts 82196/307200 B; texto visible intacto; Lighthouse baseline ×4 en `docs/verification/lighthouse-fase6-*.json`) |
+| 6B | `docs/verification/redesign-fase6b-layout.md` + capturas | done (section-gap 64px; footer compacto alineado a la izquierda; proyectos 2 cols ≥768 con max-w-6xl; placeholders `[ Sin vista previa ]` i18n; 0 overflow en 320/375/768/1280) |
 | 7 | ADR-004 + `docs/verification/fase9.5-pre-push.md` §9.5.4 | done (build-cv reproducible; PDFs regenerados y verificados: ≤450/450/200 KB, 2 págs., texto seleccionable decodificado, layout intacto) |
 | 8 | `docs/verification/fase8-redirects.txt` + `docs/verification/fase9-301.txt` | done (301s legacy y 200s canónicas en `netlify dev`) |
 | 8.5 | `docs/verification/fase8.5-audit.txt` + `docs/verification/fase8.5-screenshots/` | done (rutas relativas Netlify+GH Pages; 32 instancias `/assets` → 0 internas; dual-sim :8888/:9999 14×200; 8 screenshots con pares byte-idénticos; 0×404/0 errores consola; ADR-007) |

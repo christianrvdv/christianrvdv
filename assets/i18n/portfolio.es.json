@@ -41,6 +41,7 @@
   "experience.intern.description": "Desarrollo de proyectos académicos y de investigación aplicando metodologías de ingeniería de software. Implementación de soluciones con Java y PHP. Aprendizaje y aplicación de patrones de diseño, bases de datos y mejores prácticas de desarrollo bajo supervisión académica.",
   "projects.title": "Proyectos Destacados",
   "projects.view_all": "VER TODO EL GITHUB",
+  "projects.no_preview": "[ Sin vista previa ]",
   "projects.sgrturnos.type": "Sistema Backend Avanzado",
   "projects.sgrturnos.title": "SGR-Turnos - Gestión de Turnos Bancarios",
   "projects.sgrturnos.description": "Sistema integral de gestión y reserva de turnos bancarios desarrollado con Symfony 8 para eliminar la especulación en filas. Incluye control de frecuencia anti-colero, calendario avanzado, auditoría exhaustiva, JWT authentication, rate limiting y exportación a Excel. Optimizado para entornos de alta concurrencia en redes locales.",

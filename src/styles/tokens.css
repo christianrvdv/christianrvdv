@@ -40,7 +40,7 @@
 "link-visited":{"$value":"#D592F2"} },
 "space": { "$type": "dimension",
 "unit":{"$value":"8px"},"gutter":{"$value":"24px"},"margin-mobile":{"$value":"16px"},
-"margin-desktop":{"$value":"48px"},"section-gap":{"$value":"clamp(64px,10vw,128px)"},"panel-padding":{"$value":"24px"} },
+"margin-desktop":{"$value":"48px"},"section-gap":{"$value":"64px"},"panel-padding":{"$value":"24px"} },
 "radius": { "$type": "dimension",
 "none":{"$value":"0"},"full":{"$value":"9999px"} },
 "motion": { "$type": "duration",
@@ -119,7 +119,7 @@
   --space-gutter: 24px;
   --space-margin-mobile: 16px;
   --space-margin-desktop: 48px;
-  --space-section-gap: clamp(64px, 10vw, 128px);
+  --space-section-gap: 64px;
   --space-panel-padding: 24px;
 
   /* — Radios: solo 0 y full — */
